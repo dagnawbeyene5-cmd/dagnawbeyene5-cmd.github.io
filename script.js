@@ -1,325 +1,3056 @@
-const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
-window.addEventListener("load",()=>setTimeout(()=>$("#loader").classList.add("done"),450));
+/* =========================================================
+   DAGNAW BEYENE TIZAZU
+   Developer Portfolio + Tools Hub
+   Main JavaScript
+========================================================= */
 
-const translations={
-en:{
-navHome:"Home",navAbout:"About",navSkills:"Skills",navProjects:"Projects",navJourney:"Journey",navContact:"Contact",
-letsTalk:"Let's Talk ↗",logoTag:"DEVELOPER • CREATIVE • BUILDER",
-available:"AVAILABLE FOR OPPORTUNITIES",
-heroKicker:"HELLO, I'M",
-hero:"I build modern web experiences, database systems and technology-driven solutions where software, IoT, AI and creative media meet.",
-explore:"Explore my work ↗",downloadCv:"Download CV ↗",resumeDownload:"Download CV",
-heroLocation:"BAHIR DAR / ETHIOPIA",heroOnline:"● ONLINE",
-heroLangLabel:"LANGUAGES<br>SUPPORTED",heroMiniLabel:"SMART AGRICULTURE",farmUiTitle:"SMART<br>AGRICULTURE",featuredBadge:"IoT • AI • EDGE",
-aboutSection:"01 / ABOUT",
-aboutTitle:"A developer with a<br><strong>builder's mindset.</strong>",
-aboutText:"I am an enthusiastic Web Developer, Database Administrator and Graphics/Video Specialist based in Bahir Dar, Ethiopia. I am studying Level 2 Web Development & Database Administration at Bahir Dar Polytechnic College, with a strong interest in Software Engineering and Artificial Intelligence.",
-aboutText2:"I enjoy combining IoT technology with modern software solutions to solve real-world problems. My long-term goal is to become an impactful Software Engineer and contribute to open-source ecosystems through programs such as Outreachy.",
-aboutQuote:"“Build useful technology. Keep learning. Create impact.”",
-factLocTitle:"Bahir Dar",factLocSub:"Ethiopia",
-factLevelTitle:"Level 2",factLevelSub:"Web + Database",
-factInterestTitle:"IoT + AI",factInterestSub:"Core interest",
-factOpenTitle:"Open Source",factOpenSub:"Outreachy goal",
-skillsSection:"02 / CAPABILITIES",
-skillsHeading:"Skills that turn<br><strong>ideas into systems.</strong>",
-skillCat1Label:"WEB & SOFTWARE",skillCat1Title:"Development",
-skillCat2Label:"DATA & TOOLS",skillCat2Title:"Systems",
-skillCat3Label:"CREATIVE",skillCat3Title:"Digital Media",
-profAdvanced:"Advanced",profIntermediate:"Intermediate",profBegInt:"Beginner / Intermediate",
-projectsSection:"03 / SELECTED WORK",
-projectsHeading:"Projects with a<br><strong>real-world purpose.</strong>",
-featuredLabel:"FEATURED PROJECT / 01",
-featuredTag:"IoT × AI × AUTOMATION",
-featuredTitle:"Green Tech<br><strong>Smart Agriculture 2.0</strong>",
-featuredDesc:"An automated agricultural monitoring and smart irrigation concept using IoT sensors, offline MicroSD logging, cloud/edge gateways and YOLOv8 computer vision for crop-disease detection.",
-viewCaseStudy:"View case study ↗",
-proj2Cat:"WEB • MYSQL",proj2Title:"ICT Inventory Management",proj2Desc:"Department inventory workflow for tracking assets, employees, issues and reports.",
-proj3Cat:"CREATIVE • VIDEO",proj3Title:"Digital Content Studio",proj3Desc:"Branding, poster design, short-form and long-form video editing workflows.",
-proj4Cat:"HTML • CSS • JS",proj4Title:"Personal Portfolio",proj4Desc:"A responsive personal brand site designed around technology, creativity and open source.",
-detailsBtn:"Details →",
-journeySection:"04 / JOURNEY",
-journeyHeading:"Learning today.<br><strong>Building tomorrow.</strong>",
-j1Label:"NOW / EDUCATION",j1Title:"Level 2 — Web Development & Database Administration",j1Desc:"Bahir Dar Polytechnic College. Focused on practical web, database and programming foundations.",
-j2Label:"PROFESSIONAL / CREATIVE",j2Title:"Freelance Designer & Digital Content Creator",j2Desc:"Promotional materials, social-media graphics and video editing for personal and client projects.",
-j3Label:"WORK EXPERIENCE",j3Title:"Barman & Customer Service Specialist — Palm Palace Hotel",j3Desc:"Customer service, workplace coordination and communication experience in a live service environment.",
-j4Label:"FUTURE / OPEN SOURCE",j4Title:"Outreachy & Impactful Software Engineering",j4Desc:"Goal: contribute to open source and build software/database systems with meaningful community impact.",
-certsLabel:"TRAINING",cert1:"Graphic Design",cert2:"Web Development",cert3:"Video Editing",cert4:"Digital Marketing",cert5:"Content Creation",
-visionSection:"05 / VISION",
-visionHeading:"Technology should<br><strong>solve something.</strong>",
-visionText:"My direction is simple: grow from a student developer into a software engineer who creates practical, accessible and open-source technology.",
-visionStat1:"Languages",visionStat2:"Learning",visionStat3:"Big Mission",
-contactSection:"06 / CONTACT",
-contactHeading:"Have an idea?<br><strong>Let's build it.</strong>",
-contactIntro:"For collaboration, freelance work, open-source opportunities or technology projects, reach out through any channel below.",
-emailLabel:"EMAIL",githubLabel:"GITHUB",linkedinLabel:"LINKEDIN",phoneLabel:"PHONE",resumeLabel:"RESUME",
-formNameLabel:"Your name",formNamePh:"Your name",
-formEmailLabel:"Email address",formEmailPh:"you@example.com",
-formMessageLabel:"Message",formMessagePh:"Tell me about your idea...",
-sendBtn:"Send message ↗",
-formNoteText:"This static portfolio opens your email app with the message prepared.",
-formNoteSent:"Your email app should now open with the message prepared.",
-footerTagline:"Designed & built with curiosity in Bahir Dar, Ethiopia.",
-backToTop:"BACK TO TOP ↑",
-typed:["Web Developer","Database Administrator","IoT Builder","AI Enthusiast","Creative Specialist"],
-modal:{
-green:{tag:"IoT × AI × AUTOMATION",title:"Green Tech Smart Agriculture 2.0",text:"Automated agricultural monitoring and smart irrigation concept using IoT sensors, offline MicroSD logging, cloud/edge gateways and YOLOv8 computer vision for crop-disease detection."},
-inventory:{tag:"WEB • MYSQL",title:"ICT Inventory Management",text:"A department-focused inventory workflow for tracking equipment, employees, issued assets and reports with a database-backed web interface."},
-media:{tag:"CREATIVE • VIDEO",title:"Digital Content Studio",text:"A creative workflow for promotional graphics, social-media designs, short-form videos and longer edits for personal and client projects."},
-portfolio:{tag:"HTML • CSS • JS",title:"Dagnaw Personal Portfolio",text:"A responsive personal brand website combining developer identity, project storytelling, multilingual content, animations and contact tools."}
-}
-},
-am:{
-navHome:"መነሻ",navAbout:"ስለ እኔ",navSkills:"ክህሎቶች",navProjects:"ፕሮጀክቶች",navJourney:"ጉዞ",navContact:"አግኙኝ",
-letsTalk:"እናውራ ↗",logoTag:"ገንቢ • ፈጣሪ • ገንቢ",
-available:"ለአዲስ ዕድሎች ዝግጁ ነኝ",
-heroKicker:"ሰላም፣ እኔ",
-hero:"ዘመናዊ የዌብ ልምዶችን፣ የዳታቤዝ ሲስተሞችን እና ሶፍትዌር፣ IoT፣ AI እና ዲጂታል ሚዲያን የሚያጣምሩ ቴክኖሎጂ መፍትሄዎችን እገነባለሁ።",
-explore:"ስራዬን ይመልከቱ ↗",downloadCv:"CV አውርድ ↗",resumeDownload:"CV አውርድ",
-heroLocation:"ባህር ዳር / ኢትዮጵያ",heroOnline:"● በመስመር ላይ",
-heroLangLabel:"የሚደገፉ<br>ቋንቋዎች",heroMiniLabel:"ስማርት አግሪካልቸር",farmUiTitle:"ስማርት<br>አግሪካልቸር",featuredBadge:"IoT • AI • ጠርዝ",
-aboutSection:"01 / ስለ እኔ",
-aboutTitle:"የገንቢ<br><strong>አስተሳሰብ ያለው ገንቢ።</strong>",
-aboutText:"እኔ በባህር ዳር የምገኝ የዌብ ዲቨሎፐር፣ የዳታቤዝ አስተዳዳሪ እና የግራፊክስ/ቪዲዮ ባለሙያ ነኝ። በባህር ዳር ፖሊቴክኒክ ኮሌጅ ደረጃ 2 ዌብ ዲቨሎፕመንት እና ዳታቤዝ አስተዳደር በመማር ላይ ስሆን፣ ለሶፍትዌር ኢንጂነሪንግ እና ለአርቲፊሻል ኢንተለጀንስ ልዩ ፍላጎት አለኝ።",
-aboutText2:"IoTን ከዘመናዊ ሶፍትዌር ጋር በማጣመር ተጨባጭ ችግሮችን መፍታት እወዳለሁ። የረጅም ጊዜ ግቤ ተፅዕኖ ፈጣሪ ሶፍትዌር ኢንጂነር በመሆን እንደ Outreachy ባሉ ፕሮግራሞች ለክፍት ምንጭ ማህበረሰብ አስተዋፅዖ ማድረግ ነው።",
-aboutQuote:"«ጠቃሚ ቴክኖሎጂ ገንቡ። ተማሩ። ተፅዕኖ ፍጠሩ።»",
-factLocTitle:"ባህር ዳር",factLocSub:"ኢትዮጵያ",
-factLevelTitle:"ደረጃ 2",factLevelSub:"ዌብ + ዳታቤዝ",
-factInterestTitle:"IoT + AI",factInterestSub:"ዋና ፍላጎት",
-factOpenTitle:"ክፍት ምንጭ",factOpenSub:"የOutreachy ግብ",
-skillsSection:"02 / ችሎታዎች",
-skillsHeading:"ሃሳቦችን ወደ<br><strong>ሲስተም የሚቀይሩ ክህሎቶች።</strong>",
-skillCat1Label:"ዌብ እና ሶፍትዌር",skillCat1Title:"ዲቨሎፕመንት",
-skillCat2Label:"ዳታ እና መሳሪያዎች",skillCat2Title:"ሲስተሞች",
-skillCat3Label:"ፈጠራ",skillCat3Title:"ዲጂታል ሚዲያ",
-profAdvanced:"የላቀ",profIntermediate:"መካከለኛ",profBegInt:"ጀማሪ / መካከለኛ",
-projectsSection:"03 / የተመረጡ ስራዎች",
-projectsHeading:"ተጨባጭ ዓላማ ያላቸው<br><strong>ፕሮጀክቶች።</strong>",
-featuredLabel:"ተለይቶ የቀረበ ፕሮጀክት / 01",
-featuredTag:"IoT × AI × አውቶሜሽን",
-featuredTitle:"ግሪን ቴክ<br><strong>ስማርት አግሪካልቸር 2.0</strong>",
-featuredDesc:"IoT ሴንሰሮችን፣ ከመስመር ውጭ MicroSD ምዝገባን፣ ክላውድ/edge ጌትዌይዎችን እና ለሰብል በሽታ ማወቂያ YOLOv8 ኮምፒውተር ቪዥንን የሚጠቀም አውቶማቲክ የግብርና ክትትል እና ስማርት መስኖ ፅንሰ-ሀሳብ።",
-viewCaseStudy:"የጥናት ጉዳይ ይመልከቱ ↗",
-proj2Cat:"ዌብ • MYSQL",proj2Title:"የICT ንብረት አስተዳደር",proj2Desc:"ንብረቶችን፣ ሰራተኞችን፣ ችግሮችን እና ሪፖርቶችን ለመከታተል የክፍል ንብረት አስተዳደር ስርዓት።",
-proj3Cat:"ፈጠራ • ቪዲዮ",proj3Title:"ዲጂታል ይዘት ስቱዲዮ",proj3Desc:"ብራንዲንግ፣ የፖስተር ዲዛይን፣ አጭር እና ረጅም የቪዲዮ አርትዖት ስራ ፍሰቶች።",
-proj4Cat:"HTML • CSS • JS",proj4Title:"የግል ፖርትፎሊዮ",proj4Desc:"በቴክኖሎጂ፣ ፈጠራ እና ክፍት ምንጭ ዙሪያ የተነደፈ ምላሽ ሰጪ የግል ብራንድ ድህረ ገጽ።",
-detailsBtn:"ዝርዝር →",
-journeySection:"04 / ጉዞ",
-journeyHeading:"ዛሬ መማር።<br><strong>ነገ መገንባት።</strong>",
-j1Label:"አሁን / ትምህርት",j1Title:"ደረጃ 2 — ዌብ ዲቨሎፕመንት እና ዳታቤዝ አስተዳደር",j1Desc:"ባህር ዳር ፖሊቴክኒክ ኮሌጅ። በተግባራዊ ዌብ፣ ዳታቤዝ እና ፕሮግራሚንግ መሰረቶች ላይ ያተኩራል።",
-j2Label:"ሙያዊ / ፈጠራ",j2Title:"ፍሪላንስ ዲዛይነር እና ዲጂታል ይዘት ፈጣሪ",j2Desc:"ለግል እና ደንበኛ ፕሮጀክቶች የማስተዋወቂያ ቁሳቁሶች፣ የማህበራዊ ሚዲያ ግራፊክስ እና የቪዲዮ አርትዖት።",
-j3Label:"የስራ ልምድ",j3Title:"ባርማን እና የደንበኛ አገልግሎት ስፔሻሊስት — Palm Palace Hotel",j3Desc:"በቀጥታ አገልግሎት አካባቢ ውስጥ የደንበኛ አገልግሎት፣ የስራ ቦታ ቅንጅት እና የመግባቢያ ልምድ።",
-j4Label:"ወደፊት / ክፍት ምንጭ",j4Title:"Outreachy እና ተፅዕኖ ፈጣሪ ሶፍትዌር ኢንጂነሪንግ",j4Desc:"ግብ፦ ለክፍት ምንጭ አስተዋፅዖ ማድረግ እና ትርጉም ያለው የማህበረሰብ ተፅዕኖ ያላቸው ሶፍትዌር/ዳታቤዝ ስርዓቶችን መገንባት።",
-certsLabel:"ስልጠና",cert1:"ግራፊክ ዲዛይን",cert2:"ዌብ ዲቨሎፕመንት",cert3:"ቪዲዮ አርትዖት",cert4:"ዲጂታል ማርኬቲንግ",cert5:"የይዘት ፈጠራ",
-visionSection:"05 / ራዕይ",
-visionHeading:"ቴክኖሎጂ<br><strong>የሆነ ነገር መፍታት አለበት።</strong>",
-visionText:"አቅጣጫዬ ቀላል ነው፦ ከተማሪ ገንቢነት ወደ ተግባራዊ፣ ተደራሽ እና ክፍት ምንጭ ቴክኖሎጂ ወደሚፈጥር ሶፍትዌር ኢንጂነር ማደግ።",
-visionStat1:"ቋንቋዎች",visionStat2:"ትምህርት",visionStat3:"ትልቅ ተልእኮ",
-contactSection:"06 / አግኙኝ",
-contactHeading:"ሀሳብ አለዎት?<br><strong>እንገንባው።</strong>",
-contactIntro:"ለትብብር፣ ፍሪላንስ ስራ፣ ክፍት ምንጭ እድሎች ወይም የቴክኖሎጂ ፕሮጀክቶች ከታች ባሉት ማናቸውም መንገዶች ያግኙኝ።",
-emailLabel:"ኢሜይል",githubLabel:"ጊትሃብ",linkedinLabel:"ሊንክድኢን",phoneLabel:"ስልክ",resumeLabel:"ሬዙሜ",
-formNameLabel:"ስምዎ",formNamePh:"ስምዎ",
-formEmailLabel:"የኢሜይል አድራሻ",formEmailPh:"you@example.com",
-formMessageLabel:"መልእክት",formMessagePh:"ስለ ሀሳብዎ ይንገሩኝ...",
-sendBtn:"መልእክት ላክ ↗",
-formNoteText:"ይህ ስታቲክ ፖርትፎሊዮ የኢሜይል መተግበሪያዎን በተዘጋጀ መልእክት ይከፍታል።",
-formNoteSent:"የኢሜይል መተግበሪያዎ አሁን በተዘጋጀው መልእክት መከፈት አለበት።",
-footerTagline:"በባህር ዳር፣ ኢትዮጵያ በጉጉት የተነደፈ እና የተገነባ።",
-backToTop:"ወደ ላይ ተመለስ ↑",
-typed:["ዌብ ዲቨሎፐር","የዳታቤዝ አስተዳዳሪ","IoT ገንቢ","AI ፍቅረኛ","ክሪኤቲቭ ስፔሻሊስት"],
-modal:{
-green:{tag:"IoT × AI × አውቶሜሽን",title:"ግሪን ቴክ ስማርት አግሪካልቸር 2.0",text:"IoT ሴንሰሮችን፣ ከመስመር ውጭ MicroSD ምዝገባን፣ ክላውድ/edge ጌትዌይዎችን እና YOLOv8ን የሚጠቀም አውቶማቲክ የግብርና ክትትል እና ስማርት መስኖ ፅንሰ-ሀሳብ።"},
-inventory:{tag:"ዌብ • MYSQL",title:"የICT ንብረት አስተዳደር",text:"መሳሪያዎችን፣ ሰራተኞችን፣ የተሰጡ ንብረቶችን እና ሪፖርቶችን ለመከታተል በዳታቤዝ የተደገፈ የክፍል ንብረት አስተዳደር ስርዓት።"},
-media:{tag:"ፈጠራ • ቪዲዮ",title:"ዲጂታል ይዘት ስቱዲዮ",text:"ለግል እና ደንበኛ ፕሮጀክቶች የማስተዋወቂያ ግራፊክስ፣ የማህበራዊ ሚዲያ ዲዛይኖች፣ አጭር ቪዲዮዎች እና ረጅም አርትዖቶች የፈጠራ ስራ ፍሰት።"},
-portfolio:{tag:"HTML • CSS • JS",title:"የዳኘው የግል ፖርትፎሊዮ",text:"የገንቢ ማንነትን፣ የፕሮጀክት ትረካን፣ ባለብዙ ቋንቋ ይዘትን፣ አኒሜሽንን እና የመገናኛ መሳሪያዎችን የሚያጣምር ምላሽ ሰጪ የግል ብራንድ ድህረ ገጽ።"}
-}
-},
-om:{
-navHome:"Mana",navAbout:"Waa'ee Koo",navSkills:"Dandeettii",navProjects:"Piroojektota",navJourney:"Imala",navContact:"Nu Qunnamaa",
-letsTalk:"Haa Haasofnu ↗",logoTag:"IJAARAA • UUMAA • HOJJETAA",
-available:"CARRAA HARAAF QOPHAA'AA",
-heroKicker:"ASHAMAA, ANI",
-hero:"Muuxannoo weeb ammayyaa, sirna kuusaa deetaa fi furmaata teeknooloojii kan software, IoT, AI fi miidiyaa uumamaa walitti fidu nan ijaara.",
-explore:"Hojii koo ilaali ↗",downloadCv:"CV Buufadhu ↗",resumeDownload:"CV Buufadhu",
-heroLocation:"BAHIR DAR / ITOOPHIYAA",heroOnline:"● ONLAAYINII",
-heroLangLabel:"AFAANOTA<br>DEEGGARAMAN",heroMiniLabel:"QONNA OGUMMAA",farmUiTitle:"QONNA<br>OGUMMAA",featuredBadge:"IoT • AI • DAANGAA",
-aboutSection:"01 / WAA'EE KOO",
-aboutTitle:"Ijaaraa<br><strong>yaada ijaarsaa qabu.</strong>",
-aboutText:"Ani Ijaaraa Weeb, Bulchaa Kuusaa Deetaa fi Ogeessa Suuraa/Viidiyoo kan Bahir Dar, Itoophiyaa jiraatu dha. Kolleejjii Poolitekniikaa Bahir Dar keessatti Sadarkaa 2 Ijaarsa Weeb fi Bulchiinsa Kuusaa Deetaa barachaa jira, fedhii guddaa Injinariingii Software fi Artifishaal Intelijensiif qaba.",
-aboutText2:"Teeknooloojii IoT waliin walitti fiduun rakkoo dhugaa hiikuu nan jaalladha. Kaayyoon koo yeroo dheeraa Injinara Software dhiibbaa qabu ta'uu fi sagantaalee akka Outreachy karaa hawaasa open-source galtee gumaachuu dha.",
-aboutQuote:"«Teeknooloojii faayidaa qabu ijaari. Baradhu. Dhiibbaa uumi.»",
-factLocTitle:"Bahir Dar",factLocSub:"Itoophiyaa",
-factLevelTitle:"Sadarkaa 2",factLevelSub:"Weeb + Kuusaa Deetaa",
-factInterestTitle:"IoT + AI",factInterestSub:"Fedhii Ijoo",
-factOpenTitle:"Open Source",factOpenSub:"Kaayyoo Outreachy",
-skillsSection:"02 / DANDEETTII",
-skillsHeading:"Yaada gara<br><strong>sirnaatti kan geeddaru dandeettii.</strong>",
-skillCat1Label:"WEEB & SOFTWARE",skillCat1Title:"Ijaarsa",
-skillCat2Label:"DEETAA & MEESHAALEE",skillCat2Title:"Sirnoota",
-skillCat3Label:"UUMAMA",skillCat3Title:"Miidiyaa Dijitaalaa",
-profAdvanced:"Ol'aanaa",profIntermediate:"Giddu Galeessaa",profBegInt:"Jalqabaa / Giddu Galeessaa",
-projectsSection:"03 / HOJII FILATAMAN",
-projectsHeading:"Piroojektoota kaayyoo<br><strong>dhugaa qaban.</strong>",
-featuredLabel:"PIROOJEKTII ADDAA / 01",
-featuredTag:"IoT × AI × OTOMEESHINII",
-featuredTitle:"Green Tech<br><strong>Qonna Ogummaa 2.0</strong>",
-featuredDesc:"Yaada hordoffii qonnaa otomaatawaa fi dhiqannaa ogummaa kan sensora IoT, galmee MicroSD offline, gateway cloud/edge fi mul'ata koompiitaraa YOLOv8 dhukkuba midhaanii adda baasuuf fayyadamu.",
-viewCaseStudy:"Qorannoo ilaali ↗",
-proj2Cat:"WEEB • MYSQL",proj2Title:"Bulchiinsa Qabeenya ICT",proj2Desc:"Adeemsa bulchiinsa qabeenya damee kan qabeenya, hojjettoota, rakkoolee fi gabaasa hordofuuf.",
-proj3Cat:"UUMAMA • VIIDIYOO",proj3Title:"Istuudiyoo Odeeffannoo Dijitaalaa",proj3Desc:"Baraandingii, dizaayinii pooster, hojii sirreeffama viidiyoo gabaabaa fi dheeraa.",
-proj4Cat:"HTML • CSS • JS",proj4Title:"Portfolioo Dhuunfaa",proj4Desc:"Marsariitii moggaasa dhuunfaa deebii kennu kan teeknooloojii, uumama fi open-source irratti xiyyeeffate.",
-detailsBtn:"Bal'ina →",
-journeySection:"04 / IMALA",
-journeyHeading:"Har'a baradhu.<br><strong>Boru ijaari.</strong>",
-j1Label:"AMMA / BARNOOTA",j1Title:"Sadarkaa 2 — Ijaarsa Weeb fi Bulchiinsa Kuusaa Deetaa",j1Desc:"Kolleejjii Poolitekniikaa Bahir Dar. Hundee weeb, kuusaa deetaa fi progiraaming irratti xiyyeeffata.",
-j2Label:"OGUMMAA / UUMAMA",j2Title:"Dizaayinaraa Ofjiraataa fi Uumaa Odeeffannoo Dijitaalaa",j2Desc:"Meeshaalee beeksisaa, suuraalee miidiyaa hawaasaa fi sirreeffama viidiyoo piroojektoota dhuunfaa fi maamiltootaaf.",
-j3Label:"MUUXANNOO HOJII",j3Title:"Barmaanii fi Ogeessa Tajaajila Maamilaa — Palm Palace Hotel",j3Desc:"Tajaajila maamilaa, qindoomina bakka hojii fi muuxannoo qunnamtii naannoo tajaajila yeroo dhugaa keessatti.",
-j4Label:"FUULDURA / OPEN SOURCE",j4Title:"Outreachy fi Injinariingii Software Dhiibbaa Qabu",j4Desc:"Kaayyoo: open source galtee gumaachuu fi sirna software/kuusaa deetaa dhiibbaa hawaasaa qabu ijaaruu.",
-certsLabel:"LEENJII",cert1:"Dizaayinii Suuraa",cert2:"Ijaarsa Weeb",cert3:"Sirreeffama Viidiyoo",cert4:"Gabaa Dijitaalaa",cert5:"Uumaa Odeeffannoo",
-visionSection:"05 / MUL'ATA",
-visionHeading:"Teeknooloojiin<br><strong>waan tokko hiikuu qaba.</strong>",
-visionText:"Kallattiin koo salphaa dha: ijaaraa barataa irraa gara injinara software kan teeknooloojii ta'u, argamu fi open-source uumu ta'uutti guddachuu.",
-visionStat1:"Afaanota",visionStat2:"Barnoota",visionStat3:"Ergama Guddaa",
-contactSection:"06 / NU QUNNAMAA",
-contactHeading:"Yaada qabdaa?<br><strong>Haa ijaarru.</strong>",
-contactIntro:"Waliigaltee, hojii ofjiraataa, carraa open-source ykn piroojektoota teeknooloojiif, karaa armaan gadii kamiyyuu na qunnamaa.",
-emailLabel:"IMEELII",githubLabel:"GITHUB",linkedinLabel:"LINKEDIN",phoneLabel:"BILBILA",resumeLabel:"RESUME",
-formNameLabel:"Maqaa Keessan",formNamePh:"Maqaa Keessan",
-formEmailLabel:"Teessoo Imeelii",formEmailPh:"you@example.com",
-formMessageLabel:"Ergaa",formMessagePh:"Waa'ee yaada keessanii natti himaa...",
-sendBtn:"Ergaa Ergi ↗",
-formNoteText:"Portfolioon static kun aappii imeelii keessan ergaa qophaa'e waliin banaa.",
-formNoteSent:"Aappiin imeelii keessan ammaan ergaa qophaa'ame waliin banamuu qaba.",
-footerTagline:"Bahir Dar, Itoophiyaa keessatti hawwii guddaan hojjetame.",
-backToTop:"GARA OLII DEEBI'I ↑",
-typed:["Ijaaraa Weeb","Bulchaa Kuusaa Deetaa","Ijaaraa IoT","Fedhii AI","Ogeessa Uumaa"],
-modal:{
-green:{tag:"IoT × AI × OTOMEESHINII",title:"Green Tech Qonna Ogummaa 2.0",text:"Yaada hordoffii qonnaa otomaatawaa fi dhiqannaa ogummaa kan sensora IoT, galmee MicroSD offline, gateway cloud/edge fi YOLOv8 fayyadamu."},
-inventory:{tag:"WEEB • MYSQL",title:"Bulchiinsa Qabeenya ICT",text:"Adeemsa bulchiinsa qabeenya damee kan meeshaalee, hojjettoota, qabeenya kennaman fi gabaasa hordofuuf, marsariitii kuusaa deetaa waliin walqabate."},
-media:{tag:"UUMAMA • VIIDIYOO",title:"Istuudiyoo Odeeffannoo Dijitaalaa",text:"Adeemsa uumamaa suuraalee beeksisaa, dizaayinii miidiyaa hawaasaa, viidiyoo gabaabaa fi sirreeffama dheeraa piroojektoota dhuunfaa fi maamiltootaaf."},
-portfolio:{tag:"HTML • CSS • JS",title:"Portfolioo Dhuunfaa Dagnaw",text:"Marsariitii moggaasa dhuunfaa deebii kennu kan eenyummaa ijaaraa, seenaa piroojektii, odeeffannoo afaan hedduu, sochii fi meeshaalee qunnamtii walitti fidu."}
-}
-},
-zh:{
-navHome:"首页",navAbout:"关于我",navSkills:"技能",navProjects:"项目",navJourney:"历程",navContact:"联系",
-letsTalk:"联系我 ↗",logoTag:"开发者 • 创意人 • 建造者",
-available:"欢迎新的合作机会",
-heroKicker:"你好，我是",
-hero:"我构建现代网页体验、数据库系统，以及融合软件、物联网、人工智能与创意媒体的技术方案。",
-explore:"查看作品 ↗",downloadCv:"下载简历 ↗",resumeDownload:"下载简历",
-heroLocation:"巴希尔达尔 / 埃塞俄比亚",heroOnline:"● 在线",
-heroLangLabel:"支持的<br>语言",heroMiniLabel:"智能农业",farmUiTitle:"智能<br>农业",featuredBadge:"物联网 • AI • 边缘计算",
-aboutSection:"01 / 关于我",
-aboutTitle:"具备建造者<br><strong>思维的开发者。</strong>",
-aboutText:"我是一名充满热情的网页开发者、数据库管理员和平面/视频制作专家，居住在埃塞俄比亚巴希尔达尔。我正在巴希尔达尔理工学院学习二级网页开发与数据库管理，对软件工程和人工智能有浓厚兴趣。",
-aboutText2:"我喜欢将物联网技术与现代软件解决方案相结合，解决现实世界的问题。我的长期目标是成为一名有影响力的软件工程师，并通过 Outreachy 等项目为开源社区做出贡献。",
-aboutQuote:"“打造有用的技术。持续学习。创造影响。”",
-factLocTitle:"巴希尔达尔",factLocSub:"埃塞俄比亚",
-factLevelTitle:"二级",factLevelSub:"网页 + 数据库",
-factInterestTitle:"物联网 + AI",factInterestSub:"核心兴趣",
-factOpenTitle:"开源",factOpenSub:"Outreachy 目标",
-skillsSection:"02 / 能力",
-skillsHeading:"将想法转化为<br><strong>系统的技能。</strong>",
-skillCat1Label:"网页与软件",skillCat1Title:"开发",
-skillCat2Label:"数据与工具",skillCat2Title:"系统",
-skillCat3Label:"创意",skillCat3Title:"数字媒体",
-profAdvanced:"精通",profIntermediate:"中级",profBegInt:"初级 / 中级",
-projectsSection:"03 / 精选作品",
-projectsHeading:"具有现实意义<br><strong>的项目。</strong>",
-featuredLabel:"精选项目 / 01",
-featuredTag:"物联网 × AI × 自动化",
-featuredTitle:"绿色科技<br><strong>智能农业 2.0</strong>",
-featuredDesc:"利用物联网传感器、离线 MicroSD 记录、云/边缘网关以及 YOLOv8 计算机视觉进行作物病害检测的自动化农业监测与智能灌溉方案。",
-viewCaseStudy:"查看案例 ↗",
-proj2Cat:"网页 • MYSQL",proj2Title:"ICT 资产管理系统",proj2Desc:"用于跟踪资产、员工、问题和报告的部门库存管理流程。",
-proj3Cat:"创意 • 视频",proj3Title:"数字内容工作室",proj3Desc:"品牌设计、海报设计、短视频与长视频剪辑工作流程。",
-proj4Cat:"HTML • CSS • JS",proj4Title:"个人作品集",proj4Desc:"围绕技术、创意与开源理念设计的响应式个人品牌网站。",
-detailsBtn:"详情 →",
-journeySection:"04 / 历程",
-journeyHeading:"今日学习。<br><strong>明日建造。</strong>",
-j1Label:"当前 / 教育",j1Title:"二级 — 网页开发与数据库管理",j1Desc:"巴希尔达尔理工学院。专注于实用的网页、数据库和编程基础。",
-j2Label:"职业 / 创意",j2Title:"自由设计师与数字内容创作者",j2Desc:"为个人和客户项目提供宣传材料、社交媒体图形设计和视频剪辑。",
-j3Label:"工作经验",j3Title:"调酒师与客户服务专员 — Palm Palace Hotel",j3Desc:"在实际服务环境中积累的客户服务、工作协调与沟通经验。",
-j4Label:"未来 / 开源",j4Title:"Outreachy 与有影响力的软件工程",j4Desc:"目标：为开源做出贡献，构建具有社区意义的软件/数据库系统。",
-certsLabel:"培训",cert1:"平面设计",cert2:"网页开发",cert3:"视频剪辑",cert4:"数字营销",cert5:"内容创作",
-visionSection:"05 / 愿景",
-visionHeading:"技术应当<br><strong>解决实际问题。</strong>",
-visionText:"我的方向很简单：从学生开发者成长为能够创造实用、可及且开源技术的软件工程师。",
-visionStat1:"语言",visionStat2:"学习",visionStat3:"远大使命",
-contactSection:"06 / 联系",
-contactHeading:"有想法吗？<br><strong>让我们一起实现它。</strong>",
-contactIntro:"如需合作、自由职业、开源机会或技术项目，请通过以下任意渠道联系我。",
-emailLabel:"邮箱",githubLabel:"GITHUB",linkedinLabel:"领英",phoneLabel:"电话",resumeLabel:"简历",
-formNameLabel:"您的姓名",formNamePh:"您的姓名",
-formEmailLabel:"电子邮箱",formEmailPh:"you@example.com",
-formMessageLabel:"留言",formMessagePh:"请告诉我您的想法……",
-sendBtn:"发送消息 ↗",
-formNoteText:"这个静态作品集会打开您的邮件应用并自动填好邮件内容。",
-formNoteSent:"您的邮件应用现在应该已打开，并已准备好消息内容。",
-footerTagline:"怀着好奇心在埃塞俄比亚巴希尔达尔设计与打造。",
-backToTop:"返回顶部 ↑",
-typed:["网页开发者","数据库管理员","物联网开发者","AI 爱好者","创意专家"],
-modal:{
-green:{tag:"物联网 × AI × 自动化",title:"绿色科技智能农业 2.0",text:"利用物联网传感器、离线 MicroSD 记录、云/边缘网关以及 YOLOv8 进行农作物病害检测的自动化农业监测与智能灌溉方案。"},
-inventory:{tag:"网页 • MYSQL",title:"ICT 资产管理系统",text:"基于数据库的部门资产管理流程，用于跟踪设备、员工、已发放资产和报告。"},
-media:{tag:"创意 • 视频",title:"数字内容工作室",text:"为个人和客户项目提供宣传图形、社交媒体设计、短视频及长视频剪辑的创意工作流程。"},
-portfolio:{tag:"HTML • CSS • JS",title:"Dagnaw 个人作品集",text:"融合开发者身份、项目故事、多语言内容、动画效果与联系方式的响应式个人品牌网站。"}
-}
-}
+"use strict";
+
+/* =========================================================
+   GLOBAL HELPERS
+========================================================= */
+
+const $ = (selector, parent = document) => parent.querySelector(selector);
+const $$ = (selector, parent = document) =>
+    [...parent.querySelectorAll(selector)];
+
+const storage = {
+    get(key, fallback = null) {
+        try {
+            const value = localStorage.getItem(key);
+            return value === null ? fallback : value;
+        } catch {
+            return fallback;
+        }
+    },
+
+    set(key, value) {
+        try {
+            localStorage.setItem(key, value);
+        } catch {}
+    }
 };
 
-const techByProject={
-green:["ESP32-S3","Python","IoT Sensors","MicroSD","LoRaWAN / GSM","YOLOv8"],
-inventory:["HTML","CSS","JavaScript","PHP","MySQL"],
-media:["Graphic Design","Video Editing","Content Creation","Digital Marketing"],
-portfolio:["HTML5","CSS3","JavaScript","Responsive UI","Animation"]
+/* =========================================================
+   TRANSLATIONS
+========================================================= */
+
+const translations = {
+
+    en: {
+        nav_home: "Home",
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_tools: "Tools",
+        nav_experience: "Experience",
+        nav_contact: "Contact",
+
+        hero_available: "Available for opportunities",
+        hero_greeting: "Hello, I'm",
+        hero_role: "Web Developer • Database Administrator • Creative Technologist",
+        hero_description:
+            "I build modern web applications, practical database systems and creative digital solutions with a strong interest in AI and IoT.",
+        hero_view_work: "View My Work",
+        hero_explore_tools: "Explore Tools",
+        hero_hire: "Hire Me",
+
+        about_title: "About Me",
+        about_subtitle: "Developer • Designer • Problem Solver",
+        about_text:
+            "I am Dagnaw Beyene Tizazu, an enthusiastic Web Developer, Database Administrator and Graphics/Video Specialist from Bahir Dar, Ethiopia. I enjoy transforming ideas into useful digital products and learning modern technologies.",
+        about_text2:
+            "My interests include Software Engineering, Artificial Intelligence, IoT, databases and open-source development. I am continuously improving my technical and creative skills through projects and practical learning.",
+        about_location: "Bahir Dar, Ethiopia",
+        about_focus: "Software Engineering + AI",
+        about_learning: "Always Learning",
+        about_open: "Open to Opportunities",
+
+        skills_title: "Skills",
+        skills_subtitle: "Technologies & creative abilities",
+
+        project_title: "Green Tech Smart Agriculture 2.0",
+        project_subtitle: "IoT + AI Smart Agriculture Platform",
+        project_description:
+            "An intelligent agriculture system designed to monitor farm conditions, automate irrigation, record sensor data offline and support crop disease detection using AI.",
+        project_view: "Featured Project",
+
+        tools_title: "Dagnaw Tools Hub",
+        tools_subtitle:
+            "Useful mini tools for developers, students, creators and everyday digital work.",
+        tools_search: "Search tools...",
+        all_tools: "All",
+        developer_tools: "Developer",
+        student_tools: "Student",
+        utility_tools: "Utility",
+        creative_tools: "Creative",
+
+        open_tool: "Open Tool",
+
+        education_title: "Education",
+        experience_title: "Experience",
+        goal_title: "My Vision",
+        contact_title: "Contact Me",
+
+        contact_name: "Your Name",
+        contact_email: "Your Email",
+        contact_subject: "Subject",
+        contact_message: "Your Message",
+        contact_send: "Send Message",
+
+        footer_text:
+            "Designed & developed by Dagnaw Beyene Tizazu.",
+
+        /* Tools */
+
+        tool_calculator: "Smart Calculator",
+        tool_calculator_desc:
+            "Fast calculator for everyday arithmetic and development work.",
+
+        tool_currency: "Currency Converter",
+        tool_currency_desc:
+            "Convert currencies using built-in reference rates.",
+
+        tool_unit: "Unit Converter",
+        tool_unit_desc:
+            "Convert length, weight, temperature and digital storage units.",
+
+        tool_password: "Password Generator",
+        tool_password_desc:
+            "Generate strong random passwords with customizable options.",
+
+        tool_color: "Color Studio",
+        tool_color_desc:
+            "Pick colors and instantly view HEX, RGB and HSL values.",
+
+        tool_qr: "QR Code Generator",
+        tool_qr_desc:
+            "Generate a QR code from text, links or contact information.",
+
+        tool_text: "Text Toolkit",
+        tool_text_desc:
+            "Analyze, transform, clean and copy text quickly.",
+
+        tool_json: "JSON Formatter",
+        tool_json_desc:
+            "Format, validate and minify JSON data.",
+
+        tool_pomodoro: "Focus Timer",
+        tool_pomodoro_desc:
+            "Pomodoro timer for focused study and productivity.",
+
+        tool_gpa: "GPA Calculator",
+        tool_gpa_desc:
+            "Calculate GPA from course credits and grade points.",
+
+        /* Tool UI */
+
+        calculate: "Calculate",
+        convert: "Convert",
+        generate: "Generate",
+        copy: "Copy",
+        copied: "Copied!",
+        reset: "Reset",
+        download: "Download",
+        format: "Format",
+        validate: "Validate",
+        minify: "Minify",
+        start: "Start",
+        pause: "Pause",
+        add_course: "Add Course",
+        calculate_gpa: "Calculate GPA",
+
+        password_length: "Password Length",
+        uppercase: "Uppercase",
+        lowercase: "Lowercase",
+        numbers: "Numbers",
+        symbols: "Symbols",
+
+        text_input: "Enter your text...",
+        json_input: "Paste JSON here...",
+
+        focus: "Focus",
+        break: "Break",
+        time_left: "Time Left",
+
+        success: "Success",
+        error: "Error",
+        invalid_json: "Invalid JSON",
+        valid_json: "Valid JSON",
+
+        form_success: "Thank you! Your message is ready to be sent.",
+        demo_rates:
+            "Reference rates are for demonstration and may not represent live market rates."
+    },
+
+    am: {
+        nav_home: "መነሻ",
+        nav_about: "ስለእኔ",
+        nav_skills: "ችሎታዎች",
+        nav_projects: "ፕሮጀክቶች",
+        nav_tools: "መሳሪያዎች",
+        nav_experience: "ልምድ",
+        nav_contact: "አግኙኝ",
+
+        hero_available: "ለስራ እድሎች ዝግጁ ነኝ",
+        hero_greeting: "ሰላም፣ እኔ",
+        hero_role: "Web Developer • Database Administrator • Creative Technologist",
+        hero_description:
+            "ዘመናዊ Web Application፣ Database System እና የፈጠራ Digital Solution እገነባለሁ። በAI እና IoT ላይም ትልቅ ፍላጎት አለኝ።",
+        hero_view_work: "ስራዬን ይመልከቱ",
+        hero_explore_tools: "መሳሪያዎችን ይመልከቱ",
+        hero_hire: "ቅጠሩኝ",
+
+        about_title: "ስለእኔ",
+        about_subtitle: "Developer • Designer • Problem Solver",
+        about_text:
+            "እኔ Dagnaw Beyene Tizazu ነኝ። ከባህር ዳር ኢትዮጵያ የመጣሁ Web Developer፣ Database Administrator እና Graphics/Video Specialist ነኝ። ሀሳቦችን ወደ ጠቃሚ Digital Product መቀየር እወዳለሁ።",
+        about_text2:
+            "የSoftware Engineering፣ Artificial Intelligence፣ IoT፣ Database እና Open Source Development ቴክኖሎጂዎች ላይ ፍላጎት አለኝ።",
+        about_location: "ባህር ዳር፣ ኢትዮጵያ",
+        about_focus: "Software Engineering + AI",
+        about_learning: "ሁልጊዜ እማራለሁ",
+        about_open: "ለእድሎች ክፍት ነኝ",
+
+        skills_title: "ችሎታዎች",
+        skills_subtitle: "ቴክኖሎጂዎች እና የፈጠራ ችሎታዎች",
+
+        project_title: "Green Tech Smart Agriculture 2.0",
+        project_subtitle: "IoT + AI Smart Agriculture Platform",
+        project_description:
+            "የእርሻ ሁኔታን የሚከታተል፣ መስኖን በራስ-ሰር የሚቆጣጠር፣ Sensor Data የሚመዘግብ እና AI በመጠቀም የእፅዋት በሽታን ለመለየት የሚረዳ ዘመናዊ የእርሻ ስርዓት።",
+        project_view: "ዋና ፕሮጀክት",
+
+        tools_title: "Dagnaw Tools Hub",
+        tools_subtitle:
+            "ለDeveloper፣ Student፣ Creator እና የዕለት ተዕለት Digital Work ጠቃሚ መሳሪያዎች።",
+        tools_search: "መሳሪያ ፈልግ...",
+        all_tools: "ሁሉም",
+        developer_tools: "Developer",
+        student_tools: "ተማሪ",
+        utility_tools: "አጠቃላይ",
+        creative_tools: "Creative",
+
+        open_tool: "መሳሪያውን ክፈት",
+
+        education_title: "ትምህርት",
+        experience_title: "የስራ ልምድ",
+        goal_title: "ራዕዬ",
+        contact_title: "አግኙኝ",
+
+        contact_name: "ስምዎ",
+        contact_email: "Emailዎ",
+        contact_subject: "ርዕስ",
+        contact_message: "መልዕክትዎ",
+        contact_send: "መልዕክት ላክ",
+
+        footer_text:
+            "Designed & developed by Dagnaw Beyene Tizazu.",
+
+        tool_calculator: "Smart Calculator",
+        tool_calculator_desc:
+            "ለዕለታዊ ስሌት እና ለDevelopment ስራ ፈጣን Calculator።",
+
+        tool_currency: "Currency Converter",
+        tool_currency_desc:
+            "የገንዘብ አይነቶችን በReference Rate ይቀይሩ።",
+
+        tool_unit: "Unit Converter",
+        tool_unit_desc:
+            "Length፣ Weight፣ Temperature እና Digital Storage ይቀይሩ።",
+
+        tool_password: "Password Generator",
+        tool_password_desc:
+            "ጠንካራ Random Password በተለያዩ አማራጮች ይፍጠሩ።",
+
+        tool_color: "Color Studio",
+        tool_color_desc:
+            "Color ይምረጡ እና HEX፣ RGB፣ HSL ዋጋዎችን ያግኙ።",
+
+        tool_qr: "QR Code Generator",
+        tool_qr_desc:
+            "ከText፣ Link ወይም Contact Information QR Code ይፍጠሩ።",
+
+        tool_text: "Text Toolkit",
+        tool_text_desc:
+            "Text ይተንትኑ፣ ይቀይሩ፣ ያጽዱ እና Copy ያድርጉ።",
+
+        tool_json: "JSON Formatter",
+        tool_json_desc:
+            "JSON Data ያስተካክሉ፣ Validate እና Minify ያድርጉ።",
+
+        tool_pomodoro: "Focus Timer",
+        tool_pomodoro_desc:
+            "ለትምህርት እና Productivity Pomodoro Timer።",
+
+        tool_gpa: "GPA Calculator",
+        tool_gpa_desc:
+            "Course Credit እና Grade Point በመጠቀም GPA ያስሉ።",
+
+        calculate: "አስላ",
+        convert: "ቀይር",
+        generate: "ፍጠር",
+        copy: "Copy",
+        copied: "ተቀድቷል!",
+        reset: "እንደገና ጀምር",
+        download: "አውርድ",
+        format: "Format",
+        validate: "Validate",
+        minify: "Minify",
+        start: "ጀምር",
+        pause: "አቁም",
+        add_course: "Course ጨምር",
+        calculate_gpa: "GPA አስላ",
+
+        password_length: "የPassword ርዝመት",
+        uppercase: "ትልቅ ፊደል",
+        lowercase: "ትንሽ ፊደል",
+        numbers: "ቁጥሮች",
+        symbols: "ምልክቶች",
+
+        text_input: "Text እዚህ ያስገቡ...",
+        json_input: "JSON እዚህ ይለጥፉ...",
+
+        focus: "Focus",
+        break: "እረፍት",
+        time_left: "የቀረ ጊዜ",
+
+        success: "ተሳክቷል",
+        error: "ስህተት",
+        invalid_json: "JSON ልክ አይደለም",
+        valid_json: "JSON ትክክል ነው",
+
+        form_success: "እናመሰግናለን! መልዕክትዎ ለመላክ ተዘጋጅቷል።",
+        demo_rates: "የCurrency ዋጋዎቹ ለDemo ብቻ ናቸው።"
+    },
+
+    om: {
+        nav_home: "Mana",
+        nav_about: "Waa'ee Koo",
+        nav_skills: "Dandeettii",
+        nav_projects: "Pirojektoota",
+        nav_tools: "Meeshaalee",
+        nav_experience: "Muuxannoo",
+        nav_contact: "Na Qunnamaa",
+
+        hero_available: "Carraawwan hojiiif qophaa'eera",
+        hero_greeting: "Akkam, ani",
+        hero_role: "Web Developer • Database Administrator • Creative Technologist",
+        hero_description:
+            "Web application ammayyaa, database system fi digital solution kalaqaa nan ijaara; AI fi IoT irrattis fedhii guddaa qaba.",
+        hero_view_work: "Hojii Koo Ilaali",
+        hero_explore_tools: "Meeshaalee Ilaali",
+        hero_hire: "Na Qacaraa",
+
+        about_title: "Waa'ee Koo",
+        about_subtitle: "Developer • Designer • Problem Solver",
+        about_text:
+            "Ani Dagnaw Beyene Tizazu, Web Developer, Database Administrator fi Graphics/Video Specialist dha. Yaada gara digital product faayidaa qabuutti jijjiiruu nan jaalladha.",
+        about_text2:
+            "Software Engineering, Artificial Intelligence, IoT, Database fi Open Source Development irratti fedhii qaba.",
+        about_location: "Bahir Dar, Ethiopia",
+        about_focus: "Software Engineering + AI",
+        about_learning: "Yeroo Hunda Barachaa",
+        about_open: "Carraawwanif Banaadha",
+
+        skills_title: "Dandeettii",
+        skills_subtitle: "Teknolojii fi dandeettii kalaqaa",
+
+        project_title: "Green Tech Smart Agriculture 2.0",
+        project_subtitle: "IoT + AI Smart Agriculture Platform",
+        project_description:
+            "Sirna qonnaa ammayyaa kan haala qonnaa hordofu, bishaanii kennuu ofumaan to'atu, sensor data galmeessu fi AI fayyadamuun dhibee biqiltootaa adda baasu.",
+        project_view: "Pirojektii Ijoo",
+
+        tools_title: "Dagnaw Tools Hub",
+        tools_subtitle:
+            "Developer, student, creator fi hojii digital guyyaa guyyaaf meeshaalee faayidaa qaban.",
+        tools_search: "Meeshaa barbaadi...",
+        all_tools: "Hunda",
+        developer_tools: "Developer",
+        student_tools: "Barataa",
+        utility_tools: "Utility",
+        creative_tools: "Creative",
+
+        open_tool: "Meeshaa Bani",
+
+        education_title: "Barnoota",
+        experience_title: "Muuxannoo Hojii",
+        goal_title: "Mul'ata Koo",
+        contact_title: "Na Qunnamaa",
+
+        contact_name: "Maqaa Keessan",
+        contact_email: "Email Keessan",
+        contact_subject: "Mata-duree",
+        contact_message: "Ergaa Keessan",
+        contact_send: "Ergaa Ergi",
+
+        footer_text: "Designed & developed by Dagnaw Beyene Tizazu.",
+
+        tool_calculator: "Smart Calculator",
+        tool_calculator_desc:
+            "Herrega saffisaa hojii guyyaa guyyaa fi development'f.",
+
+        tool_currency: "Currency Converter",
+        tool_currency_desc:
+            "Maallaqa gara maallaqa biraatti jijjiiri.",
+
+        tool_unit: "Unit Converter",
+        tool_unit_desc:
+            "Length, weight, temperature fi digital storage jijjiiri.",
+
+        tool_password: "Password Generator",
+        tool_password_desc:
+            "Password cimaa random ta'e filannoowwan adda addaatiin uumi.",
+
+        tool_color: "Color Studio",
+        tool_color_desc:
+            "Halluu filadhu; HEX, RGB fi HSL ilaali.",
+
+        tool_qr: "QR Code Generator",
+        tool_qr_desc:
+            "Text, link ykn contact irraa QR Code uumi.",
+
+        tool_text: "Text Toolkit",
+        tool_text_desc:
+            "Text qoradhu, jijjiiri, qulqulleessi fi copy godhi.",
+
+        tool_json: "JSON Formatter",
+        tool_json_desc:
+            "JSON format godhi, validate fi minify godhi.",
+
+        tool_pomodoro: "Focus Timer",
+        tool_pomodoro_desc:
+            "Barnoota fi productivity'f Pomodoro Timer.",
+
+        tool_gpa: "GPA Calculator",
+        tool_gpa_desc:
+            "Credit fi grade point fayyadamuun GPA shallagi.",
+
+        calculate: "Shallagi",
+        convert: "Jijjiiri",
+        generate: "Uumi",
+        copy: "Copy",
+        copied: "Copy ta'eera!",
+        reset: "Reset",
+        download: "Buusi",
+        format: "Format",
+        validate: "Validate",
+        minify: "Minify",
+        start: "Jalqabi",
+        pause: "Dhaabi",
+        add_course: "Course Dabali",
+        calculate_gpa: "GPA Shallagi",
+
+        password_length: "Dheerina Password",
+        uppercase: "Uppercase",
+        lowercase: "Lowercase",
+        numbers: "Lakkoofsota",
+        symbols: "Mallattoolee",
+
+        text_input: "Text kee asitti galchi...",
+        json_input: "JSON asitti maxxansi...",
+
+        focus: "Focus",
+        break: "Boqonnaa",
+        time_left: "Yeroo Hafe",
+
+        success: "Milkaa'e",
+        error: "Dogoggora",
+        invalid_json: "JSON sirrii miti",
+        valid_json: "JSON sirrii dha",
+
+        form_success: "Galatoomi! Ergaan kee erguuf qophaa'eera.",
+        demo_rates: "Gatiin maallaqaa kun Demo qofaaf."
+    },
+
+    zh: {
+        nav_home: "首页",
+        nav_about: "关于我",
+        nav_skills: "技能",
+        nav_projects: "项目",
+        nav_tools: "工具",
+        nav_experience: "经历",
+        nav_contact: "联系我",
+
+        hero_available: "正在寻找机会",
+        hero_greeting: "你好，我是",
+        hero_role: "Web 开发者 • 数据库管理员 • 创意技术人员",
+        hero_description:
+            "我专注于现代 Web 应用、数据库系统和数字化解决方案，同时对人工智能和物联网充满兴趣。",
+        hero_view_work: "查看作品",
+        hero_explore_tools: "探索工具",
+        hero_hire: "聘用我",
+
+        about_title: "关于我",
+        about_subtitle: "开发者 • 设计师 • 问题解决者",
+        about_text:
+            "我是 Dagnaw Beyene Tizazu，来自埃塞俄比亚巴赫达尔，是一名 Web 开发者、数据库管理员以及平面/视频设计人员。",
+        about_text2:
+            "我对软件工程、人工智能、物联网、数据库和开源开发非常感兴趣，并通过实践项目不断提升自己的技术能力。",
+        about_location: "埃塞俄比亚，巴赫达尔",
+        about_focus: "软件工程 + AI",
+        about_learning: "持续学习",
+        about_open: "开放工作机会",
+
+        skills_title: "技能",
+        skills_subtitle: "技术与创意能力",
+
+        project_title: "Green Tech Smart Agriculture 2.0",
+        project_subtitle: "IoT + AI 智能农业平台",
+        project_description:
+            "一个智能农业系统，可以监测农田环境、自动控制灌溉、离线记录传感器数据，并使用 AI 辅助识别作物疾病。",
+        project_view: "重点项目",
+
+        tools_title: "Dagnaw Tools Hub",
+        tools_subtitle:
+            "为开发者、学生、创作者和日常数字工作提供实用的小工具。",
+        tools_search: "搜索工具...",
+        all_tools: "全部",
+        developer_tools: "开发者",
+        student_tools: "学生",
+        utility_tools: "实用",
+        creative_tools: "创意",
+
+        open_tool: "打开工具",
+
+        education_title: "教育经历",
+        experience_title: "工作经历",
+        goal_title: "我的愿景",
+        contact_title: "联系我",
+
+        contact_name: "您的姓名",
+        contact_email: "您的邮箱",
+        contact_subject: "主题",
+        contact_message: "您的留言",
+        contact_send: "发送消息",
+
+        footer_text: "Designed & developed by Dagnaw Beyene Tizazu.",
+
+        tool_calculator: "智能计算器",
+        tool_calculator_desc: "快速完成日常计算和开发工作中的数学运算。",
+
+        tool_currency: "货币转换器",
+        tool_currency_desc: "使用参考汇率进行货币转换。",
+
+        tool_unit: "单位转换器",
+        tool_unit_desc: "转换长度、重量、温度和数字存储单位。",
+
+        tool_password: "密码生成器",
+        tool_password_desc: "生成可自定义的高强度随机密码。",
+
+        tool_color: "颜色工作室",
+        tool_color_desc: "选择颜色并查看 HEX、RGB 和 HSL 数值。",
+
+        tool_qr: "二维码生成器",
+        tool_qr_desc: "从文字、链接或联系信息生成二维码。",
+
+        tool_text: "文本工具箱",
+        tool_text_desc: "快速分析、转换、清理和复制文本。",
+
+        tool_json: "JSON 格式化工具",
+        tool_json_desc: "格式化、验证和压缩 JSON 数据。",
+
+        tool_pomodoro: "专注计时器",
+        tool_pomodoro_desc: "帮助学习和提高效率的番茄钟。",
+
+        tool_gpa: "GPA 计算器",
+        tool_gpa_desc: "根据课程学分和成绩点计算 GPA。",
+
+        calculate: "计算",
+        convert: "转换",
+        generate: "生成",
+        copy: "复制",
+        copied: "已复制!",
+        reset: "重置",
+        download: "下载",
+        format: "格式化",
+        validate: "验证",
+        minify: "压缩",
+        start: "开始",
+        pause: "暂停",
+        add_course: "添加课程",
+        calculate_gpa: "计算 GPA",
+
+        password_length: "密码长度",
+        uppercase: "大写字母",
+        lowercase: "小写字母",
+        numbers: "数字",
+        symbols: "符号",
+
+        text_input: "请输入文本...",
+        json_input: "请粘贴 JSON...",
+
+        focus: "专注",
+        break: "休息",
+        time_left: "剩余时间",
+
+        success: "成功",
+        error: "错误",
+        invalid_json: "JSON 无效",
+        valid_json: "JSON 有效",
+
+        form_success: "谢谢！您的消息已经准备发送。",
+        demo_rates: "汇率仅供演示参考。"
+    }
 };
 
-let currentLang=localStorage.getItem("lang")||"en";
 
-const typed=$("#typed");
-let words=translations[currentLang].typed;
-let wi=0,ci=0,del=false;
-function type(){let w=words[wi];typed.textContent=w.slice(0,ci);if(!del&&ci<w.length){ci++;setTimeout(type,85)}else if(!del){del=true;setTimeout(type,1200)}else if(ci>0){ci--;setTimeout(type,42)}else{del=false;wi=(wi+1)%words.length;setTimeout(type,250)}} type();
+/* =========================================================
+   LANGUAGE SYSTEM
+========================================================= */
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
-$$(".reveal").forEach(x=>io.observe(x));
+let currentLanguage =
+    storage.get("dagnaw-language", "en");
 
-$("#theme").onclick=()=>{document.body.classList.toggle("light");$("#theme").textContent=document.body.classList.contains("light")?"☀":"☾";localStorage.setItem("theme",document.body.classList.contains("light")?"light":"dark")};
-if(localStorage.getItem("theme")==="light"){document.body.classList.add("light");$("#theme").textContent="☀"}
-
-$("#menu").onclick=()=>$("#mobileNav").classList.toggle("show");
-$$(".mobile-nav a").forEach(a=>a.onclick=()=>$("#mobileNav").classList.remove("show"));
-
-function applyLang(lang){
-  const t=translations[lang];
-  if(!t)return;
-  currentLang=lang;
-  document.documentElement.lang=lang;
-  $$("[data-i18n]").forEach(el=>{const k=el.dataset.i18n;if(t[k]!==undefined)el.innerHTML=t[k]});
-  $$("[data-i18n-placeholder]").forEach(el=>{const k=el.dataset.i18nPlaceholder;if(t[k]!==undefined)el.placeholder=t[k]});
-  words=t.typed;wi=0;ci=0;del=false;
-  localStorage.setItem("lang",lang);
+function t(key) {
+    return translations[currentLanguage]?.[key] ||
+           translations.en[key] ||
+           key;
 }
-$("#lang").value=currentLang;
-$("#lang").onchange=e=>applyLang(e.target.value);
-applyLang(currentLang);
 
-function openProject(id){
-  const p=translations[currentLang].modal[id],tech=techByProject[id];
-  $("#modalTag").textContent=p.tag;$("#modalTitle").textContent=p.title;$("#modalText").textContent=p.text;
-  $("#modalTech").innerHTML=tech.map(x=>`<span>${x}</span>`).join("");$("#modal").classList.add("show")
+function translatePage() {
+
+    $$("[data-i18n]").forEach(element => {
+
+        const key = element.dataset.i18n;
+
+        if (translations[currentLanguage]?.[key]) {
+            element.textContent = t(key);
+        }
+    });
+
+    $$("[data-i18n-placeholder]").forEach(element => {
+
+        const key = element.dataset.i18nPlaceholder;
+
+        if (translations[currentLanguage]?.[key]) {
+            element.placeholder = t(key);
+        }
+    });
+
+    document.documentElement.lang = currentLanguage;
+
+    const select = $("#languageSelect");
+
+    if (select) {
+        select.value = currentLanguage;
+    }
+
+    translateStaticElements();
 }
-$$(".project-open").forEach(b=>b.onclick=()=>openProject(b.dataset.project));
-$("#closeModal").onclick=()=>$("#modal").classList.remove("show");
-$("#modal").onclick=e=>{if(e.target.id==="modal")$("#modal").classList.remove("show")};
 
-$$(".tilt").forEach(card=>{card.addEventListener("mousemove",e=>{let r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${y*-5}deg) rotateY(${x*5}deg) translateY(-3px)`});card.addEventListener("mouseleave",()=>card.style.transform="")});
+function translateStaticElements() {
 
-const canvas=$("#particles"),ctx=canvas.getContext("2d");let W,H,pts=[];
-function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;pts=Array.from({length:Math.min(80,Math.floor(W/18))},()=>({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.25,vy:(Math.random()-.5)*.25,r:Math.random()*1.4+.3}))}
-function particles(){ctx.clearRect(0,0,W,H);for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=document.body.classList.contains("light")?"#6a8eae55":"#67d9ff77";ctx.fill()}requestAnimationFrame(particles)}
-addEventListener("resize",resize);resize();particles();
+    /* Tool titles/descriptions */
+    $$(".tool-card").forEach(card => {
 
-const glow=$(".cursor-glow");addEventListener("pointermove",e=>{glow.style.left=e.clientX+"px";glow.style.top=e.clientY+"px"});
-$("#contactForm").onsubmit=e=>{e.preventDefault();let f=new FormData(e.target),sub=encodeURIComponent("Portfolio inquiry from "+f.get("name")),body=encodeURIComponent("Name: "+f.get("name")+"\nEmail: "+f.get("email")+"\n\n"+f.get("message"));location.href=`mailto:dagnawbeyene5@gmail.com?subject=${sub}&body=${body}`;$("#formNote").textContent=translations[currentLang].formNoteSent;};
+        const key = card.dataset.toolKey;
+
+        if (!key) return;
+
+        const title = $(".tool-card-title", card);
+        const desc = $(".tool-card-description", card);
+
+        if (title && translations[currentLanguage]?.[`tool_${key}`]) {
+            title.textContent = t(`tool_${key}`);
+        }
+
+        if (desc && translations[currentLanguage]?.[`tool_${key}_desc`]) {
+            desc.textContent = t(`tool_${key}_desc`);
+        }
+    });
+
+    /* Common placeholder fallbacks */
+    const search = $("#toolSearch");
+
+    if (search) {
+        search.placeholder = t("tools_search");
+    }
+}
+
+function initLanguage() {
+
+    const select = $("#languageSelect");
+
+    if (!select) return;
+
+    select.value = currentLanguage;
+
+    select.addEventListener("change", event => {
+
+        currentLanguage = event.target.value;
+
+        storage.set(
+            "dagnaw-language",
+            currentLanguage
+        );
+
+        translatePage();
+
+        showToast(
+            currentLanguage === "am"
+                ? "ቋንቋ ተቀይሯል"
+                : "Language changed"
+        );
+    });
+
+    translatePage();
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function initTheme() {
+
+    const toggle = $("#themeToggle");
+
+    if (!toggle) return;
+
+    const savedTheme =
+        storage.get("dagnaw-theme", "dark");
+
+    document.documentElement.dataset.theme =
+        savedTheme;
+
+    updateThemeIcon();
+
+    toggle.addEventListener("click", () => {
+
+        const current =
+            document.documentElement.dataset.theme;
+
+        const next =
+            current === "light" ? "dark" : "light";
+
+        document.documentElement.dataset.theme =
+            next;
+
+        storage.set("dagnaw-theme", next);
+
+        updateThemeIcon();
+    });
+}
+
+function updateThemeIcon() {
+
+    const toggle = $("#themeToggle");
+
+    if (!toggle) return;
+
+    const theme =
+        document.documentElement.dataset.theme;
+
+    toggle.textContent =
+        theme === "light" ? "🌙" : "☀️";
+}
+
+
+/* =========================================================
+   MOBILE MENU
+========================================================= */
+
+function initMobileMenu() {
+
+    const menuButton = $("#menuToggle");
+    const mobileMenu = $("#mobileMenu");
+
+    if (!menuButton || !mobileMenu) return;
+
+    menuButton.addEventListener("click", () => {
+
+        mobileMenu.classList.toggle("active");
+
+        menuButton.classList.toggle("active");
+    });
+
+    $$("a", mobileMenu).forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            mobileMenu.classList.remove("active");
+            menuButton.classList.remove("active");
+        });
+    });
+}
+
+
+/* =========================================================
+   TYPING ANIMATION
+========================================================= */
+
+function initTyping() {
+
+    const element = $("#typingText");
+
+    if (!element) return;
+
+    const words = [
+        "Web Developer",
+        "Database Administrator",
+        "Software Engineer",
+        "AI Enthusiast",
+        "IoT Developer",
+        "Creative Technologist"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function type() {
+
+        const word = words[wordIndex];
+
+        if (!deleting) {
+
+            element.textContent =
+                word.substring(0, charIndex + 1);
+
+            charIndex++;
+
+            if (charIndex === word.length) {
+
+                deleting = true;
+
+                setTimeout(type, 1500);
+                return;
+            }
+
+        } else {
+
+            element.textContent =
+                word.substring(0, charIndex - 1);
+
+            charIndex--;
+
+            if (charIndex === 0) {
+
+                deleting = false;
+
+                wordIndex =
+                    (wordIndex + 1) % words.length;
+            }
+        }
+
+        setTimeout(
+            type,
+            deleting ? 55 : 100
+        );
+    }
+
+    type();
+}
+
+
+/* =========================================================
+   PARTICLE BACKGROUND
+========================================================= */
+
+function initParticles() {
+
+    const canvas = $("#particles");
+
+    if (!canvas) return;
+
+    const ctx = canvas.getContext("2d");
+
+    let width;
+    let height;
+
+    const particles = [];
+
+    function resize() {
+
+        width = canvas.width =
+            window.innerWidth;
+
+        height = canvas.height =
+            window.innerHeight;
+    }
+
+    resize();
+
+    window.addEventListener("resize", resize);
+
+    const count =
+        Math.min(
+            80,
+            Math.floor(window.innerWidth / 15)
+        );
+
+    for (let i = 0; i < count; i++) {
+
+        particles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            size: Math.random() * 2 + 0.5,
+            speedX: (Math.random() - 0.5) * 0.35,
+            speedY: (Math.random() - 0.5) * 0.35
+        });
+    }
+
+    function animate() {
+
+        ctx.clearRect(
+            0,
+            0,
+            width,
+            height
+        );
+
+        particles.forEach(p => {
+
+            p.x += p.speedX;
+            p.y += p.speedY;
+
+            if (p.x < 0 || p.x > width) {
+                p.speedX *= -1;
+            }
+
+            if (p.y < 0 || p.y > height) {
+                p.speedY *= -1;
+            }
+
+            ctx.beginPath();
+
+            ctx.arc(
+                p.x,
+                p.y,
+                p.size,
+                0,
+                Math.PI * 2
+            );
+
+            ctx.fillStyle =
+                "rgba(90,160,255,.35)";
+
+            ctx.fill();
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+function initReveal() {
+
+    const elements =
+        $$(".reveal, .reveal-left, .reveal-right");
+
+    if (!elements.length) return;
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+                        observer.unobserve(
+                            entry.target
+                        );
+                    }
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+    elements.forEach(el =>
+        observer.observe(el)
+    );
+}
+
+
+/* =========================================================
+   ACTIVE NAVIGATION
+========================================================= */
+
+function initActiveNav() {
+
+    const sections =
+        $$("main section[id]");
+
+    const links =
+        $$("nav a[href^='#']");
+
+    if (!sections.length || !links.length) return;
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting)
+                        return;
+
+                    links.forEach(link =>
+                        link.classList.remove("active")
+                    );
+
+                    const active =
+                        links.find(
+                            link =>
+                                link.getAttribute("href") ===
+                                `#${entry.target.id}`
+                        );
+
+                    if (active) {
+                        active.classList.add("active");
+                    }
+                });
+
+            },
+            {
+                rootMargin: "-35% 0px -55% 0px"
+            }
+        );
+
+    sections.forEach(section =>
+        observer.observe(section)
+    );
+}
+
+
+/* =========================================================
+   SCROLL TOP
+========================================================= */
+
+function initScrollTop() {
+
+    const button = $("#scrollTop");
+
+    if (!button) return;
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            if (window.scrollY > 500) {
+                button.classList.add("show");
+            } else {
+                button.classList.remove("show");
+            }
+        }
+    );
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    );
+}
+
+
+/* =========================================================
+   TOOLS HUB FILTER
+========================================================= */
+
+function initToolFilter() {
+
+    const search = $("#toolSearch");
+    const buttons = $$(".tool-filter");
+    const cards = $$(".tool-card");
+
+    if (!cards.length) return;
+
+    let category = "all";
+
+    function filterTools() {
+
+        const query =
+            (search?.value || "")
+                .toLowerCase()
+                .trim();
+
+        cards.forEach(card => {
+
+            const text =
+                card.textContent.toLowerCase();
+
+            const cardCategory =
+                card.dataset.category || "all";
+
+            const categoryMatch =
+                category === "all" ||
+                cardCategory === category;
+
+            const searchMatch =
+                !query ||
+                text.includes(query);
+
+            card.style.display =
+                categoryMatch && searchMatch
+                    ? ""
+                    : "none";
+        });
+    }
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                buttons.forEach(b =>
+                    b.classList.remove("active")
+                );
+
+                button.classList.add("active");
+
+                category =
+                    button.dataset.category ||
+                    "all";
+
+                filterTools();
+            }
+        );
+    });
+
+    search?.addEventListener(
+        "input",
+        filterTools
+    );
+}
+
+
+/* =========================================================
+   TOOL MODAL
+========================================================= */
+
+const toolModal = {
+    element: null,
+    content: null
+};
+
+function initToolModal() {
+
+    toolModal.element = $("#toolModal");
+    toolModal.content = $("#toolContent");
+
+    if (!toolModal.element) return;
+
+    $$("[data-tool-open]").forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const tool =
+                    button.dataset.toolOpen;
+
+                openTool(tool);
+            }
+        );
+    });
+
+    const close =
+        $("#toolModalClose");
+
+    close?.addEventListener(
+        "click",
+        closeTool
+    );
+
+    toolModal.element.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target ===
+                toolModal.element
+            ) {
+                closeTool();
+            }
+        }
+    );
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape" &&
+                toolModal.element.classList.contains("active")
+            ) {
+                closeTool();
+            }
+        }
+    );
+}
+
+function openTool(name) {
+
+    if (!toolModal.element ||
+        !toolModal.content) return;
+
+    const builders = {
+
+        calculator: buildCalculator,
+        currency: buildCurrencyConverter,
+        unit: buildUnitConverter,
+        password: buildPasswordGenerator,
+        color: buildColorStudio,
+        qr: buildQRGenerator,
+        text: buildTextToolkit,
+        json: buildJSONFormatter,
+        pomodoro: buildPomodoro,
+        gpa: buildGPACalculator
+    };
+
+    const builder = builders[name];
+
+    if (!builder) return;
+
+    toolModal.content.innerHTML =
+        builder();
+
+    toolModal.element.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+    initTool(name);
+}
+
+function closeTool() {
+
+    if (!toolModal.element) return;
+
+    toolModal.element.classList.remove("active");
+
+    document.body.style.overflow = "";
+}
+
+
+/* =========================================================
+   TOOL 1 — CALCULATOR
+========================================================= */
+
+function buildCalculator() {
+
+    return `
+        <div class="tool-ui calculator-ui">
+
+            <h2>🧮 ${t("tool_calculator")}</h2>
+
+            <input
+                id="calcDisplay"
+                class="tool-input calculator-display"
+                type="text"
+                readonly
+                placeholder="0"
+            >
+
+            <div class="calculator-grid">
+
+                <button data-calc="clear">C</button>
+                <button data-calc="(">(</button>
+                <button data-calc=")">)</button>
+                <button data-calc="/">÷</button>
+
+                <button data-calc="7">7</button>
+                <button data-calc="8">8</button>
+                <button data-calc="9">9</button>
+                <button data-calc="*">×</button>
+
+                <button data-calc="4">4</button>
+                <button data-calc="5">5</button>
+                <button data-calc="6">6</button>
+                <button data-calc="-">−</button>
+
+                <button data-calc="1">1</button>
+                <button data-calc="2">2</button>
+                <button data-calc="3">3</button>
+                <button data-calc="+">+</button>
+
+                <button data-calc="0">0</button>
+                <button data-calc=".">.</button>
+                <button data-calc="%">%</button>
+                <button data-calc="equals">=</button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+function initCalculator() {
+
+    const display = $("#calcDisplay");
+
+    if (!display) return;
+
+    $$("[data-calc]").forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const value =
+                    button.dataset.calc;
+
+                if (value === "clear") {
+
+                    display.value = "";
+                    return;
+                }
+
+                if (value === "equals") {
+
+                    calculateExpression(display);
+                    return;
+                }
+
+                display.value += value;
+            }
+        );
+    });
+}
+
+function calculateExpression(display) {
+
+    let expression =
+        display.value.trim();
+
+    if (!expression) return;
+
+    if (!/^[0-9+\-*/().%\s]+$/.test(expression)) {
+
+        display.value = "Error";
+        return;
+    }
+
+    try {
+
+        expression =
+            expression.replace(
+                /(\d+(?:\.\d+)?)%/g,
+                "($1/100)"
+            );
+
+        const result =
+            Function(
+                `"use strict"; return (${expression})`
+            )();
+
+        if (!Number.isFinite(result)) {
+            throw new Error();
+        }
+
+        display.value =
+            Number(result.toFixed(10));
+
+    } catch {
+
+        display.value = "Error";
+    }
+}
+
+
+/* =========================================================
+   TOOL 2 — CURRENCY CONVERTER
+========================================================= */
+
+function buildCurrencyConverter() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>💱 ${t("tool_currency")}</h2>
+
+            <div class="tool-grid-2">
+
+                <div>
+                    <label>Amount</label>
+                    <input
+                        id="currencyAmount"
+                        class="tool-input"
+                        type="number"
+                        value="1"
+                    >
+                </div>
+
+                <div>
+                    <label>From</label>
+                    <select
+                        id="currencyFrom"
+                        class="tool-input"
+                    >
+                        <option>USD</option>
+                        <option>ETB</option>
+                        <option>EUR</option>
+                        <option>GBP</option>
+                        <option>CNY</option>
+                        <option>KES</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>To</label>
+                    <select
+                        id="currencyTo"
+                        class="tool-input"
+                    >
+                        <option>ETB</option>
+                        <option>USD</option>
+                        <option>EUR</option>
+                        <option>GBP</option>
+                        <option>CNY</option>
+                        <option>KES</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <button
+                id="currencyConvert"
+                class="tool-button"
+            >
+                ${t("convert")}
+            </button>
+
+            <div
+                id="currencyResult"
+                class="tool-result"
+            ></div>
+
+            <small>
+                ${t("demo_rates")}
+            </small>
+
+        </div>
+    `;
+}
+
+function initCurrency() {
+
+    const rates = {
+
+        USD: 1,
+        ETB: 150,
+        EUR: 0.92,
+        GBP: 0.78,
+        CNY: 7.15,
+        KES: 129
+    };
+
+    $("#currencyConvert")?.addEventListener(
+        "click",
+        () => {
+
+            const amount =
+                Number($("#currencyAmount").value);
+
+            const from =
+                $("#currencyFrom").value;
+
+            const to =
+                $("#currencyTo").value;
+
+            if (!Number.isFinite(amount)) return;
+
+            const usd =
+                amount / rates[from];
+
+            const result =
+                usd * rates[to];
+
+            $("#currencyResult").textContent =
+                `${amount} ${from} = ${result.toFixed(2)} ${to}`;
+        }
+    );
+}
+
+
+/* =========================================================
+   TOOL 3 — UNIT CONVERTER
+========================================================= */
+
+function buildUnitConverter() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>📏 ${t("tool_unit")}</h2>
+
+            <select
+                id="unitType"
+                class="tool-input"
+            >
+                <option value="length">Length</option>
+                <option value="weight">Weight</option>
+                <option value="temperature">Temperature</option>
+                <option value="storage">Digital Storage</option>
+            </select>
+
+            <div class="tool-grid-2">
+
+                <input
+                    id="unitValue"
+                    class="tool-input"
+                    type="number"
+                    placeholder="Value"
+                >
+
+                <select
+                    id="unitFrom"
+                    class="tool-input"
+                ></select>
+
+                <select
+                    id="unitTo"
+                    class="tool-input"
+                ></select>
+
+            </div>
+
+            <button
+                id="unitConvert"
+                class="tool-button"
+            >
+                ${t("convert")}
+            </button>
+
+            <div
+                id="unitResult"
+                class="tool-result"
+            ></div>
+
+        </div>
+    `;
+}
+
+function initUnit() {
+
+    const type = $("#unitType");
+    const from = $("#unitFrom");
+    const to = $("#unitTo");
+
+    const units = {
+
+        length: [
+            ["Meter", 1],
+            ["Kilometer", 1000],
+            ["Centimeter", 0.01],
+            ["Millimeter", 0.001],
+            ["Mile", 1609.344],
+            ["Foot", 0.3048],
+            ["Inch", 0.0254]
+        ],
+
+        weight: [
+            ["Kilogram", 1],
+            ["Gram", 0.001],
+            ["Pound", 0.453592],
+            ["Ounce", 0.0283495]
+        ],
+
+        storage: [
+            ["Byte", 1],
+            ["KB", 1024],
+            ["MB", 1024 ** 2],
+            ["GB", 1024 ** 3],
+            ["TB", 1024 ** 4]
+        ],
+
+        temperature: [
+            ["Celsius", "C"],
+            ["Fahrenheit", "F"],
+            ["Kelvin", "K"]
+        ]
+    };
+
+    function populate() {
+
+        const list =
+            units[type.value];
+
+        from.innerHTML = "";
+        to.innerHTML = "";
+
+        list.forEach(item => {
+
+            from.innerHTML +=
+                `<option value="${item[1]}">${item[0]}</option>`;
+
+            to.innerHTML +=
+                `<option value="${item[1]}">${item[0]}</option>`;
+        });
+    }
+
+    populate();
+
+    type.addEventListener(
+        "change",
+        populate
+    );
+
+    $("#unitConvert")?.addEventListener(
+        "click",
+        () => {
+
+            const value =
+                Number($("#unitValue").value);
+
+            const fromValue =
+                from.value;
+
+            const toValue =
+                to.value;
+
+            if (!Number.isFinite(value)) return;
+
+            let result;
+
+            if (type.value === "temperature") {
+
+                result =
+                    convertTemperature(
+                        value,
+                        fromValue,
+                        toValue
+                    );
+
+            } else {
+
+                result =
+                    value *
+                    Number(fromValue) /
+                    Number(toValue);
+            }
+
+            $("#unitResult").textContent =
+                `Result: ${result.toFixed(4)}`;
+        }
+    );
+}
+
+function convertTemperature(value, from, to) {
+
+    let celsius;
+
+    if (from === "C") celsius = value;
+    if (from === "F") celsius = (value - 32) * 5 / 9;
+    if (from === "K") celsius = value - 273.15;
+
+    if (to === "C") return celsius;
+    if (to === "F") return celsius * 9 / 5 + 32;
+    if (to === "K") return celsius + 273.15;
+}
+
+
+/* =========================================================
+   TOOL 4 — PASSWORD GENERATOR
+========================================================= */
+
+function buildPasswordGenerator() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>🔐 ${t("tool_password")}</h2>
+
+            <label>
+                ${t("password_length")}
+            </label>
+
+            <input
+                id="passwordLength"
+                class="tool-input"
+                type="range"
+                min="6"
+                max="64"
+                value="16"
+            >
+
+            <strong id="passwordLengthValue">16</strong>
+
+            <div class="check-grid">
+
+                <label>
+                    <input
+                        id="passUpper"
+                        type="checkbox"
+                        checked
+                    >
+                    ${t("uppercase")}
+                </label>
+
+                <label>
+                    <input
+                        id="passLower"
+                        type="checkbox"
+                        checked
+                    >
+                    ${t("lowercase")}
+                </label>
+
+                <label>
+                    <input
+                        id="passNumbers"
+                        type="checkbox"
+                        checked
+                    >
+                    ${t("numbers")}
+                </label>
+
+                <label>
+                    <input
+                        id="passSymbols"
+                        type="checkbox"
+                        checked
+                    >
+                    ${t("symbols")}
+                </label>
+
+            </div>
+
+            <button
+                id="generatePassword"
+                class="tool-button"
+            >
+                ${t("generate")}
+            </button>
+
+            <div class="tool-copy-row">
+
+                <input
+                    id="passwordOutput"
+                    class="tool-input"
+                    readonly
+                >
+
+                <button
+                    id="copyPassword"
+                    class="tool-button"
+                >
+                    ${t("copy")}
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+function initPassword() {
+
+    const length =
+        $("#passwordLength");
+
+    const output =
+        $("#passwordOutput");
+
+    length?.addEventListener(
+        "input",
+        () => {
+
+            $("#passwordLengthValue")
+                .textContent =
+                length.value;
+        }
+    );
+
+    $("#generatePassword")?.addEventListener(
+        "click",
+        () => {
+
+            const result =
+                generatePassword(
+                    Number(length.value),
+                    $("#passUpper").checked,
+                    $("#passLower").checked,
+                    $("#passNumbers").checked,
+                    $("#passSymbols").checked
+                );
+
+            output.value = result;
+        }
+    );
+
+    $("#copyPassword")?.addEventListener(
+        "click",
+        () => copyText(output.value)
+    );
+
+    $("#generatePassword")?.click();
+}
+
+function generatePassword(
+    length,
+    upper,
+    lower,
+    numbers,
+    symbols
+) {
+
+    let chars = "";
+
+    if (upper) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (lower) chars += "abcdefghijklmnopqrstuvwxyz";
+    if (numbers) chars += "0123456789";
+    if (symbols) chars += "!@#$%^&*()_+-=[]{}<>?";
+
+    if (!chars) return "";
+
+    const array =
+        new Uint32Array(length);
+
+    crypto.getRandomValues(array);
+
+    return [...array]
+        .map(n => chars[n % chars.length])
+        .join("");
+}
+
+
+/* =========================================================
+   TOOL 5 — COLOR STUDIO
+========================================================= */
+
+function buildColorStudio() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>🎨 ${t("tool_color")}</h2>
+
+            <input
+                id="colorPicker"
+                type="color"
+                value="#4f8cff"
+                class="color-picker"
+            >
+
+            <div
+                id="colorPreview"
+                class="color-preview"
+            ></div>
+
+            <div class="color-values">
+
+                <div>
+                    <span>HEX</span>
+                    <strong id="hexValue">
+                        #4F8CFF
+                    </strong>
+                </div>
+
+                <div>
+                    <span>RGB</span>
+                    <strong id="rgbValue">
+                        rgb(79,140,255)
+                    </strong>
+                </div>
+
+                <div>
+                    <span>HSL</span>
+                    <strong id="hslValue">
+                        hsl(218,100%,65%)
+                    </strong>
+                </div>
+
+            </div>
+
+            <button
+                id="copyColor"
+                class="tool-button"
+            >
+                ${t("copy")}
+            </button>
+
+        </div>
+    `;
+}
+
+function initColor() {
+
+    const picker =
+        $("#colorPicker");
+
+    function update() {
+
+        const hex =
+            picker.value.toUpperCase();
+
+        const rgb =
+            hexToRgb(hex);
+
+        const hsl =
+            rgbToHsl(
+                rgb.r,
+                rgb.g,
+                rgb.b
+            );
+
+        $("#colorPreview").style.background =
+            hex;
+
+        $("#hexValue").textContent =
+            hex;
+
+        $("#rgbValue").textContent =
+            `rgb(${rgb.r}, ${rgb.g}, ${rgb.b})`;
+
+        $("#hslValue").textContent =
+            `hsl(${hsl.h}, ${hsl.s}%, ${hsl.l}%)`;
+    }
+
+    picker?.addEventListener(
+        "input",
+        update
+    );
+
+    $("#copyColor")?.addEventListener(
+        "click",
+        () => copyText($("#hexValue").textContent)
+    );
+
+    update();
+}
+
+function hexToRgb(hex) {
+
+    const value =
+        hex.replace("#", "");
+
+    return {
+        r: parseInt(value.substring(0, 2), 16),
+        g: parseInt(value.substring(2, 4), 16),
+        b: parseInt(value.substring(4, 6), 16)
+    };
+}
+
+function rgbToHsl(r, g, b) {
+
+    r /= 255;
+    g /= 255;
+    b /= 255;
+
+    const max =
+        Math.max(r, g, b);
+
+    const min =
+        Math.min(r, g, b);
+
+    let h = 0;
+    let s = 0;
+
+    const l = (max + min) / 2;
+
+    if (max !== min) {
+
+        const d = max - min;
+
+        s =
+            l > 0.5
+                ? d / (2 - max - min)
+                : d / (max + min);
+
+        switch (max) {
+
+            case r:
+                h =
+                    (g - b) / d +
+                    (g < b ? 6 : 0);
+                break;
+
+            case g:
+                h =
+                    (b - r) / d + 2;
+                break;
+
+            case b:
+                h =
+                    (r - g) / d + 4;
+        }
+
+        h /= 6;
+    }
+
+    return {
+        h: Math.round(h * 360),
+        s: Math.round(s * 100),
+        l: Math.round(l * 100)
+    };
+}
+
+
+/* =========================================================
+   TOOL 6 — QR CODE GENERATOR
+========================================================= */
+
+function buildQRGenerator() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>📱 ${t("tool_qr")}</h2>
+
+            <textarea
+                id="qrText"
+                class="tool-textarea"
+                placeholder="https://example.com"
+                rows="4"
+            ></textarea>
+
+            <button
+                id="generateQR"
+                class="tool-button"
+            >
+                ${t("generate")}
+            </button>
+
+            <div
+                id="qrResult"
+                class="qr-result"
+            ></div>
+
+            <small>
+                QR generation requires an internet connection.
+            </small>
+
+        </div>
+    `;
+}
+
+function initQR() {
+
+    $("#generateQR")?.addEventListener(
+        "click",
+        () => {
+
+            const text =
+                $("#qrText").value.trim();
+
+            if (!text) {
+                showToast("Enter text first");
+                return;
+            }
+
+            const url =
+                "https://api.qrserver.com/v1/create-qr-code/" +
+                "?size=240x240&data=" +
+                encodeURIComponent(text);
+
+            $("#qrResult").innerHTML = `
+                <img
+                    src="${url}"
+                    alt="QR Code"
+                    class="qr-image"
+                >
+
+                <a
+                    href="${url}"
+                    target="_blank"
+                    rel="noopener"
+                    class="tool-button"
+                >
+                    ${t("download")}
+                </a>
+            `;
+        }
+    );
+}
+
+
+/* =========================================================
+   TOOL 7 — TEXT TOOLKIT
+========================================================= */
+
+function buildTextToolkit() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>📝 ${t("tool_text")}</h2>
+
+            <textarea
+                id="textToolInput"
+                class="tool-textarea"
+                rows="8"
+                placeholder="${t("text_input")}"
+            ></textarea>
+
+            <div
+                id="textStats"
+                class="tool-result"
+            >
+                Characters: 0 | Words: 0 | Lines: 0
+            </div>
+
+            <div class="tool-actions">
+
+                <button
+                    id="textUpper"
+                    class="tool-button"
+                >
+                    UPPERCASE
+                </button>
+
+                <button
+                    id="textLower"
+                    class="tool-button"
+                >
+                    lowercase
+                </button>
+
+                <button
+                    id="textClean"
+                    class="tool-button"
+                >
+                    Clean Spaces
+                </button>
+
+                <button
+                    id="textCopy"
+                    class="tool-button"
+                >
+                    ${t("copy")}
+                </button>
+
+                <button
+                    id="textReset"
+                    class="tool-button"
+                >
+                    ${t("reset")}
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+function initTextToolkit() {
+
+    const input =
+        $("#textToolInput");
+
+    const stats =
+        $("#textStats");
+
+    function updateStats() {
+
+        const text =
+            input.value;
+
+        const words =
+            text.trim()
+                ? text.trim().split(/\s+/).length
+                : 0;
+
+        const lines =
+            text
+                ? text.split(/\n/).length
+                : 0;
+
+        stats.textContent =
+            `Characters: ${text.length} | ` +
+            `Words: ${words} | ` +
+            `Lines: ${lines}`;
+    }
+
+    input?.addEventListener(
+        "input",
+        updateStats
+    );
+
+    $("#textUpper")?.addEventListener(
+        "click",
+        () => {
+            input.value =
+                input.value.toUpperCase();
+
+            updateStats();
+        }
+    );
+
+    $("#textLower")?.addEventListener(
+        "click",
+        () => {
+            input.value =
+                input.value.toLowerCase();
+
+            updateStats();
+        }
+    );
+
+    $("#textClean")?.addEventListener(
+        "click",
+        () => {
+
+            input.value =
+                input.value
+                    .replace(/[ \t]+/g, " ")
+                    .replace(/\n\s+/g, "\n")
+                    .trim();
+
+            updateStats();
+        }
+    );
+
+    $("#textCopy")?.addEventListener(
+        "click",
+        () => copyText(input.value)
+    );
+
+    $("#textReset")?.addEventListener(
+        "click",
+        () => {
+
+            input.value = "";
+            updateStats();
+        }
+    );
+}
+
+
+/* =========================================================
+   TOOL 8 — JSON FORMATTER
+========================================================= */
+
+function buildJSONFormatter() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>{ } ${t("tool_json")}</h2>
+
+            <textarea
+                id="jsonInput"
+                class="tool-textarea"
+                rows="10"
+                placeholder="${t("json_input")}"
+            ></textarea>
+
+            <div class="tool-actions">
+
+                <button
+                    id="jsonFormat"
+                    class="tool-button"
+                >
+                    ${t("format")}
+                </button>
+
+                <button
+                    id="jsonValidate"
+                    class="tool-button"
+                >
+                    ${t("validate")}
+                </button>
+
+                <button
+                    id="jsonMinify"
+                    class="tool-button"
+                >
+                    ${t("minify")}
+                </button>
+
+                <button
+                    id="jsonCopy"
+                    class="tool-button"
+                >
+                    ${t("copy")}
+                </button>
+
+            </div>
+
+            <div
+                id="jsonResult"
+                class="tool-result"
+            ></div>
+
+        </div>
+    `;
+}
+
+function initJSON() {
+
+    const input =
+        $("#jsonInput");
+
+    const result =
+        $("#jsonResult");
+
+    $("#jsonFormat")?.addEventListener(
+        "click",
+        () => {
+
+            try {
+
+                const parsed =
+                    JSON.parse(input.value);
+
+                input.value =
+                    JSON.stringify(
+                        parsed,
+                        null,
+                        4
+                    );
+
+                result.textContent =
+                    t("valid_json");
+
+            } catch {
+
+                result.textContent =
+                    t("invalid_json");
+            }
+        }
+    );
+
+    $("#jsonValidate")?.addEventListener(
+        "click",
+        () => {
+
+            try {
+
+                JSON.parse(input.value);
+
+                result.textContent =
+                    `✓ ${t("valid_json")}`;
+
+            } catch (error) {
+
+                result.textContent =
+                    `✗ ${t("invalid_json")}: ${error.message}`;
+            }
+        }
+    );
+
+    $("#jsonMinify")?.addEventListener(
+        "click",
+        () => {
+
+            try {
+
+                const parsed =
+                    JSON.parse(input.value);
+
+                input.value =
+                    JSON.stringify(parsed);
+
+                result.textContent =
+                    t("valid_json");
+
+            } catch {
+
+                result.textContent =
+                    t("invalid_json");
+            }
+        }
+    );
+
+    $("#jsonCopy")?.addEventListener(
+        "click",
+        () => copyText(input.value)
+    );
+}
+
+
+/* =========================================================
+   TOOL 9 — POMODORO TIMER
+========================================================= */
+
+let pomodoroInterval = null;
+
+function buildPomodoro() {
+
+    return `
+        <div class="tool-ui pomodoro-ui">
+
+            <h2>⏱️ ${t("tool_pomodoro")}</h2>
+
+            <div class="pomodoro-mode">
+                <button
+                    id="focusMode"
+                    class="tool-button"
+                >
+                    ${t("focus")}
+                </button>
+
+                <button
+                    id="breakMode"
+                    class="tool-button"
+                >
+                    ${t("break")}
+                </button>
+            </div>
+
+            <div
+                id="pomodoroTime"
+                class="pomodoro-time"
+            >
+                25:00
+            </div>
+
+            <div class="tool-actions">
+
+                <button
+                    id="pomodoroStart"
+                    class="tool-button"
+                >
+                    ${t("start")}
+                </button>
+
+                <button
+                    id="pomodoroPause"
+                    class="tool-button"
+                >
+                    ${t("pause")}
+                </button>
+
+                <button
+                    id="pomodoroReset"
+                    class="tool-button"
+                >
+                    ${t("reset")}
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+function initPomodoro() {
+
+    let seconds = 25 * 60;
+
+    function update() {
+
+        const minutes =
+            Math.floor(seconds / 60);
+
+        const secs =
+            seconds % 60;
+
+        $("#pomodoroTime").textContent =
+            `${String(minutes).padStart(2, "0")}:` +
+            `${String(secs).padStart(2, "0")}`;
+    }
+
+    function stop() {
+
+        clearInterval(pomodoroInterval);
+        pomodoroInterval = null;
+    }
+
+    $("#focusMode")?.addEventListener(
+        "click",
+        () => {
+
+            stop();
+            seconds = 25 * 60;
+            update();
+        }
+    );
+
+    $("#breakMode")?.addEventListener(
+        "click",
+        () => {
+
+            stop();
+            seconds = 5 * 60;
+            update();
+        }
+    );
+
+    $("#pomodoroStart")?.addEventListener(
+        "click",
+        () => {
+
+            if (pomodoroInterval) return;
+
+            pomodoroInterval =
+                setInterval(
+                    () => {
+
+                        if (seconds <= 0) {
+
+                            stop();
+
+                            showToast(
+                                "Timer finished!"
+                            );
+
+                            return;
+                        }
+
+                        seconds--;
+                        update();
+
+                    },
+                    1000
+                );
+        }
+    );
+
+    $("#pomodoroPause")?.addEventListener(
+        "click",
+        stop
+    );
+
+    $("#pomodoroReset")?.addEventListener(
+        "click",
+        () => {
+
+            stop();
+
+            seconds = 25 * 60;
+
+            update();
+        }
+    );
+
+    update();
+}
+
+
+/* =========================================================
+   TOOL 10 — GPA CALCULATOR
+========================================================= */
+
+function buildGPACalculator() {
+
+    return `
+        <div class="tool-ui">
+
+            <h2>🎓 ${t("tool_gpa")}</h2>
+
+            <div id="gpaCourses">
+
+                ${gpaRow(1)}
+                ${gpaRow(2)}
+                ${gpaRow(3)}
+
+            </div>
+
+            <div class="tool-actions">
+
+                <button
+                    id="addGpaCourse"
+                    class="tool-button"
+                >
+                    + ${t("add_course")}
+                </button>
+
+                <button
+                    id="calculateGPA"
+                    class="tool-button"
+                >
+                    ${t("calculate_gpa")}
+                </button>
+
+            </div>
+
+            <div
+                id="gpaResult"
+                class="tool-result"
+            >
+                GPA: 0.00
+            </div>
+
+        </div>
+    `;
+}
+
+function gpaRow(number) {
+
+    return `
+        <div class="gpa-row">
+
+            <input
+                class="tool-input course-name"
+                placeholder="Course ${number}"
+            >
+
+            <input
+                class="tool-input course-credit"
+                type="number"
+                min="1"
+                step="0.5"
+                placeholder="Credit"
+                value="3"
+            >
+
+            <select
+                class="tool-input course-grade"
+            >
+                <option value="4">A</option>
+                <option value="3.75">A-</option>
+                <option value="3.5">B+</option>
+                <option value="3">B</option>
+                <option value="2.75">B-</option>
+                <option value="2.5">C+</option>
+                <option value="2">C</option>
+                <option value="1.75">C-</option>
+                <option value="1.5">D</option>
+                <option value="0">F</option>
+            </select>
+
+        </div>
+    `;
+}
+
+function initGPA() {
+
+    const courses =
+        $("#gpaCourses");
+
+    let count = 3;
+
+    $("#addGpaCourse")?.addEventListener(
+        "click",
+        () => {
+
+            count++;
+
+            courses.insertAdjacentHTML(
+                "beforeend",
+                gpaRow(count)
+            );
+        }
+    );
+
+    $("#calculateGPA")?.addEventListener(
+        "click",
+        () => {
+
+            const rows =
+                $$(".gpa-row", courses);
+
+            let totalPoints = 0;
+            let totalCredits = 0;
+
+            rows.forEach(row => {
+
+                const credit =
+                    Number(
+                        $(".course-credit", row).value
+                    );
+
+                const grade =
+                    Number(
+                        $(".course-grade", row).value
+                    );
+
+                if (
+                    Number.isFinite(credit) &&
+                    credit > 0
+                ) {
+
+                    totalCredits += credit;
+                    totalPoints +=
+                        credit * grade;
+                }
+            });
+
+            const gpa =
+                totalCredits
+                    ? totalPoints / totalCredits
+                    : 0;
+
+            $("#gpaResult").textContent =
+                `GPA: ${gpa.toFixed(2)} / 4.00`;
+        }
+    );
+}
+
+
+/* =========================================================
+   TOOL INITIALIZER
+========================================================= */
+
+function initTool(name) {
+
+    switch (name) {
+
+        case "calculator":
+            initCalculator();
+            break;
+
+        case "currency":
+            initCurrency();
+            break;
+
+        case "unit":
+            initUnit();
+            break;
+
+        case "password":
+            initPassword();
+            break;
+
+        case "color":
+            initColor();
+            break;
+
+        case "qr":
+            initQR();
+            break;
+
+        case "text":
+            initTextToolkit();
+            break;
+
+        case "json":
+            initJSON();
+            break;
+
+        case "pomodoro":
+            initPomodoro();
+            break;
+
+        case "gpa":
+            initGPA();
+            break;
+    }
+}
+
+
+/* =========================================================
+   COPY SYSTEM
+========================================================= */
+
+async function copyText(text) {
+
+    if (!text) return;
+
+    try {
+
+        await navigator.clipboard.writeText(text);
+
+        showToast(t("copied"));
+
+    } catch {
+
+        const textarea =
+            document.createElement("textarea");
+
+        textarea.value = text;
+
+        document.body.appendChild(textarea);
+
+        textarea.select();
+
+        document.execCommand("copy");
+
+        textarea.remove();
+
+        showToast(t("copied"));
+    }
+}
+
+
+/* =========================================================
+   TOAST
+========================================================= */
+
+function showToast(message) {
+
+    let toast =
+        $("#dagnawToast");
+
+    if (!toast) {
+
+        toast =
+            document.createElement("div");
+
+        toast.id =
+            "dagnawToast";
+
+        toast.style.cssText = `
+            position:fixed;
+            left:50%;
+            bottom:28px;
+            transform:translateX(-50%);
+            z-index:99999;
+            padding:12px 18px;
+            border-radius:12px;
+            background:rgba(20,25,40,.95);
+            color:white;
+            border:1px solid rgba(255,255,255,.15);
+            box-shadow:0 10px 30px rgba(0,0,0,.25);
+            font-size:14px;
+            backdrop-filter:blur(12px);
+        `;
+
+        document.body.appendChild(toast);
+    }
+
+    toast.textContent = message;
+
+    toast.style.opacity = "1";
+
+    clearTimeout(toast._timer);
+
+    toast._timer =
+        setTimeout(
+            () => {
+                toast.style.opacity = "0";
+            },
+            1800
+        );
+}
+
+
+/* =========================================================
+   CONTACT FORM
+========================================================= */
+
+function initContactForm() {
+
+    const form =
+        $("#contactForm");
+
+    const message =
+        $("#formMessage");
+
+    if (!form) return;
+
+    form.addEventListener(
+        "submit",
+        event => {
+
+            event.preventDefault();
+
+            if (message) {
+
+                message.textContent =
+                    t("form_success");
+
+                message.classList.add(
+                    "success"
+                );
+            }
+
+            form.reset();
+
+            showToast(
+                t("form_success")
+            );
+        }
+    );
+}
+
+
+/* =========================================================
+   SMOOTH SCROLL
+========================================================= */
+
+function initSmoothScroll() {
+
+    $$("a[href^='#']").forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const id =
+                    link.getAttribute("href");
+
+                if (
+                    !id ||
+                    id === "#" ||
+                    !$(id)
+                ) return;
+
+                event.preventDefault();
+
+                $(id).scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        );
+    });
+}
+
+
+/* =========================================================
+   COUNTER ANIMATION
+========================================================= */
+
+function initCounters() {
+
+    const counters =
+        $$("[data-counter]");
+
+    if (!counters.length) return;
+
+    const observer =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting)
+                        return;
+
+                    const element =
+                        entry.target;
+
+                    const target =
+                        Number(
+                            element.dataset.counter
+                        );
+
+                    let current = 0;
+
+                    const step =
+                        Math.max(
+                            1,
+                            Math.ceil(target / 40)
+                        );
+
+                    const timer =
+                        setInterval(
+                            () => {
+
+                                current += step;
+
+                                if (current >= target) {
+
+                                    current = target;
+
+                                    clearInterval(timer);
+                                }
+
+                                element.textContent =
+                                    current;
+
+                            },
+                            30
+                        );
+
+                    observer.unobserve(element);
+                });
+
+            },
+            {
+                threshold: 0.7
+            }
+        );
+
+    counters.forEach(counter =>
+        observer.observe(counter)
+    );
+}
+
+
+/* =========================================================
+   PROJECT INTERACTION
+========================================================= */
+
+function initProjectCards() {
+
+    $$(".project-card, .project-feature")
+        .forEach(card => {
+
+            card.addEventListener(
+                "mouseenter",
+                () => {
+                    card.classList.add("project-hover");
+                }
+            );
+
+            card.addEventListener(
+                "mouseleave",
+                () => {
+                    card.classList.remove("project-hover");
+                }
+            );
+        });
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+function initKeyboardShortcuts() {
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.ctrlKey &&
+                event.key.toLowerCase() === "k"
+            ) {
+
+                event.preventDefault();
+
+                $("#toolSearch")?.focus();
+
+                document
+                    .getElementById("tools")
+                    ?.scrollIntoView({
+                        behavior: "smooth"
+                    });
+            }
+        }
+    );
+}
+
+
+/* =========================================================
+   INITIALIZE EVERYTHING
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        initLanguage();
+        initTheme();
+        initMobileMenu();
+
+        initTyping();
+        initParticles();
+
+        initReveal();
+        initActiveNav();
+
+        initScrollTop();
+
+        initToolFilter();
+        initToolModal();
+
+        initContactForm();
+        initSmoothScroll();
+
+        initCounters();
+        initProjectCards();
+
+        initKeyboardShortcuts();
+
+        console.log(
+            "Dagnaw Portfolio loaded successfully 🚀"
+        );
+    }
+);
