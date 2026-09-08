@@ -1353,44 +1353,53 @@
 
 
   /* =========================================================
-     13.5. SCIENTIFIC UI SOUND ENGINE — REAL LOCAL AUDIO
+     13.5. FUTURISTIC UI SOUND SYSTEM — V4.5
      ========================================================= */
   let soundEnabled = localStorage.getItem("dagnaw-sound") === "on";
 
   const soundFiles = {
-    tap: "sounds/click.wav",
+    tap: "sounds/ui-click.wav",
     projects: "sounds/projects.wav",
     tools: "sounds/tools.wav",
     contact: "sounds/contact.wav",
     cv: "sounds/cv.wav",
     menu: "sounds/menu.wav",
-    nav: "sounds/click.wav"
+    toggle: "sounds/toggle.wav",
+    nav: "sounds/ui-click.wav"
   };
 
+  /* Preload the real local files. A fresh Audio object is used for each
+     interaction so rapid taps never get stuck at currentTime=0. */
   const soundPool = {};
-
   Object.keys(soundFiles).forEach(function (kind) {
-    const audio = new Audio(soundFiles[kind]);
+    const audio = new Audio();
+    audio.src = soundFiles[kind];
     audio.preload = "auto";
-    audio.volume = 0.72;
+    audio.volume = 0.78;
+    audio.setAttribute("playsinline", "");
     soundPool[kind] = audio;
   });
 
   function uiSound(kind = "tap") {
     if (!soundEnabled) return;
-
-    const audio = soundPool[kind] || soundPool.tap;
-    if (!audio) return;
+    const source = soundPool[kind] || soundPool.tap;
+    if (!source) return;
 
     try {
-      audio.pause();
+      const audio = source.cloneNode(true);
+      audio.volume = source.volume;
       audio.currentTime = 0;
-      const playPromise = audio.play();
-      if (playPromise && typeof playPromise.catch === "function") {
-        playPromise.catch(function (error) {
-          console.warn("UI sound playback blocked:", error);
+      const promise = audio.play();
+      if (promise && typeof promise.catch === "function") {
+        promise.catch(function (error) {
+          console.warn("Futuristic UI sound playback failed:", error);
         });
       }
+      setTimeout(function () {
+        audio.pause();
+        audio.removeAttribute("src");
+        audio.load();
+      }, 900);
     } catch (error) {
       console.warn("UI sound failed:", error);
     }
@@ -1402,6 +1411,11 @@
 
     button.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
     button.classList.toggle("sound-on", soundEnabled);
+    button.classList.toggle("sound-off", !soundEnabled);
+    button.dataset.soundState = soundEnabled ? "on" : "off";
+    button.title = soundEnabled
+      ? "Sound is ON — click to turn OFF"
+      : "Sound is OFF — click to turn ON";
 
     const label = button.querySelector(".sound-label");
     const icon = button.querySelector(".sound-icon");
@@ -1414,8 +1428,16 @@
     localStorage.setItem("dagnaw-sound", soundEnabled ? "on" : "off");
     updateSoundButton();
 
-    /* Play immediately from the real user click — important on Android browsers. */
-    if (soundEnabled) uiSound("nav");
+    const button = event && event.currentTarget ? event.currentTarget : document.getElementById("soundToggle");
+    if (button) {
+      button.classList.remove("sound-pulse");
+      void button.offsetWidth;
+      button.classList.add("sound-pulse");
+    }
+
+    /* Play directly from the user's tap. This preserves the mobile browser
+       user-gesture permission needed by HTMLAudioElement.play(). */
+    if (soundEnabled) uiSound("toggle");
   }
 
   const soundToggle = document.getElementById("soundToggle");
