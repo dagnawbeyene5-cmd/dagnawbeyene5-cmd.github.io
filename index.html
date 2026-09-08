@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dagnaw Beyene Tizazu | Developer Portfolio</title>
+<meta name="description" content="Dagnaw Beyene Tizazu - Web Developer, Database Administrator, Graphics & Video Specialist from Bahir Dar, Ethiopia.">
+<meta name="author" content="Dagnaw Beyene Tizazu">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- BACKGROUND MOTION GRAPHICS -->
+<div class="background">
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+  <div class="grid-overlay"></div>
+</div>
+<canvas id="particles"></canvas>
+
+<!-- NAVIGATION -->
+<header class="topbar" id="topbar">
+  <a href="#home" class="logo">
+    <span class="logo-mark">
+      <img src="profile.jpg" alt="DB" onerror="this.style.display='none'">
+    </span>
+    <span class="logo-text">DAGNAW<span>.</span></span>
+  </a>
+
+  <nav class="nav" id="mainNav">
+    <a href="#home" data-i18n="nav_home">Home</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#skills" data-i18n="nav_skills">Skills</a>
+    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="tools.html" data-i18n="nav_tools">Tools</a>
+    <a href="#journey" data-i18n="nav_journey">Journey</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </nav>
+
+  <div class="nav-actions">
+    <select id="languageSelect" aria-label="Language">
+      <option value="en">🇺🇸 EN</option>
+      <option value="am">🇪🇹 አማ</option>
+      <option value="om">🇪🇹 ORM</option>
+      <option value="zh">🇨🇳 中文</option>
+    </select>
+
+    <a href="#contact" class="hire-button" data-i18n="hire_me">Hire Me</a>
+
+    <button id="menuToggle" class="mobile-menu" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav-panel" id="mobileNavPanel">
+    <a href="#home" data-i18n="nav_home">Home</a>
+    <a href="#about" data-i18n="nav_about">About</a>
+    <a href="#skills" data-i18n="nav_skills">Skills</a>
+    <a href="#projects" data-i18n="nav_projects">Projects</a>
+    <a href="tools.html" class="mobile-tools-link" data-i18n="nav_tools">🧰 Tools</a>
+    <a href="#journey" data-i18n="nav_journey">Journey</a>
+    <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero section" id="home">
+    <div class="hero-content">
+      <div class="status-badge reveal">
+        <span class="status-dot"></span>
+        <span data-i18n="available">Available for opportunities</span>
+      </div>
+
+      <p class="eyebrow reveal" data-i18n="hello">HELLO, I'M</p>
+
+      <h1 class="hero-title">
+        <span class="line reveal" style="--d:0">Dagnaw</span>
+        <span class="line gradient-text reveal" style="--d:1">Beyene Tizazu</span>
+      </h1>
+
+      <div class="hero-role reveal" style="--d:2">
+        <span data-i18n="hero_prefix">I am a</span>
+        <span id="typingText" class="typing-text">Web Developer</span><span class="cursor">|</span>
+      </div>
+
+      <p class="hero-description reveal" style="--d:3" data-i18n="hero_description">
+        I build modern web experiences, manage databases and create digital
+        solutions that connect technology with real-world needs.
+      </p>
+
+      <div class="hero-buttons reveal" style="--d:4">
+        <a href="#projects" class="primary-button">
+          <span data-i18n="view_projects">View My Projects</span><span>→</span>
+        </a>
+        <a href="tools.html" class="secondary-button">
+          <span>🧰</span><span data-i18n="explore_tools">Explore Tools</span>
+        </a>
+      </div>
+
+      <div class="social-links reveal" style="--d:5">
+        <a href="https://github.com/dagnawbeyene5-cmd" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/dagnaw-beyene-24686b359" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#contact">Email</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="profile-card glass-card">
+        <div class="profile-image-wrapper">
+          <div class="profile-ring"></div>
+          <img src="profile.jpg" alt="Dagnaw Beyene Tizazu" class="profile-image"
+            onerror="this.style.display='none'; this.parentElement.classList.add('profile-placeholder')">
+          <div class="profile-initials">DB</div>
+        </div>
+        <div class="profile-info">
+          <h3>Dagnaw Beyene</h3>
+          <p data-i18n="profile_role">Developer • Database • Creative</p>
+        </div>
+        <div class="mini-stats">
+          <div><strong>10+</strong><span data-i18n="stat_skills">Skills</span></div>
+          <div><strong>4</strong><span data-i18n="stat_languages">Languages</span></div>
+          <div><strong>10+</strong><span data-i18n="stat_tools">Tools</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section about-section" id="about">
+    <div class="section-heading reveal">
+      <span class="section-number">01</span>
+      <div>
+        <p class="section-label" data-i18n="section_about">ABOUT ME</p>
+        <h2 data-i18n="about_title">Turning ideas into digital solutions.</h2>
+      </div>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text glass-card reveal">
+        <p data-i18n="about_p1">I am an enthusiastic Web Developer, Database Administrator, Graphics and Video Specialist passionate about Software Engineering and Artificial Intelligence.</p>
+        <p data-i18n="about_p2">I am currently studying a Level 5 Diploma in Web Development at Bahir Dar Polytechnic College.</p>
+        <p data-i18n="about_p3">My goal is to combine modern software development, databases, IoT and AI to create useful solutions for real-world problems.</p>
+        <p data-i18n="about_p4">I am also interested in open-source development and hope to contribute to global technology communities through programs such as Outreachy.</p>
+      </div>
+
+      <div class="about-highlights">
+        <div class="highlight-card glass-card reveal"><span class="highlight-icon">💻</span><h3 data-i18n="highlight_web_title">Web Development</h3><p data-i18n="highlight_web_text">Modern, responsive and user-friendly websites.</p></div>
+        <div class="highlight-card glass-card reveal"><span class="highlight-icon">🗄️</span><h3 data-i18n="highlight_db_title">Database</h3><p data-i18n="highlight_db_text">Database design, SQL and administration.</p></div>
+        <div class="highlight-card glass-card reveal"><span class="highlight-icon">🤖</span><h3 data-i18n="highlight_ai_title">AI & IoT</h3><p data-i18n="highlight_ai_text">Exploring intelligent connected solutions.</p></div>
+        <div class="highlight-card glass-card reveal"><span class="highlight-icon">🎨</span><h3 data-i18n="highlight_creative_title">Creative</h3><p data-i18n="highlight_creative_text">Graphic design, video editing and content creation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-heading reveal">
+      <span class="section-number">02</span>
+      <div>
+        <p class="section-label" data-i18n="section_skills">SKILLS</p>
+        <h2 data-i18n="skills_title">My technical & creative skills.</h2>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skills-column glass-card reveal">
+        <h3 data-i18n="skillCat1Title">Development &amp; Database</h3>
+        <div class="skill"><div class="skill-header"><span>HTML5 / CSS3</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:95%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>JavaScript</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:75%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>Python</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:72%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>MySQL / DB Admin</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:78%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>Git / GitHub</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:75%"></span></div></div>
+      </div>
+
+      <div class="skills-column glass-card reveal">
+        <h3 data-i18n="skillCat3Title">Creative &amp; AI</h3>
+        <div class="skill"><div class="skill-header"><span>Graphic Design</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:95%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>Video Editing</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:93%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>Prompt Engineering / AI</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:90%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>Digital Marketing</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:72%"></span></div></div>
+        <div class="skill"><div class="skill-header"><span>Content Creation</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:76%"></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <div class="section-heading reveal">
+      <span class="section-number">03</span>
+      <div>
+        <p class="section-label" data-i18n="section_projects">PROJECTS</p>
+        <h2 data-i18n="projects_title">Things I'm building.</h2>
+      </div>
+    </div>
+
+    <div class="project-feature glass-card reveal">
+      <div class="project-content">
+        <div class="project-badge" data-i18n="featuredLabel">FEATURED PROJECT</div>
+        <h3 data-i18n="featuredTitle">Green Tech Smart Agriculture 2.0</h3>
+        <p class="project-subtitle" data-i18n="featuredTag">IoT + AI + Smart Irrigation</p>
+        <p data-i18n="project_description">An automated agricultural monitoring and smart irrigation system designed to use IoT sensors, microcontrollers, AI-powered crop disease detection and intelligent irrigation to improve agricultural productivity.</p>
+        <div class="tech-tags"><span>ESP32-S3</span><span>IoT</span><span>AI</span><span>YOLOv8</span><span>LoRaWAN</span><span>GSM</span><span>MicroSD</span></div>
+      </div>
+      <div class="project-visual">
+        <div class="iot-dashboard">
+          <div class="dashboard-top"><span>SMART FARM</span><span class="online">● ONLINE</span></div>
+          <div class="dashboard-value">72%</div>
+          <p>Soil Moisture</p>
+          <div class="dashboard-bars"><span style="--h:35%"></span><span style="--h:55%"></span><span style="--h:42%"></span><span style="--h:78%"></span><span style="--h:63%"></span><span style="--h:88%"></span><span style="--h:72%"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-grid">
+      <div class="project-card glass-card reveal">
+        <div class="project-card-cat" data-i18n="proj2Cat">WEB • MYSQL</div>
+        <h3 data-i18n="proj2Title">ICT Inventory Management</h3>
+        <p data-i18n="proj2Desc">Department inventory workflow for tracking assets, employees, issues and reports.</p>
+      </div>
+      <div class="project-card glass-card reveal">
+        <div class="project-card-cat" data-i18n="proj3Cat">CREATIVE • VIDEO</div>
+        <h3 data-i18n="proj3Title">Digital Content Studio</h3>
+        <p data-i18n="proj3Desc">Branding, poster design, short-form and long-form video editing workflows.</p>
+      </div>
+      <div class="project-card glass-card reveal">
+        <div class="project-card-cat" data-i18n="proj4Cat">HTML • CSS • JS</div>
+        <h3 data-i18n="proj4Title">Personal Portfolio</h3>
+        <p data-i18n="proj4Desc">A responsive personal brand site designed around technology, creativity and open source.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="section" id="journey">
+    <div class="section-heading reveal">
+      <span class="section-number">04</span>
+      <div>
+        <p class="section-label" data-i18n="journeySection">JOURNEY</p>
+        <h2 data-i18n="journeyHeadingPlain">Learning today. Building tomorrow.</h2>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass-card">
+          <span class="timeline-date" data-i18n="j1Label">NOW / EDUCATION</span>
+          <h3 data-i18n="j1Title">Web Development Diploma — Bahir Dar Polytechnic College</h3>
+          <p data-i18n="j1Desc">Focused on practical web, database and programming foundations.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass-card">
+          <span class="timeline-date" data-i18n="j2Label">PROFESSIONAL / CREATIVE</span>
+          <h3 data-i18n="j2Title">Freelance Designer & Digital Content Creator</h3>
+          <p data-i18n="j2Desc">Promotional materials, social-media graphics and video editing for personal and client projects.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass-card">
+          <span class="timeline-date" data-i18n="j3Label">WORK EXPERIENCE</span>
+          <h3 data-i18n="j3Title">Front Desk Attendant — Palm Palace Hotel</h3>
+          <p data-i18n="j3Desc">Customer service, workplace coordination and communication experience in a live service environment.</p>
+        </div>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card glass-card">
+          <span class="timeline-date" data-i18n="j4Label">FUTURE / OPEN SOURCE</span>
+          <h3 data-i18n="j4Title">Outreachy & Impactful Software Engineering</h3>
+          <p data-i18n="j4Desc">Goal: contribute to open source and build software/database systems with meaningful community impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VISION -->
+  <section class="section goal-section">
+    <div class="goal-card glass-card reveal">
+      <div class="goal-icon">🚀</div>
+      <div>
+        <p class="section-label" data-i18n="goal_label">MY VISION</p>
+        <h2 data-i18n="goal_title">Become an impactful Software Engineer.</h2>
+        <p data-i18n="goal_description">My long-term goal is to build meaningful software solutions, contribute to open source and use technology to solve real-world problems.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section contact-section" id="contact">
+    <div class="section-heading reveal">
+      <span class="section-number">05</span>
+      <div>
+        <p class="section-label" data-i18n="section_contact">CONTACT</p>
+        <h2 data-i18n="contact_title">Let's build something great.</h2>
+      </div>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info glass-card reveal">
+        <h3 data-i18n="contact_subtitle">Get in touch</h3>
+        <p data-i18n="contact_description">Have a project, idea or opportunity? Feel free to contact me.</p>
+        <div class="contact-list">
+          <a href="mailto:dagnawbeyene5@gmail.com">📧 dagnawbeyene5@gmail.com</a>
+          <a href="tel:+251918071701">📱 +251 918 071 701</a>
+          <a href="https://github.com/dagnawbeyene5-cmd" target="_blank" rel="noopener">💻 github.com/dagnawbeyene5-cmd</a>
+          <a href="https://www.linkedin.com/in/dagnaw-beyene-24686b359" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        </div>
+      </div>
+
+      <form class="contact-form glass-card reveal" id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name" data-i18n="form_name">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your name">
+          </div>
+          <div class="form-group">
+            <label for="email" data-i18n="form_email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="you@example.com">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="message" data-i18n="form_message">Message</label>
+          <textarea id="message" name="message" rows="5" required placeholder="Write your message..."></textarea>
+        </div>
+        <button type="submit" class="primary-button"><span data-i18n="send_message">Send Message</span><span>→</span></button>
+        <p id="formMessage" class="form-message"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">DAGNAW<span>.</span></div>
+      <p data-i18n="footer_text">Building useful things with technology.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home" data-i18n="nav_home">Home</a>
+      <a href="#about" data-i18n="nav_about">About</a>
+      <a href="tools.html" data-i18n="nav_tools">Tools</a>
+      <a href="#contact" data-i18n="nav_contact">Contact</a>
+    </div>
+  </div>
+  <div class="copyright">© <span id="currentYear"></span> Dagnaw Beyene Tizazu. <span data-i18n="rights">All rights reserved.</span></div>
+</footer>
+
+<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
