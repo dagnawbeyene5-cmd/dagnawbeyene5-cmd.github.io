@@ -1,0 +1,1 @@
+FINAL FIX: replace index.html, style.css and script.js. This version has a robust automatic intro exit at 4 seconds, a 5.2 second failsafe, cache-busted script v5.0, and tap-to-skip. Keep profile.jpg, CV, tools.html and other existing files.
