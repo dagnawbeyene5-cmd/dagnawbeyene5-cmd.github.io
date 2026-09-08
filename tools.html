@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tools Hub | Dagnaw Beyene Tizazu</title>
+<meta name="description" content="Free, fast and useful tools for students, developers and creators — built by Dagnaw Beyene Tizazu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tools.css">
+</head>
+<body>
+
+<div class="background">
+  <div class="gradient-orb orb-1"></div>
+  <div class="gradient-orb orb-2"></div>
+  <div class="gradient-orb orb-3"></div>
+  <div class="grid-overlay"></div>
+</div>
+<canvas id="particles"></canvas>
+
+<header class="topbar" id="topbar">
+  <a href="index.html" class="logo">
+    <span class="logo-mark"><img src="profile.jpg" alt="DB" onerror="this.style.display='none'"></span>
+    <span class="logo-text">DAGNAW<span>.</span></span>
+  </a>
+
+  <nav class="nav" id="mainNav">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="tools.html" class="active-link">Tools</a>
+    <a href="index.html#contact">Contact</a>
+  </nav>
+
+  <div class="nav-actions">
+    <a href="index.html" class="hire-button">← Portfolio</a>
+    <button id="menuToggle" class="mobile-menu" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-nav-panel" id="mobileNavPanel">
+    <a href="index.html#home">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="index.html#skills">Skills</a>
+    <a href="index.html#projects">Projects</a>
+    <a href="tools.html" class="mobile-tools-link">🧰 Tools</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+</header>
+
+<main>
+  <section class="section tools-hero">
+    <div class="section-heading reveal" style="margin-bottom:26px">
+      <div>
+        <p class="section-label">TOOLS HUB</p>
+        <h1 class="tools-title">Free, fast &amp; useful tools <span class="gradient-text">for everyone.</span></h1>
+        <p class="section-description">Practical tools for students, developers, designers and creators — built and maintained by Dagnaw.</p>
+      </div>
+    </div>
+
+    <div class="tools-controls reveal">
+      <div class="tool-search">
+        <span>🔍</span>
+        <input type="search" id="toolSearch" placeholder="Search tools...">
+      </div>
+      <div class="tool-categories" id="toolCategories">
+        <button class="category-button active" data-category="all">All</button>
+        <button class="category-button" data-category="developer">Developer</button>
+        <button class="category-button" data-category="student">Student</button>
+        <button class="category-button" data-category="design">Design</button>
+        <button class="category-button" data-category="utility">Utility</button>
+      </div>
+    </div>
+
+    <div class="tools-grid" id="toolsGrid">
+
+      <article class="tool-card glass-card reveal" data-category="developer" data-tool="password" data-name="password generator">
+        <div class="tool-icon">🔐</div>
+        <h3>Password Generator</h3>
+        <p>Generate strong, secure passwords with a strength meter.</p>
+        <button class="tool-open" data-tool-open="password">Open Tool →</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="calculator" data-name="smart calculator">
+        <div class="tool-icon">🧮</div>
+        <h3>Smart Calculator</h3>
+        <p>Scientific, percentage, discount, VAT &amp; loan calculator.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="unit" data-name="unit converter">
+        <div class="tool-icon">📏</div>
+        <h3>Unit Converter</h3>
+        <p>Length, weight, temperature, area, volume, speed, time.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="student" data-tool="text" data-name="text writing tools">
+        <div class="tool-icon">📝</div>
+        <h3>Text &amp; Writing Tools</h3>
+        <p>Word/character counters, case conversion, cleanup.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="design" data-tool="color" data-name="color tools">
+        <div class="tool-icon">🎨</div>
+        <h3>Color Tools</h3>
+        <p>Picker, HEX/RGB/HSL, palettes, gradients, contrast checker.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="qr" data-name="qr code generator">
+        <div class="tool-icon">🔳</div>
+        <h3>QR Code Generator</h3>
+        <p>Turn text or links into a downloadable QR code.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="developer" data-tool="devkit" data-name="developer toolkit">
+        <div class="tool-icon">👨‍💻</div>
+        <h3>Developer Toolkit</h3>
+        <p>JSON formatter, Base64, URL encode, UUID, hash, regex.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="student" data-tool="productivity" data-name="student productivity tools">
+        <div class="tool-icon">📊</div>
+        <h3>Student &amp; Productivity Tools</h3>
+        <p>GPA calculator, age calculator, Pomodoro, to-do list.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="currency" data-name="currency converter">
+        <div class="tool-icon">💱</div>
+        <h3>Currency Converter</h3>
+        <p>ETB, USD, EUR, GBP, CNY and more.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+      <article class="tool-card glass-card reveal coming-soon" data-category="developer" data-tool="playground" data-name="html css js playground">
+        <div class="tool-icon">🧑‍💻</div>
+        <h3>HTML/CSS/JS Playground</h3>
+        <p>Write code and see a live preview instantly.</p>
+        <button class="tool-open" disabled>Coming Soon</button>
+      </article>
+
+    </div>
+
+    <p class="tools-empty" id="toolsEmpty" hidden>No tools match your search.</p>
+  </section>
+
+  <!-- ===== PASSWORD GENERATOR PANEL ===== -->
+  <section class="section tool-panel" id="panel-password" hidden>
+    <div class="tool-panel-card glass-card">
+      <button class="tool-panel-close" id="closePasswordTool" aria-label="Close">×</button>
+      <div class="tool-panel-header">
+        <span class="tool-icon">🔐</span>
+        <div>
+          <h2>Password Generator</h2>
+          <p>Create a strong, random password in one click.</p>
+        </div>
+      </div>
+
+      <div class="password-output">
+        <input type="text" id="passwordOutput" readonly value="Click Generate →">
+        <button id="copyPassword" title="Copy">📋</button>
+      </div>
+      <p class="copy-note" id="copyNote"></p>
+
+      <div class="strength-meter">
+        <div class="strength-bar"><span id="strengthFill"></span></div>
+        <span id="strengthLabel">—</span>
+      </div>
+
+      <div class="password-options">
+        <div class="option-row">
+          <label for="pwLength">Length: <strong id="pwLengthValue">16</strong></label>
+          <input type="range" id="pwLength" min="6" max="32" value="16">
+        </div>
+        <div class="option-checks">
+          <label><input type="checkbox" id="optUpper" checked> Uppercase (A-Z)</label>
+          <label><input type="checkbox" id="optLower" checked> Lowercase (a-z)</label>
+          <label><input type="checkbox" id="optNumbers" checked> Numbers (0-9)</label>
+          <label><input type="checkbox" id="optSymbols" checked> Symbols (!@#$%)</label>
+        </div>
+      </div>
+
+      <button class="primary-button" id="generatePassword">Generate Password <span>🔄</span></button>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">DAGNAW<span>.</span></div>
+      <p>Building useful things with technology.</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About</a>
+      <a href="tools.html">Tools</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+  <div class="copyright">© <span id="currentYear"></span> Dagnaw Beyene Tizazu. All rights reserved.</div>
+</footer>
+
+<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
+
+<script src="tools.js"></script>
+</body>
+</html>
