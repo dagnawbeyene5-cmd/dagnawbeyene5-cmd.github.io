@@ -1,5 +1,61 @@
 const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
 
+/* ===================== INTRO / WELCOME SCREEN ===================== */
+(function(){
+  const introScreen=$("#introScreen"),cycleEl=$("#introCycle");
+  if(!introScreen)return;
+  document.documentElement.style.overflow="hidden";
+
+  const phrases=["Welcome","እንኳን ደህና መጡ","Baga Nagaan Dhuftan","欢迎","I build digital solutions."];
+  let idx=0;
+  const cycleTimer=setInterval(()=>{
+    idx++;
+    if(idx>=phrases.length){clearInterval(cycleTimer);return;}
+    cycleEl.style.animation="none";
+    cycleEl.offsetHeight;
+    cycleEl.textContent=phrases[idx];
+    cycleEl.style.animation="cycleFade .6s ease";
+  },520);
+
+  const introCanvas=$("#introParticles");
+  if(introCanvas){
+    const ctx=introCanvas.getContext("2d");
+    let W,H,pts=[];
+    function resize(){
+      W=introCanvas.width=innerWidth;H=introCanvas.height=innerHeight;
+      pts=Array.from({length:90},()=>({
+        x:Math.random()*W,y:Math.random()*H,
+        vx:(Math.random()-.5)*1.4,vy:(Math.random()-.5)*1.4,
+        r:Math.random()*2+.6
+      }));
+    }
+    let raf;
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(const p of pts){
+        p.x+=p.vx;p.y+=p.vy;
+        if(p.x<0||p.x>W)p.vx*=-1;
+        if(p.y<0||p.y>H)p.vy*=-1;
+        ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle="rgba(103,217,255,.6)";ctx.fill();
+      }
+      raf=requestAnimationFrame(draw);
+    }
+    addEventListener("resize",resize);resize();draw();
+    introScreen._stopParticles=()=>cancelAnimationFrame(raf);
+  }
+
+  setTimeout(()=>{
+    introScreen.classList.add("intro-hide");
+    document.documentElement.style.overflow="";
+    clearInterval(cycleTimer);
+    setTimeout(()=>{
+      introScreen._stopParticles&&introScreen._stopParticles();
+      introScreen.remove();
+    },700);
+  },2900);
+})();
+
 /* ===================== TRANSLATIONS ===================== */
 const translations={
 en:{
