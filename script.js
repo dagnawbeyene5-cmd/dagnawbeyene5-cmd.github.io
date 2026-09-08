@@ -1353,6 +1353,78 @@
 
 
   /* =========================================================
+     13.5. SCIENTIFIC UI SOUND ENGINE — REAL LOCAL AUDIO
+     ========================================================= */
+  let soundEnabled = localStorage.getItem("dagnaw-sound") === "on";
+
+  const soundFiles = {
+    tap: "sounds/click.wav",
+    projects: "sounds/projects.wav",
+    tools: "sounds/tools.wav",
+    contact: "sounds/contact.wav",
+    cv: "sounds/cv.wav",
+    menu: "sounds/menu.wav",
+    nav: "sounds/click.wav"
+  };
+
+  const soundPool = {};
+
+  Object.keys(soundFiles).forEach(function (kind) {
+    const audio = new Audio(soundFiles[kind]);
+    audio.preload = "auto";
+    audio.volume = 0.72;
+    soundPool[kind] = audio;
+  });
+
+  function uiSound(kind = "tap") {
+    if (!soundEnabled) return;
+
+    const audio = soundPool[kind] || soundPool.tap;
+    if (!audio) return;
+
+    try {
+      audio.pause();
+      audio.currentTime = 0;
+      const playPromise = audio.play();
+      if (playPromise && typeof playPromise.catch === "function") {
+        playPromise.catch(function (error) {
+          console.warn("UI sound playback blocked:", error);
+        });
+      }
+    } catch (error) {
+      console.warn("UI sound failed:", error);
+    }
+  }
+
+  function updateSoundButton() {
+    const button = document.getElementById("soundToggle");
+    if (!button) return;
+
+    button.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
+    button.classList.toggle("sound-on", soundEnabled);
+
+    const label = button.querySelector(".sound-label");
+    const icon = button.querySelector(".sound-icon");
+    if (label) label.textContent = soundEnabled ? "SOUND ON" : "SOUND OFF";
+    if (icon) icon.textContent = soundEnabled ? "🔊" : "🔇";
+  }
+
+  function toggleSound(event) {
+    soundEnabled = !soundEnabled;
+    localStorage.setItem("dagnaw-sound", soundEnabled ? "on" : "off");
+    updateSoundButton();
+
+    /* Play immediately from the real user click — important on Android browsers. */
+    if (soundEnabled) uiSound("nav");
+  }
+
+  const soundToggle = document.getElementById("soundToggle");
+  if (soundToggle) {
+    soundToggle.addEventListener("click", toggleSound);
+    updateSoundButton();
+  }
+
+  /* =========================================================
      14. BUTTON / LINK MOTION CONTROLLER
      ========================================================= */
 
@@ -1362,6 +1434,18 @@
       event.target.closest("a, button");
 
     if (!link) return;
+
+    /* Every important interactive element gets an intentional UI sound. */
+    if (link.id !== "soundToggle") {
+      const h = link.getAttribute("href") || "";
+      const t = link.textContent.toLowerCase();
+      if(link.id === "menuToggle") uiSound("menu");
+      else if(h.includes("tools") || t.includes("tool") || t.includes("መሳሪያ")) uiSound("tools");
+      else if(h.includes("projects") || t.includes("project") || t.includes("ፕሮጀክት")) uiSound("projects");
+      else if(h.includes("contact") || h.startsWith("mailto:") || t.includes("hire") || t.includes("contact") || t.includes("አግኙ")) uiSound("contact");
+      else if(h.includes(".pdf") || t.includes("download") || t.includes("cv")) uiSound("cv");
+      else uiSound("tap");
+    }
 
     /* Ignore language selector */
     if (
