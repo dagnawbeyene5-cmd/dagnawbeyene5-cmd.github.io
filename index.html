@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050812">
+  <meta name="description" content="Dagi — personal developer portfolio.">
+  <title>DAGI // Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-shell">
+
+  <div class="site-noise" aria-hidden="true"></div>
+  <div class="site-grid" aria-hidden="true"></div>
+  <canvas id="particles" class="particle-canvas" aria-hidden="true"></canvas>
+
+  <div class="intro-screen" id="introScreen" aria-hidden="true">
+    <div class="intro-scan"></div>
+    <div class="intro-core">
+      <span class="eyebrow">PORTFOLIO SYSTEM</span>
+      <strong>DAGI<span>.</span></strong>
+      <span class="intro-line">INITIALIZING DIGITAL WORKSPACE</span>
+      <div class="intro-loader"><i></i></div>
+    </div>
+  </div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#home" data-sound="nav">
+      <span class="brand-mark"><img src="assets/images/profile.jpg" alt=""></span>
+      <span>DAGI<span class="accent">.</span></span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#home" class="nav-link is-active" data-sound="nav"><span>01</span>Home</a>
+      <a href="#about" class="nav-link" data-sound="nav"><span>02</span>About</a>
+      <a href="#skills" class="nav-link" data-sound="nav"><span>03</span>Skills</a>
+      <a href="#projects" class="nav-link" data-sound="nav"><span>04</span>Projects</a>
+      <a href="#certificates" class="nav-link" data-sound="nav"><span>05</span>Certificates</a>
+      <a href="tools.html" class="nav-link" data-sound="nav"><span>06</span>Tools</a>
+      <a href="#contact" class="nav-link" data-sound="nav"><span>07</span>Contact</a>
+    </nav>
+
+    <div class="top-actions">
+      <button class="sound-toggle sound-off" id="soundToggle" type="button"
+              aria-pressed="false" aria-label="Turn interface sound on">
+        <span class="sound-dot" aria-hidden="true"></span>
+        <span class="sound-icon" aria-hidden="true">⌁</span>
+        <span class="sound-label">SOUND OFF</span>
+      </button>
+      <button class="menu-toggle" id="menuToggle" type="button"
+              aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu" data-sound="menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+      <div class="mobile-panel-head">
+        <span>SYS // NAVIGATION</span>
+        <span class="status-live">LIVE</span>
+      </div>
+      <a href="#home" data-sound="nav"><b>01</b><span>Home</span><i>↗</i></a>
+      <a href="#about" data-sound="nav"><b>02</b><span>About</span><i>↗</i></a>
+      <a href="#skills" data-sound="nav"><b>03</b><span>Skills</span><i>↗</i></a>
+      <a href="#projects" data-sound="nav"><b>04</b><span>Projects</span><i>↗</i></a>
+      <a href="#certificates" data-sound="nav"><b>05</b><span>Certificates</span><i>↗</i></a>
+      <a href="tools.html" data-sound="nav"><b>06</b><span>Tools Hub</span><i>↗</i></a>
+      <a href="#contact" data-sound="nav"><b>07</b><span>Contact</span><i>↗</i></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/images/profile.jpg">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-fallback"></div>
+        <div class="hud-frame hud-frame-a"></div>
+        <div class="hud-frame hud-frame-b"></div>
+        <div class="scanlines"></div>
+        <div class="hero-ring hero-ring-a"></div>
+        <div class="hero-ring hero-ring-b"></div>
+        <div class="data-orbit data-orbit-a"><span></span><b>01</b></div>
+        <div class="data-orbit data-orbit-b"><span></span><b>DB</b></div>
+        <div class="hero-crosshair">+</div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label"><span class="signal"></span> DEVELOPER PORTFOLIO / SYSTEM ONLINE</p>
+        <h1>Building digital experiences with <span class="gradient-text">code &amp; curiosity.</span></h1>
+        <p class="hero-copy">
+          I’m <strong>Dagi</strong>. This is my personal workspace for projects, skills,
+          experiments, certificates and useful tools.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects" data-sound="projects"><span>Explore Projects</span><i>↗</i></a>
+          <a class="button button-ghost" href="#contact" data-sound="contact"><span>Contact</span><i>→</i></a>
+        </div>
+        <div class="hero-meta">
+          <span><i></i> AVAILABLE FOR BUILDING</span>
+          <span>HTML / CSS / JS</span>
+          <span>01 — 07</span>
+        </div>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="section content-section" id="about">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">02 // ABOUT</p>
+          <h2>Turning ideas into <span class="gradient-text">useful interfaces.</span></h2>
+        </div>
+        <p class="section-description">A focused portfolio system designed to show the work, not just the template.</p>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-card about-main reveal">
+          <div class="card-kicker">PROFILE / 001</div>
+          <h3>Developer mindset.</h3>
+          <p>
+            I care about practical software, clean interfaces, thoughtful interaction,
+            and learning by building. This portfolio is intentionally structured so new
+            projects and features can be added without turning the whole codebase into one
+            tangled file.
+          </p>
+          <div class="about-stats">
+            <div><strong>01</strong><span>Portfolio system</span></div>
+            <div><strong>∞</strong><span>Room to grow</span></div>
+            <div><strong>100%</strong><span>Built for learning</span></div>
+          </div>
+        </article>
+
+        <aside class="glass-card profile-panel reveal">
+          <div class="profile-orbit"><span></span></div>
+          <img src="assets/images/profile.jpg" alt="Dagi" class="profile-photo">
+          <div class="profile-name">DAGI<span class="accent">.</span></div>
+          <div class="profile-role">DEVELOPER / BUILDER</div>
+          <div class="profile-status"><span></span> SYSTEM READY</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section content-section" id="skills">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">03 // SKILLS</p>
+          <h2>Tools of the <span class="gradient-text">craft.</span></h2>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal" data-motion="energy">
+          <div class="skill-icon">⌘</div><span class="skill-index">A1</span>
+          <h3>HTML</h3><p>Semantic structure and accessible page architecture.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-motion="signal">
+          <div class="skill-icon">{ }</div><span class="skill-index">A2</span>
+          <h3>CSS</h3><p>Responsive layouts, motion, visual systems and UI polish.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-motion="data">
+          <div class="skill-icon">JS</div><span class="skill-index">A3</span>
+          <h3>JavaScript</h3><p>Interaction, state, browser APIs and modular UI logic.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-motion="mechanical">
+          <div class="skill-icon">⚙</div><span class="skill-index">A4</span>
+          <h3>Problem Solving</h3><p>Debugging, iteration and building practical solutions.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section content-section" id="projects">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">04 // PROJECTS</p>
+          <h2>Selected <span class="gradient-text">builds.</span></h2>
+        </div>
+        <p class="section-description">Replace the clearly marked project slots with your real projects as you add them.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-visual project-visual-one"><span>PROJECT / 01</span><i>◌</i></div>
+          <div class="project-body">
+            <div class="project-top"><span>BUILD SLOT</span><span>01</span></div>
+            <h3>Your Project</h3>
+            <p>Add your real project title, short description, technologies and links here.</p>
+            <div class="tag-row"><span>HTML</span><span>CSS</span><span>JS</span></div>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-visual project-visual-two"><span>PROJECT / 02</span><i>⌁</i></div>
+          <div class="project-body">
+            <div class="project-top"><span>BUILD SLOT</span><span>02</span></div>
+            <h3>Your Project</h3>
+            <p>This slot is intentionally not filled with invented project information.</p>
+            <div class="tag-row"><span>ADD</span><span>YOUR</span><span>STACK</span></div>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-visual project-visual-three"><span>PROJECT / 03</span><i>✦</i></div>
+          <div class="project-body">
+            <div class="project-top"><span>BUILD SLOT</span><span>03</span></div>
+            <h3>Your Project</h3>
+            <p>Duplicate this card for future work without changing the main architecture.</p>
+            <div class="tag-row"><span>FUTURE</span><span>BUILD</span><span>LAB</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section content-section certificates-section" id="certificates">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">05 // CERTIFICATES</p>
+          <h2>Proof of <span class="gradient-text">progress.</span></h2>
+        </div>
+        <p class="section-description">Certificate files stay in <code>assets/certificates/</code> and are registered in one module.</p>
+      </div>
+      <div class="certificate-grid" id="certificateGrid"></div>
+    </section>
+
+    <section class="section content-section contact-section" id="contact">
+      <div class="contact-shell glass-card reveal">
+        <div>
+          <p class="section-label">07 // CONTACT</p>
+          <h2>Let’s build something <span class="gradient-text">useful.</span></h2>
+          <p>
+            Add your real contact details below. They are intentionally left out until you
+            provide the information you want published.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:YOUR-EMAIL@example.com" data-sound="contact">Email Me <i>↗</i></a>
+          <a class="button button-ghost" href="tools.html" data-sound="tools">Open Tools Hub <i>→</i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>DAGI<span class="accent">.</span></strong><span>Developer Portfolio</span></div>
+      <div><span>STATIC / FAST / MODULAR</span><span>© <span id="currentYear"></span></span></div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" type="button" aria-label="Scroll to top" data-sound="nav">↑</button>
+
+  <div class="modal-root" id="certificateModal" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="certificate-modal" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close certificate preview">×</button>
+      <div class="modal-title-row">
+        <span class="section-label">CERTIFICATE PREVIEW</span>
+        <h2 id="certificateModalTitle">Certificate</h2>
+      </div>
+      <div class="certificate-preview" id="certificatePreview"></div>
+    </div>
+  </div>
+
+  <script type="module" src="script.js"></script>
+</body>
+</html>
