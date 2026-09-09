@@ -1,73 +1,53 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tools Hub | Dagnaw Beyene Tizazu</title>
-<meta name="description" content="Free, fast and useful tools for students, developers and creators — built by Dagnaw Beyene Tizazu.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="tools.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dagi Tools Hub">
+  <title>TOOLS // DAGI</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="tools.css">
 </head>
-<body>
+<body class="site-shell">
+  <div class="site-noise" aria-hidden="true"></div>
+  <div class="site-grid" aria-hidden="true"></div>
 
-<div class="background">
-  <div class="gradient-orb orb-1"></div>
-  <div class="gradient-orb orb-2"></div>
-  <div class="gradient-orb orb-3"></div>
-  <div class="grid-overlay"></div>
-</div>
-<canvas id="particles"></canvas>
-
-<header class="topbar" id="topbar">
-  <a href="index.html" class="logo">
-    <span class="logo-mark"><img src="profile.jpg" alt="DB" onerror="this.style.display='none'"></span>
-    <span class="logo-text">DAGNAW<span>.</span></span>
-  </a>
-
-  <nav class="nav" id="mainNav">
-    <a href="index.html#home">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="tools.html" class="active-link">Tools</a>
-    <a href="index.html#contact">Contact</a>
-  </nav>
-
-  <div class="nav-actions">
-    <a href="index.html" class="hire-button">← Portfolio</a>
-    <button id="menuToggle" class="mobile-menu" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="mobile-nav-panel" id="mobileNavPanel">
-    <a href="index.html#home">Home</a>
-    <a href="index.html#about">About</a>
-    <a href="index.html#skills">Skills</a>
-    <a href="index.html#projects">Projects</a>
-    <a href="tools.html" class="mobile-tools-link">🧰 Tools</a>
-    <a href="index.html#contact">Contact</a>
-  </div>
-</header>
-
-<main>
-  <section class="section tools-hero">
-    <div class="section-heading reveal" style="margin-bottom:26px">
-      <div>
-        <p class="section-label">TOOLS HUB</p>
-        <h1 class="tools-title">Free, fast &amp; useful tools <span class="gradient-text">for everyone.</span></h1>
-        <p class="section-description">Practical tools for students, developers, designers and creators — built and maintained by Dagnaw.</p>
-      </div>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="index.html#home"><span class="brand-mark"><img src="assets/images/profile.jpg" alt=""></span><span>DAGI<span class="accent">.</span></span></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a class="nav-link" href="index.html#home"><span>01</span>Home</a>
+      <a class="nav-link" href="index.html#about"><span>02</span>About</a>
+      <a class="nav-link" href="index.html#skills"><span>03</span>Skills</a>
+      <a class="nav-link" href="index.html#projects"><span>04</span>Projects</a>
+      <a class="nav-link" href="index.html#certificates"><span>05</span>Certificates</a>
+      <a class="nav-link is-active" href="tools.html"><span>06</span>Tools</a>
+      <a class="nav-link" href="index.html#contact"><span>07</span>Contact</a>
+    </nav>
+    <div class="top-actions">
+      <button class="sound-toggle sound-off" id="soundToggle" type="button" aria-pressed="false"><span class="sound-dot"></span><span class="sound-icon">⌁</span><span class="sound-label">SOUND OFF</span></button>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu"><span></span><span></span><span></span></button>
     </div>
+    <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+      <div class="mobile-panel-head"><span>SYS // NAVIGATION</span><span class="status-live">LIVE</span></div>
+      <a href="index.html#home"><b>01</b><span>Home</span><i>↗</i></a>
+      <a href="index.html#about"><b>02</b><span>About</span><i>↗</i></a>
+      <a href="index.html#skills"><b>03</b><span>Skills</span><i>↗</i></a>
+      <a href="index.html#projects"><b>04</b><span>Projects</span><i>↗</i></a>
+      <a href="index.html#certificates"><b>05</b><span>Certificates</span><i>↗</i></a>
+      <a href="tools.html"><b>06</b><span>Tools Hub</span><i>↗</i></a>
+      <a href="index.html#contact"><b>07</b><span>Contact</span><i>↗</i></a>
+    </div>
+  </header>
 
-    <div class="tools-controls reveal">
-      <div class="tool-search">
-        <span>🔍</span>
-        <input type="search" id="toolSearch" placeholder="Search tools...">
-      </div>
+  <main class="tools-page section">
+    <section class="tools-hero">
+      <p class="section-label">06 // TOOLS HUB</p>
+      <h1>Useful tools. <span class="gradient-text">No clutter.</span></h1>
+      <p>Practical browser tools built as independent modules so new tools can be added without breaking the portfolio.</p>
+    </section>
+
+    <section class="tools-controls glass-card">
+      <label class="tool-search"><span>⌕</span><input id="toolSearch" type="search" placeholder="Search tools..." autocomplete="off"></label>
       <div class="tool-categories" id="toolCategories">
         <button class="category-button active" data-category="all">All</button>
         <button class="category-button" data-category="developer">Developer</button>
@@ -75,144 +55,58 @@
         <button class="category-button" data-category="design">Design</button>
         <button class="category-button" data-category="utility">Utility</button>
       </div>
-    </div>
+    </section>
 
-    <div class="tools-grid" id="toolsGrid">
-
-      <article class="tool-card glass-card reveal" data-category="developer" data-tool="password" data-name="password generator">
-        <div class="tool-icon">🔐</div>
-        <h3>Password Generator</h3>
-        <p>Generate strong, secure passwords with a strength meter.</p>
+    <section class="tools-grid" id="toolsGrid" aria-live="polite">
+      <article class="tool-card" data-category="developer" data-name="password generator">
+        <div class="tool-icon">⌁</div><span class="tool-code">DEV / 01</span>
+        <h2>Password Generator</h2><p>Generate strong random passwords with a simple strength meter.</p>
         <button class="tool-open" data-tool-open="password">Open Tool →</button>
       </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="calculator" data-name="smart calculator">
-        <div class="tool-icon">🧮</div>
-        <h3>Smart Calculator</h3>
-        <p>Scientific, percentage, discount, VAT &amp; loan calculator.</p>
+      <article class="tool-card coming-soon" data-category="utility" data-name="smart calculator">
+        <div class="tool-icon">∑</div><span class="tool-code">UTIL / 02</span>
+        <h2>Smart Calculator</h2><p>Scientific, percentage, discount, VAT and loan calculations.</p>
         <button class="tool-open" disabled>Coming Soon</button>
       </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="unit" data-name="unit converter">
-        <div class="tool-icon">📏</div>
-        <h3>Unit Converter</h3>
-        <p>Length, weight, temperature, area, volume, speed, time.</p>
+      <article class="tool-card coming-soon" data-category="utility" data-name="unit converter">
+        <div class="tool-icon">↔</div><span class="tool-code">UTIL / 03</span>
+        <h2>Unit Converter</h2><p>Length, weight, temperature, area, volume, speed and time.</p>
         <button class="tool-open" disabled>Coming Soon</button>
       </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="student" data-tool="text" data-name="text writing tools">
-        <div class="tool-icon">📝</div>
-        <h3>Text &amp; Writing Tools</h3>
-        <p>Word/character counters, case conversion, cleanup.</p>
+      <article class="tool-card coming-soon" data-category="student" data-name="text writing tools">
+        <div class="tool-icon">T</div><span class="tool-code">STUD / 04</span>
+        <h2>Text &amp; Writing</h2><p>Word and character counters, case conversion and cleanup.</p>
         <button class="tool-open" disabled>Coming Soon</button>
       </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="design" data-tool="color" data-name="color tools">
-        <div class="tool-icon">🎨</div>
-        <h3>Color Tools</h3>
-        <p>Picker, HEX/RGB/HSL, palettes, gradients, contrast checker.</p>
+      <article class="tool-card coming-soon" data-category="design" data-name="color tools">
+        <div class="tool-icon">◈</div><span class="tool-code">DES / 05</span>
+        <h2>Color Tools</h2><p>HEX/RGB/HSL, palettes, gradients and contrast utilities.</p>
         <button class="tool-open" disabled>Coming Soon</button>
       </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="qr" data-name="qr code generator">
-        <div class="tool-icon">🔳</div>
-        <h3>QR Code Generator</h3>
-        <p>Turn text or links into a downloadable QR code.</p>
+      <article class="tool-card coming-soon" data-category="utility" data-name="qr code generator">
+        <div class="tool-icon">▦</div><span class="tool-code">UTIL / 06</span>
+        <h2>QR Generator</h2><p>Turn text or links into a QR code when the module is added.</p>
         <button class="tool-open" disabled>Coming Soon</button>
       </article>
+    </section>
 
-      <article class="tool-card glass-card reveal coming-soon" data-category="developer" data-tool="devkit" data-name="developer toolkit">
-        <div class="tool-icon">👨‍💻</div>
-        <h3>Developer Toolkit</h3>
-        <p>JSON formatter, Base64, URL encode, UUID, hash, regex.</p>
-        <button class="tool-open" disabled>Coming Soon</button>
-      </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="student" data-tool="productivity" data-name="student productivity tools">
-        <div class="tool-icon">📊</div>
-        <h3>Student &amp; Productivity Tools</h3>
-        <p>GPA calculator, age calculator, Pomodoro, to-do list.</p>
-        <button class="tool-open" disabled>Coming Soon</button>
-      </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="utility" data-tool="currency" data-name="currency converter">
-        <div class="tool-icon">💱</div>
-        <h3>Currency Converter</h3>
-        <p>ETB, USD, EUR, GBP, CNY and more.</p>
-        <button class="tool-open" disabled>Coming Soon</button>
-      </article>
-
-      <article class="tool-card glass-card reveal coming-soon" data-category="developer" data-tool="playground" data-name="html css js playground">
-        <div class="tool-icon">🧑‍💻</div>
-        <h3>HTML/CSS/JS Playground</h3>
-        <p>Write code and see a live preview instantly.</p>
-        <button class="tool-open" disabled>Coming Soon</button>
-      </article>
-
-    </div>
-
-    <p class="tools-empty" id="toolsEmpty" hidden>No tools match your search.</p>
-  </section>
-
-  <!-- ===== PASSWORD GENERATOR PANEL ===== -->
-  <section class="section tool-panel" id="panel-password" hidden>
-    <div class="tool-panel-card glass-card">
-      <button class="tool-panel-close" id="closePasswordTool" aria-label="Close">×</button>
-      <div class="tool-panel-header">
-        <span class="tool-icon">🔐</span>
-        <div>
-          <h2>Password Generator</h2>
-          <p>Create a strong, random password in one click.</p>
-        </div>
-      </div>
-
-      <div class="password-output">
-        <input type="text" id="passwordOutput" readonly value="Click Generate →">
-        <button id="copyPassword" title="Copy">📋</button>
-      </div>
-      <p class="copy-note" id="copyNote"></p>
-
-      <div class="strength-meter">
-        <div class="strength-bar"><span id="strengthFill"></span></div>
-        <span id="strengthLabel">—</span>
-      </div>
-
+    <section class="tool-panel glass-card" id="passwordPanel" hidden>
+      <div class="panel-head"><div><p class="section-label">TOOL / PASSWORD</p><h2>Password Generator</h2></div><button class="panel-close" id="closePassword" type="button">×</button></div>
+      <div class="password-output"><input id="passwordOutput" type="text" readonly value="Click Generate"><button id="copyPassword" type="button" aria-label="Copy password">⧉</button></div>
+      <div class="strength-meter"><div><span id="strengthFill"></span></div><b id="strengthLabel">—</b></div>
       <div class="password-options">
-        <div class="option-row">
-          <label for="pwLength">Length: <strong id="pwLengthValue">16</strong></label>
-          <input type="range" id="pwLength" min="6" max="32" value="16">
-        </div>
-        <div class="option-checks">
-          <label><input type="checkbox" id="optUpper" checked> Uppercase (A-Z)</label>
-          <label><input type="checkbox" id="optLower" checked> Lowercase (a-z)</label>
-          <label><input type="checkbox" id="optNumbers" checked> Numbers (0-9)</label>
-          <label><input type="checkbox" id="optSymbols" checked> Symbols (!@#$%)</label>
-        </div>
+        <label>Length <strong id="pwLengthValue">16</strong><input id="pwLength" type="range" min="6" max="32" value="16"></label>
+        <label><input id="optUpper" type="checkbox" checked> Uppercase</label>
+        <label><input id="optLower" type="checkbox" checked> Lowercase</label>
+        <label><input id="optNumbers" type="checkbox" checked> Numbers</label>
+        <label><input id="optSymbols" type="checkbox" checked> Symbols</label>
       </div>
+      <button class="button button-primary" id="generatePassword" type="button">Generate Password ↻</button>
+      <p class="copy-note" id="copyNote" aria-live="polite"></p>
+    </section>
+  </main>
 
-      <button class="primary-button" id="generatePassword">Generate Password <span>🔄</span></button>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">DAGNAW<span>.</span></div>
-      <p>Building useful things with technology.</p>
-    </div>
-    <div class="footer-links">
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About</a>
-      <a href="tools.html">Tools</a>
-      <a href="index.html#contact">Contact</a>
-    </div>
-  </div>
-  <div class="copyright">© <span id="currentYear"></span> Dagnaw Beyene Tizazu. All rights reserved.</div>
-</footer>
-
-<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
-
-<script src="tools.js"></script>
+  <footer class="footer"><div class="footer-inner"><div><strong>DAGI<span class="accent">.</span></strong><span>Tools Hub</span></div><div><span>© <span id="currentYear"></span></span></div></div></footer>
+  <script type="module" src="tools.js"></script>
 </body>
 </html>

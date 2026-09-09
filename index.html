@@ -1,433 +1,269 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dagnaw Beyene Tizazu | Developer Portfolio</title>
-<meta name="description" content="Dagnaw Beyene Tizazu - Web Developer, Database Administrator, Graphics & Video Specialist from Bahir Dar, Ethiopia.">
-<meta name="author" content="Dagnaw Beyene Tizazu">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+Ethiopic:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7.5">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#050812">
+  <meta name="description" content="Dagi — personal developer portfolio.">
+  <title>DAGI // Developer Portfolio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="intro-active">
+<body class="site-shell">
 
-<!-- CINEMATIC WELCOME / MOTION INTRO -->
-<div class="intro-screen" id="introScreen" aria-label="Welcome">
-  <div class="intro-bg-glow glow-a"></div>
-  <div class="intro-bg-glow glow-b"></div>
-  <div class="intro-bg-glow glow-c"></div>
-  <div class="intro-stars"></div>
-  <div class="intro-grid"></div>
-  <div class="intro-vignette"></div>
-  <canvas id="introParticles"></canvas>
+  <div class="site-noise" aria-hidden="true"></div>
+  <div class="site-grid" aria-hidden="true"></div>
+  <canvas id="particles" class="particle-canvas" aria-hidden="true"></canvas>
 
-  <!-- Floating technology objects -->
-  <div class="intro-tech tech-code"><span>&lt;/&gt;</span><b>CODE</b></div>
-  <div class="intro-tech tech-html"><strong>HTML</strong><em>5</em></div>
-  <div class="intro-tech tech-css"><strong>CSS</strong><em>3</em></div>
-  <div class="intro-tech tech-js"><strong>JS</strong></div>
-  <div class="intro-tech tech-ai"><div class="ai-core">AI</div><i></i><i></i><i></i></div>
-  <div class="intro-tech tech-db"><span></span><span></span><span></span><b>DATABASE</b></div>
-  <div class="intro-tech tech-cloud"><span>⌁</span><b>CLOUD</b></div>
-  <div class="intro-tech tech-python"><b>🐍</b></div>
-  <div class="intro-tech tech-braces">{ }</div>
-  <div class="intro-tech tech-iot">IoT</div>
-  <div class="intro-tech tech-spark">✦</div>
-  <div class="intro-orbit-disc"><span></span><i></i><b></b></div>
-  <div class="intro-network"><span></span><span></span><span></span><span></span><span></span></div>
+  <div class="intro-screen" id="introScreen" aria-hidden="true">
+    <div class="intro-scan"></div>
+    <div class="intro-core">
+      <span class="eyebrow">PORTFOLIO SYSTEM</span>
+      <strong>DAGI<span>.</span></strong>
+      <span class="intro-line">INITIALIZING DIGITAL WORKSPACE</span>
+      <div class="intro-loader"><i></i></div>
+    </div>
+  </div>
 
-  <div class="intro-sweep sweep-1"></div>
-  <div class="intro-sweep sweep-2"></div>
-  <div class="intro-sweep sweep-3"></div>
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#home" data-sound="nav">
+      <span class="brand-mark"><img src="assets/images/profile.jpg" alt=""></span>
+      <span>DAGI<span class="accent">.</span></span>
+    </a>
 
-  <!-- Main glass panel -->
-  <div class="intro-panel">
-    <div class="panel-corner corner-tl"></div><div class="panel-corner corner-tr"></div>
-    <div class="panel-corner corner-bl"></div><div class="panel-corner corner-br"></div>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#home" class="nav-link is-active" data-sound="nav"><span>01</span>Home</a>
+      <a href="#about" class="nav-link" data-sound="nav"><span>02</span>About</a>
+      <a href="#skills" class="nav-link" data-sound="nav"><span>03</span>Skills</a>
+      <a href="#projects" class="nav-link" data-sound="nav"><span>04</span>Projects</a>
+      <a href="#certificates" class="nav-link" data-sound="nav"><span>05</span>Certificates</a>
+      <a href="tools.html" class="nav-link" data-sound="nav"><span>06</span>Tools</a>
+      <a href="#contact" class="nav-link" data-sound="nav"><span>07</span>Contact</a>
+    </nav>
 
-    <div class="intro-content">
-      <div class="intro-kicker"><span></span><b>DIGITAL CREATIVE / DEVELOPER</b><span></span></div>
-      <p class="intro-cycle" id="introCycle">Welcome</p>
-      <div class="intro-divider"><span></span><b>DB</b><span></span></div>
-      <h1 class="intro-name" id="introName">Dagnaw <span>Beyene Tizazu</span></h1>
-      <p class="intro-role"><span>WEB</span><i>•</i><span>DATABASE</span><i>•</i><span>AI / IoT</span><i>•</i><span>CREATIVE</span></p>
-      <p class="intro-tagline" id="introTagline">Ideas → Code → Systems → Impact</p>
-      <div class="intro-loader"><span id="introLoaderFill"></span><i></i></div>
-
-      <!-- Manual enter button: works even if the automatic intro timer fails -->
-      <button type="button" class="intro-enter-button" id="introEnterButton" onclick="window.enterPortfolioNow && window.enterPortfolioNow()" aria-label="Enter portfolio now">
-        <span class="enter-button-glow"></span>
-        <span class="enter-button-icon"><span></span><span></span></span>
-        <span class="enter-button-copy">
-          <small>READY TO EXPLORE</small>
-          <strong>ENTER PORTFOLIO</strong>
-        </span>
-        <span class="enter-button-arrow">↗</span>
+    <div class="top-actions">
+      <button class="sound-toggle sound-off" id="soundToggle" type="button"
+              aria-pressed="false" aria-label="Turn interface sound on">
+        <span class="sound-dot" aria-hidden="true"></span>
+        <span class="sound-icon" aria-hidden="true">⌁</span>
+        <span class="sound-label">SOUND OFF</span>
       </button>
-      <div class="intro-enter-hint"><span>or wait</span><i></i><span>automatic entry</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- BACKGROUND MOTION GRAPHICS -->
-<div class="background">
-  <div class="gradient-orb orb-1"></div>
-  <div class="gradient-orb orb-2"></div>
-  <div class="gradient-orb orb-3"></div>
-  <div class="grid-overlay"></div>
-</div>
-<canvas id="particles"></canvas>
-
-<!-- NAVIGATION -->
-<header class="topbar" id="topbar">
-  <a href="#home" class="logo">
-    <span class="logo-mark">
-      <img src="profile.jpg" alt="DB" onerror="this.style.display='none'">
-    </span>
-    <span class="logo-text">DAGNAW<span>.</span></span>
-  </a>
-
-  <nav class="nav" id="mainNav">
-    <a href="#home" data-i18n="nav_home">Home</a>
-    <a href="#about" data-i18n="nav_about">About</a>
-    <a href="#skills" data-i18n="nav_skills">Skills</a>
-    <a href="#projects" data-i18n="nav_projects">Projects</a>
-    <a href="tools.html" data-i18n="nav_tools">Tools</a>
-    <a href="#journey" data-i18n="nav_journey">Journey</a>
-    <a href="#contact" data-i18n="nav_contact">Contact</a>
-  </nav>
-
-  <div class="nav-actions">
-    <select id="languageSelect" aria-label="Language">
-      <option value="en">🇺🇸 EN</option>
-      <option value="am">🇪🇹 አማ</option>
-      <option value="om">🇪🇹 ORM</option>
-      <option value="zh">🇨🇳 中文</option>
-    </select>
-
-    <a href="#contact" class="hire-button" data-i18n="hire_me">Hire Me</a>
-
-    <button id="soundToggle" class="sound-toggle" type="button" aria-label="Toggle sound" aria-pressed="false"><span class="sound-icon">🔊</span><span class="sound-label">SOUND OFF</span></button>
-
-    <button id="menuToggle" class="mobile-menu" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-
-  <div class="mobile-nav-panel" id="mobileNavPanel">
-    <a href="#home" data-i18n="nav_home">Home</a>
-    <a href="#about" data-i18n="nav_about">About</a>
-    <a href="#skills" data-i18n="nav_skills">Skills</a>
-    <a href="#projects" data-i18n="nav_projects">Projects</a>
-    <a href="tools.html" class="mobile-tools-link" data-i18n="nav_tools">🧰 Tools</a>
-    <a href="#journey" data-i18n="nav_journey">Journey</a>
-    <a href="#contact" data-i18n="nav_contact">Contact</a>
-  </div>
-</header>
-
-<main>
-
-  <!-- HERO -->
-  <section class="hero section" id="home">
-    <div class="hero-content">
-      <div class="status-badge reveal">
-        <span class="status-dot"></span>
-        <span data-i18n="available">Available for opportunities</span>
-      </div>
-
-      <p class="eyebrow reveal" data-i18n="hello">HELLO, I'M</p>
-
-      <h1 class="hero-title">
-        <span class="line reveal" style="--d:0">Dagnaw</span>
-        <span class="line gradient-text reveal" style="--d:1">Beyene Tizazu</span>
-      </h1>
-
-      <div class="hero-role reveal" style="--d:2">
-        <span data-i18n="hero_prefix">I am a</span>
-        <span id="typingText" class="typing-text">Web Developer</span><span class="cursor">|</span>
-      </div>
-
-      <p class="hero-description reveal" style="--d:3" data-i18n="hero_description">
-        I build modern web experiences, manage databases and create digital
-        solutions that connect technology with real-world needs.
-      </p>
-
-      <div class="hero-buttons reveal" style="--d:4">
-        <a href="#projects" class="primary-button">
-          <span data-i18n="view_projects">View My Projects</span><span>→</span>
-        </a>
-        <a href="tools.html" class="secondary-button">
-          <span>🧰</span><span data-i18n="explore_tools">Explore Tools</span>
-        </a>
-        <a href="Dagnaw_Beyene_Tizazu_CV.pdf" class="secondary-button" download>
-          <span>⬇️</span><span data-i18n="download_cv">Download CV</span>
-        </a>
-      </div>
-
-      <div class="social-links reveal" style="--d:5">
-        <a href="https://github.com/dagnawbeyene5-cmd" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/dagnaw-beyene-24686b359" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="#contact">Email</a>
-      </div>
+      <button class="menu-toggle" id="menuToggle" type="button"
+              aria-expanded="false" aria-controls="mobilePanel" aria-label="Open menu" data-sound="menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
 
-    <div class="hero-visual">
-      <div class="orbit-badge badge-1">HTML</div>
-      <div class="orbit-badge badge-2">AI</div>
-      <div class="orbit-badge badge-3">SQL</div>
-      <div class="orbit-badge badge-4">IoT</div>
-      <div class="profile-card glass-card" id="profileCard">
-        <div class="profile-image-wrapper">
-          <div class="profile-glow"></div>
-          <div class="profile-ring"></div>
-          <div class="orbit-dot dot-a"></div>
-          <div class="orbit-dot dot-b"></div>
-          <img src="profile.jpg" alt="Dagnaw Beyene Tizazu" class="profile-image"
-            onerror="this.style.display='none'; this.parentElement.classList.add('profile-placeholder')">
-          <div class="profile-initials">DB</div>
-          <div class="card-shine"></div>
+    <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+      <div class="mobile-panel-head">
+        <span>SYS // NAVIGATION</span>
+        <span class="status-live">LIVE</span>
+      </div>
+      <a href="#home" data-sound="nav"><b>01</b><span>Home</span><i>↗</i></a>
+      <a href="#about" data-sound="nav"><b>02</b><span>About</span><i>↗</i></a>
+      <a href="#skills" data-sound="nav"><b>03</b><span>Skills</span><i>↗</i></a>
+      <a href="#projects" data-sound="nav"><b>04</b><span>Projects</span><i>↗</i></a>
+      <a href="#certificates" data-sound="nav"><b>05</b><span>Certificates</span><i>↗</i></a>
+      <a href="tools.html" data-sound="nav"><b>06</b><span>Tools Hub</span><i>↗</i></a>
+      <a href="#contact" data-sound="nav"><b>07</b><span>Contact</span><i>↗</i></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-media" aria-hidden="true">
+        <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="assets/images/profile.jpg">
+          <source src="assets/video/hero.mp4" type="video/mp4">
+        </video>
+        <div class="hero-fallback"></div>
+        <div class="hud-frame hud-frame-a"></div>
+        <div class="hud-frame hud-frame-b"></div>
+        <div class="scanlines"></div>
+        <div class="hero-ring hero-ring-a"></div>
+        <div class="hero-ring hero-ring-b"></div>
+        <div class="data-orbit data-orbit-a"><span></span><b>01</b></div>
+        <div class="data-orbit data-orbit-b"><span></span><b>DB</b></div>
+        <div class="hero-crosshair">+</div>
+      </div>
+
+      <div class="hero-content">
+        <p class="section-label"><span class="signal"></span> DEVELOPER PORTFOLIO / SYSTEM ONLINE</p>
+        <h1>Building digital experiences with <span class="gradient-text">code &amp; curiosity.</span></h1>
+        <p class="hero-copy">
+          I’m <strong>Dagi</strong>. This is my personal workspace for projects, skills,
+          experiments, certificates and useful tools.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#projects" data-sound="projects"><span>Explore Projects</span><i>↗</i></a>
+          <a class="button button-ghost" href="#contact" data-sound="contact"><span>Contact</span><i>→</i></a>
         </div>
-        <div class="profile-info">
-          <h3>Dagnaw Beyene</h3>
-          <p data-i18n="profile_role">Developer • Database • Creative</p>
-        </div>
-        <div class="mini-stats">
-          <div><strong>10+</strong><span data-i18n="stat_skills">Skills</span></div>
-          <div><strong>4</strong><span data-i18n="stat_languages">Languages</span></div>
-          <div><strong>10+</strong><span data-i18n="stat_tools">Tools</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section about-section" id="about">
-    <div class="section-heading reveal">
-      <span class="section-number">01</span>
-      <div>
-        <p class="section-label" data-i18n="section_about">ABOUT ME</p>
-        <h2 data-i18n="about_title">Turning ideas into digital solutions.</h2>
-      </div>
-    </div>
-
-    <div class="about-grid">
-      <div class="about-text glass-card reveal">
-        <p data-i18n="about_p1">I am an enthusiastic Web Developer, Database Administrator, Graphics and Video Specialist passionate about Software Engineering and Artificial Intelligence.</p>
-        <p data-i18n="about_p2">I am currently studying a Level 5 Diploma in Web Development at Bahir Dar Polytechnic College.</p>
-        <p data-i18n="about_p3">My goal is to combine modern software development, databases, IoT and AI to create useful solutions for real-world problems.</p>
-        <p data-i18n="about_p4">I am also interested in open-source development and hope to contribute to global technology communities through programs such as Outreachy.</p>
-      </div>
-
-      <div class="about-highlights">
-        <div class="highlight-card glass-card reveal"><span class="highlight-icon">💻</span><h3 data-i18n="highlight_web_title">Web Development</h3><p data-i18n="highlight_web_text">Modern, responsive and user-friendly websites.</p></div>
-        <div class="highlight-card glass-card reveal"><span class="highlight-icon">🗄️</span><h3 data-i18n="highlight_db_title">Database</h3><p data-i18n="highlight_db_text">Database design, SQL and administration.</p></div>
-        <div class="highlight-card glass-card reveal"><span class="highlight-icon">🤖</span><h3 data-i18n="highlight_ai_title">AI & IoT</h3><p data-i18n="highlight_ai_text">Exploring intelligent connected solutions.</p></div>
-        <div class="highlight-card glass-card reveal"><span class="highlight-icon">🎨</span><h3 data-i18n="highlight_creative_title">Creative</h3><p data-i18n="highlight_creative_text">Graphic design, video editing and content creation.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="section" id="skills">
-    <div class="section-heading reveal">
-      <span class="section-number">02</span>
-      <div>
-        <p class="section-label" data-i18n="section_skills">SKILLS</p>
-        <h2 data-i18n="skills_title">My technical & creative skills.</h2>
-      </div>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skills-column glass-card reveal">
-        <h3 data-i18n="skillCat1Title">Development &amp; Database</h3>
-        <div class="skill"><div class="skill-header"><span>HTML5 / CSS3</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:95%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>JavaScript</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:75%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>Python</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:72%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>MySQL / DB Admin</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:78%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>Git / GitHub</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:75%"></span></div></div>
-      </div>
-
-      <div class="skills-column glass-card reveal">
-        <h3 data-i18n="skillCat3Title">Creative &amp; AI</h3>
-        <div class="skill"><div class="skill-header"><span>Graphic Design</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:95%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>Video Editing</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:93%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>Prompt Engineering / AI</span><strong data-i18n="profAdvanced">Advanced</strong></div><div class="skill-bar"><span style="--w:90%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>Digital Marketing</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:72%"></span></div></div>
-        <div class="skill"><div class="skill-header"><span>Content Creation</span><strong data-i18n="profIntermediate">Intermediate</strong></div><div class="skill-bar"><span style="--w:76%"></span></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section class="section" id="projects">
-    <div class="section-heading reveal">
-      <span class="section-number">03</span>
-      <div>
-        <p class="section-label" data-i18n="section_projects">PROJECTS</p>
-        <h2 data-i18n="projects_title">Things I'm building.</h2>
-      </div>
-    </div>
-
-    <div class="project-feature glass-card reveal">
-      <div class="project-content">
-        <div class="project-badge" data-i18n="featuredLabel">FEATURED PROJECT</div>
-        <h3 data-i18n="featuredTitle">Green Tech Smart Agriculture 2.0</h3>
-        <p class="project-subtitle" data-i18n="featuredTag">IoT + AI + Smart Irrigation</p>
-        <p data-i18n="project_description">An automated agricultural monitoring and smart irrigation system designed to use IoT sensors, microcontrollers, AI-powered crop disease detection and intelligent irrigation to improve agricultural productivity.</p>
-        <div class="tech-tags"><span>ESP32-S3</span><span>IoT</span><span>AI</span><span>YOLOv8</span><span>LoRaWAN</span><span>GSM</span><span>MicroSD</span></div>
-      </div>
-      <div class="project-visual">
-        <div class="iot-dashboard">
-          <div class="dashboard-top"><span>SMART FARM</span><span class="online">● ONLINE</span></div>
-          <div class="dashboard-value">72%</div>
-          <p>Soil Moisture</p>
-          <div class="dashboard-bars"><span style="--h:35%"></span><span style="--h:55%"></span><span style="--h:42%"></span><span style="--h:78%"></span><span style="--h:63%"></span><span style="--h:88%"></span><span style="--h:72%"></span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="projects-grid">
-      <div class="project-card glass-card reveal">
-        <div class="project-card-cat" data-i18n="proj2Cat">WEB • MYSQL</div>
-        <h3 data-i18n="proj2Title">ICT Inventory Management</h3>
-        <p data-i18n="proj2Desc">Department inventory workflow for tracking assets, employees, issues and reports.</p>
-      </div>
-      <div class="project-card glass-card reveal">
-        <div class="project-card-cat" data-i18n="proj3Cat">CREATIVE • VIDEO</div>
-        <h3 data-i18n="proj3Title">Digital Content Studio</h3>
-        <p data-i18n="proj3Desc">Branding, poster design, short-form and long-form video editing workflows.</p>
-      </div>
-      <div class="project-card glass-card reveal">
-        <div class="project-card-cat" data-i18n="proj4Cat">HTML • CSS • JS</div>
-        <h3 data-i18n="proj4Title">Personal Portfolio</h3>
-        <p data-i18n="proj4Desc">A responsive personal brand site designed around technology, creativity and open source.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- JOURNEY -->
-  <section class="section" id="journey">
-    <div class="section-heading reveal">
-      <span class="section-number">04</span>
-      <div>
-        <p class="section-label" data-i18n="journeySection">JOURNEY</p>
-        <h2 data-i18n="journeyHeadingPlain">Learning today. Building tomorrow.</h2>
-      </div>
-    </div>
-
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card glass-card">
-          <span class="timeline-date" data-i18n="j1Label">NOW / EDUCATION</span>
-          <h3 data-i18n="j1Title">Web Development Diploma — Bahir Dar Polytechnic College</h3>
-          <p data-i18n="j1Desc">Focused on practical web, database and programming foundations.</p>
-        </div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card glass-card">
-          <span class="timeline-date" data-i18n="j2Label">PROFESSIONAL / CREATIVE</span>
-          <h3 data-i18n="j2Title">Freelance Designer & Digital Content Creator</h3>
-          <p data-i18n="j2Desc">Promotional materials, social-media graphics and video editing for personal and client projects.</p>
-        </div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card glass-card">
-          <span class="timeline-date" data-i18n="j3Label">WORK EXPERIENCE</span>
-          <h3 data-i18n="j3Title">Front Desk Attendant — Palm Palace Hotel</h3>
-          <p data-i18n="j3Desc">Customer service, workplace coordination and communication experience in a live service environment.</p>
-        </div>
-      </div>
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-card glass-card">
-          <span class="timeline-date" data-i18n="j4Label">FUTURE / OPEN SOURCE</span>
-          <h3 data-i18n="j4Title">Outreachy & Impactful Software Engineering</h3>
-          <p data-i18n="j4Desc">Goal: contribute to open source and build software/database systems with meaningful community impact.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VISION -->
-  <section class="section goal-section">
-    <div class="goal-card glass-card reveal">
-      <div class="goal-icon">🚀</div>
-      <div>
-        <p class="section-label" data-i18n="goal_label">MY VISION</p>
-        <h2 data-i18n="goal_title">Become an impactful Software Engineer.</h2>
-        <p data-i18n="goal_description">My long-term goal is to build meaningful software solutions, contribute to open source and use technology to solve real-world problems.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact-section" id="contact">
-    <div class="section-heading reveal">
-      <span class="section-number">05</span>
-      <div>
-        <p class="section-label" data-i18n="section_contact">CONTACT</p>
-        <h2 data-i18n="contact_title">Let's build something great.</h2>
-      </div>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-info glass-card reveal">
-        <h3 data-i18n="contact_subtitle">Get in touch</h3>
-        <p data-i18n="contact_description">Have a project, idea or opportunity? Feel free to contact me.</p>
-        <div class="contact-list">
-          <a href="mailto:dagnawbeyene5@gmail.com">📧 dagnawbeyene5@gmail.com</a>
-          <a href="tel:+251918071701">📱 +251 918 071 701</a>
-          <a href="https://github.com/dagnawbeyene5-cmd" target="_blank" rel="noopener">💻 github.com/dagnawbeyene5-cmd</a>
-          <a href="https://www.linkedin.com/in/dagnaw-beyene-24686b359" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <div class="hero-meta">
+          <span><i></i> AVAILABLE FOR BUILDING</span>
+          <span>HTML / CSS / JS</span>
+          <span>01 — 07</span>
         </div>
       </div>
 
-      <form class="contact-form glass-card reveal" id="contactForm">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name" data-i18n="form_name">Your Name</label>
-            <input type="text" id="name" name="name" required placeholder="Your name">
+      <div class="scroll-cue" aria-hidden="true"><span></span> SCROLL TO EXPLORE</div>
+    </section>
+
+    <section class="section content-section" id="about">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">02 // ABOUT</p>
+          <h2>Turning ideas into <span class="gradient-text">useful interfaces.</span></h2>
+        </div>
+        <p class="section-description">A focused portfolio system designed to show the work, not just the template.</p>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-card about-main reveal">
+          <div class="card-kicker">PROFILE / 001</div>
+          <h3>Developer mindset.</h3>
+          <p>
+            I care about practical software, clean interfaces, thoughtful interaction,
+            and learning by building. This portfolio is intentionally structured so new
+            projects and features can be added without turning the whole codebase into one
+            tangled file.
+          </p>
+          <div class="about-stats">
+            <div><strong>01</strong><span>Portfolio system</span></div>
+            <div><strong>∞</strong><span>Room to grow</span></div>
+            <div><strong>100%</strong><span>Built for learning</span></div>
           </div>
-          <div class="form-group">
-            <label for="email" data-i18n="form_email">Email</label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com">
+        </article>
+
+        <aside class="glass-card profile-panel reveal">
+          <div class="profile-orbit"><span></span></div>
+          <img src="assets/images/profile.jpg" alt="Dagi" class="profile-photo">
+          <div class="profile-name">DAGI<span class="accent">.</span></div>
+          <div class="profile-role">DEVELOPER / BUILDER</div>
+          <div class="profile-status"><span></span> SYSTEM READY</div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section content-section" id="skills">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">03 // SKILLS</p>
+          <h2>Tools of the <span class="gradient-text">craft.</span></h2>
+        </div>
+      </div>
+
+      <div class="skills-grid">
+        <article class="skill-card reveal" data-motion="energy">
+          <div class="skill-icon">⌘</div><span class="skill-index">A1</span>
+          <h3>HTML</h3><p>Semantic structure and accessible page architecture.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-motion="signal">
+          <div class="skill-icon">{ }</div><span class="skill-index">A2</span>
+          <h3>CSS</h3><p>Responsive layouts, motion, visual systems and UI polish.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-motion="data">
+          <div class="skill-icon">JS</div><span class="skill-index">A3</span>
+          <h3>JavaScript</h3><p>Interaction, state, browser APIs and modular UI logic.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+        <article class="skill-card reveal" data-motion="mechanical">
+          <div class="skill-icon">⚙</div><span class="skill-index">A4</span>
+          <h3>Problem Solving</h3><p>Debugging, iteration and building practical solutions.</p>
+          <div class="skill-line"><span></span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section content-section" id="projects">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">04 // PROJECTS</p>
+          <h2>Selected <span class="gradient-text">builds.</span></h2>
+        </div>
+        <p class="section-description">Replace the clearly marked project slots with your real projects as you add them.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div class="project-visual project-visual-one"><span>PROJECT / 01</span><i>◌</i></div>
+          <div class="project-body">
+            <div class="project-top"><span>BUILD SLOT</span><span>01</span></div>
+            <h3>Your Project</h3>
+            <p>Add your real project title, short description, technologies and links here.</p>
+            <div class="tag-row"><span>HTML</span><span>CSS</span><span>JS</span></div>
           </div>
-        </div>
-        <div class="form-group">
-          <label for="message" data-i18n="form_message">Message</label>
-          <textarea id="message" name="message" rows="5" required placeholder="Write your message..."></textarea>
-        </div>
-        <button type="submit" class="primary-button"><span data-i18n="send_message">Send Message</span><span>→</span></button>
-        <p id="formMessage" class="form-message"></p>
-      </form>
-    </div>
-  </section>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-visual project-visual-two"><span>PROJECT / 02</span><i>⌁</i></div>
+          <div class="project-body">
+            <div class="project-top"><span>BUILD SLOT</span><span>02</span></div>
+            <h3>Your Project</h3>
+            <p>This slot is intentionally not filled with invented project information.</p>
+            <div class="tag-row"><span>ADD</span><span>YOUR</span><span>STACK</span></div>
+          </div>
+        </article>
+        <article class="project-card reveal">
+          <div class="project-visual project-visual-three"><span>PROJECT / 03</span><i>✦</i></div>
+          <div class="project-body">
+            <div class="project-top"><span>BUILD SLOT</span><span>03</span></div>
+            <h3>Your Project</h3>
+            <p>Duplicate this card for future work without changing the main architecture.</p>
+            <div class="tag-row"><span>FUTURE</span><span>BUILD</span><span>LAB</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-</main>
+    <section class="section content-section certificates-section" id="certificates">
+      <div class="section-heading reveal">
+        <div>
+          <p class="section-label">05 // CERTIFICATES</p>
+          <h2>Proof of <span class="gradient-text">progress.</span></h2>
+        </div>
+        <p class="section-description">Certificate files stay in <code>assets/certificates/</code> and are registered in one module.</p>
+      </div>
+      <div class="certificate-grid" id="certificateGrid"></div>
+    </section>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <div class="footer-logo">DAGNAW<span>.</span></div>
-      <p data-i18n="footer_text">Building useful things with technology.</p>
+    <section class="section content-section contact-section" id="contact">
+      <div class="contact-shell glass-card reveal">
+        <div>
+          <p class="section-label">07 // CONTACT</p>
+          <h2>Let’s build something <span class="gradient-text">useful.</span></h2>
+          <p>
+            Add your real contact details below. They are intentionally left out until you
+            provide the information you want published.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="button button-primary" href="mailto:YOUR-EMAIL@example.com" data-sound="contact">Email Me <i>↗</i></a>
+          <a class="button button-ghost" href="tools.html" data-sound="tools">Open Tools Hub <i>→</i></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div><strong>DAGI<span class="accent">.</span></strong><span>Developer Portfolio</span></div>
+      <div><span>STATIC / FAST / MODULAR</span><span>© <span id="currentYear"></span></span></div>
     </div>
-    <div class="footer-links">
-      <a href="#home" data-i18n="nav_home">Home</a>
-      <a href="#about" data-i18n="nav_about">About</a>
-      <a href="tools.html" data-i18n="nav_tools">Tools</a>
-      <a href="#contact" data-i18n="nav_contact">Contact</a>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" type="button" aria-label="Scroll to top" data-sound="nav">↑</button>
+
+  <div class="modal-root" id="certificateModal" hidden>
+    <div class="modal-backdrop" data-modal-close></div>
+    <div class="certificate-modal" role="dialog" aria-modal="true" aria-labelledby="certificateModalTitle">
+      <button class="modal-close" type="button" data-modal-close aria-label="Close certificate preview">×</button>
+      <div class="modal-title-row">
+        <span class="section-label">CERTIFICATE PREVIEW</span>
+        <h2 id="certificateModalTitle">Certificate</h2>
+      </div>
+      <div class="certificate-preview" id="certificatePreview"></div>
     </div>
   </div>
-  <div class="copyright">© <span id="currentYear"></span> Dagnaw Beyene Tizazu. <span data-i18n="rights">All rights reserved.</span></div>
-</footer>
 
-<button id="scrollTop" class="scroll-top" aria-label="Scroll to top">↑</button>
-
-<script src="script.js?v=7.5"></script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
