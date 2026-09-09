@@ -1353,7 +1353,7 @@
 
 
   /* =========================================================
-     13.5. FUTURISTIC UI SOUND SYSTEM — V4.5
+     13.5. FUTURISTIC UI SOUND SYSTEM — V4.6 DIAGNOSTIC
      ========================================================= */
   let soundEnabled = localStorage.getItem("dagnaw-sound") === "on";
 
@@ -1368,82 +1368,114 @@
     nav: "sounds/ui-click.wav"
   };
 
-  /* Preload the real local files. A fresh Audio object is used for each
-     interaction so rapid taps never get stuck at currentTime=0. */
   const soundPool = {};
-  Object.keys(soundFiles).forEach(function (kind) {
-    const audio = new Audio();
-    audio.src = soundFiles[kind];
-    audio.preload = "auto";
-    audio.volume = 0.78;
-    audio.setAttribute("playsinline", "");
-    soundPool[kind] = audio;
+  Object.keys(soundFiles).forEach(function(kind){
+    const a = new Audio(soundFiles[kind]);
+    a.preload = "auto";
+    a.volume = 0.82;
+    a.setAttribute("playsinline", "true");
+    soundPool[kind] = a;
   });
 
   function uiSound(kind = "tap") {
     if (!soundEnabled) return;
-    const source = soundPool[kind] || soundPool.tap;
-    if (!source) return;
-
+    const src = soundFiles[kind] || soundFiles.tap;
     try {
-      const audio = source.cloneNode(true);
-      audio.volume = source.volume;
-      audio.currentTime = 0;
-      const promise = audio.play();
-      if (promise && typeof promise.catch === "function") {
-        promise.catch(function (error) {
-          console.warn("Futuristic UI sound playback failed:", error);
-        });
-      }
-      setTimeout(function () {
-        audio.pause();
-        audio.removeAttribute("src");
-        audio.load();
-      }, 900);
-    } catch (error) {
-      console.warn("UI sound failed:", error);
+      const audio = new Audio(src);
+      audio.preload = "auto";
+      audio.volume = 0.82;
+      audio.setAttribute("playsinline", "true");
+      audio.play().catch(function(err){
+        console.warn("UI audio playback blocked/failed:", err);
+      });
+      audio.addEventListener("ended", function(){ audio.remove(); }, {once:true});
+    } catch(err) {
+      console.warn("UI audio error:", err);
     }
   }
 
-  function updateSoundButton() {
+  function updateSoundButton(){
     const button = document.getElementById("soundToggle");
-    if (!button) return;
-
+    if(!button) return;
     button.setAttribute("aria-pressed", soundEnabled ? "true" : "false");
     button.classList.toggle("sound-on", soundEnabled);
     button.classList.toggle("sound-off", !soundEnabled);
     button.dataset.soundState = soundEnabled ? "on" : "off";
-    button.title = soundEnabled
-      ? "Sound is ON — click to turn OFF"
-      : "Sound is OFF — click to turn ON";
-
+    button.title = soundEnabled ? "Sound is ON — click to turn OFF" : "Sound is OFF — click to turn ON";
     const label = button.querySelector(".sound-label");
     const icon = button.querySelector(".sound-icon");
-    if (label) label.textContent = soundEnabled ? "SOUND ON" : "SOUND OFF";
-    if (icon) icon.textContent = soundEnabled ? "🔊" : "🔇";
+    if(label) label.textContent = soundEnabled ? "SOUND ON" : "SOUND OFF";
+    if(icon) icon.textContent = soundEnabled ? "🔊" : "🔇";
   }
 
-  function toggleSound(event) {
+  function toggleSound(event){
     soundEnabled = !soundEnabled;
     localStorage.setItem("dagnaw-sound", soundEnabled ? "on" : "off");
     updateSoundButton();
-
     const button = event && event.currentTarget ? event.currentTarget : document.getElementById("soundToggle");
-    if (button) {
-      button.classList.remove("sound-pulse");
-      void button.offsetWidth;
-      button.classList.add("sound-pulse");
+    if(button){ button.classList.remove("sound-pulse"); void button.offsetWidth; button.classList.add("sound-pulse"); }
+    if(soundEnabled){
+      /* Directly called by the user's tap: important for mobile browsers. */
+      const audio = new Audio(soundFiles.toggle);
+      audio.volume = 0.82;
+      audio.play().catch(function(err){ console.warn("Toggle sound blocked:", err); });
     }
-
-    /* Play directly from the user's tap. This preserves the mobile browser
-       user-gesture permission needed by HTMLAudioElement.play(). */
-    if (soundEnabled) uiSound("toggle");
   }
 
   const soundToggle = document.getElementById("soundToggle");
-  if (soundToggle) {
+  if(soundToggle){
     soundToggle.addEventListener("click", toggleSound);
     updateSoundButton();
+  }
+
+  /* ---------------------------------------------------------
+     V4.6 TEST SOUND — intentionally bypasses SOUND ON/OFF.
+     This isolates browser/file playback from the normal UI system.
+     --------------------------------------------------------- */
+  const testSoundButton = document.getElementById("testSound");
+  const soundStatus = document.getElementById("soundStatus");
+  const testAudio = new Audio("sounds/test.wav");
+  testAudio.preload = "auto";
+  testAudio.volume = 0.9;
+  testAudio.setAttribute("playsinline", "true");
+
+  function setSoundStatus(text, state){
+    if(!soundStatus) return;
+    soundStatus.textContent = text;
+    soundStatus.classList.remove("ok", "error");
+    if(state) soundStatus.classList.add(state);
+  }
+
+  if(testSoundButton){
+    testSoundButton.addEventListener("click", function(){
+      testSoundButton.classList.add("test-playing");
+      setSoundStatus("▶ PLAYING TEST…", "ok");
+      try {
+        testAudio.currentTime = 0;
+        const promise = testAudio.play();
+        if(promise && typeof promise.then === "function") {
+          promise.then(function(){
+            setSoundStatus("✅ AUDIO PLAYING", "ok");
+          }).catch(function(err){
+            console.error("TEST SOUND FAILED:", err);
+            setSoundStatus("❌ AUDIO BLOCKED", "error");
+            testSoundButton.classList.remove("test-playing");
+          });
+        }
+      } catch(err){
+        console.error("TEST SOUND ERROR:", err);
+        setSoundStatus("❌ AUDIO ERROR", "error");
+        testSoundButton.classList.remove("test-playing");
+      }
+    });
+    testAudio.addEventListener("ended", function(){
+      testSoundButton.classList.remove("test-playing");
+      setSoundStatus("✅ AUDIO OK", "ok");
+    });
+    testAudio.addEventListener("error", function(){
+      testSoundButton.classList.remove("test-playing");
+      setSoundStatus("❌ FILE NOT FOUND", "error");
+    });
   }
 
   /* =========================================================
