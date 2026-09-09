@@ -1,36 +1,130 @@
-# Dagnaw Beyene Tizazu — Portfolio V3 Final
+# DAGI — Personal Developer Portfolio
 
-Premium futuristic portfolio built with pure HTML, CSS and JavaScript.
+A lightweight, static, futuristic developer portfolio with modular JavaScript.
 
-## Features
-- Futuristic glass / neon interface
-- Animated particle background
-- Typing role animation
-- Scroll reveal animations
-- 3D hover tilt on cards
-- Dark / Light mode with localStorage
-- English / Amharic selector (English default)
-- Project case-study modal
-- Responsive mobile navigation
-- SEO/meta basics
-- Contact form using mailto
-- GitHub and LinkedIn links
-- Profile-photo placeholder
-- CV-ready structure
+## What is included
 
-## Personal details included
-Name: Dagnaw Beyene Tizazu
-Location: Bahir Dar, Ethiopia
-Email: dagnawbeyene5@gmail.com
-Phone: +251 918 071 701
-GitHub: https://github.com/dagnawbeyene5-cmd
-LinkedIn: https://www.linkedin.com/in/dagnaw-beyene-24686b359
+- `index.html` — main portfolio
+- `style.css` — main design system
+- `script.js` — small app coordinator
+- `tools.html` / `tools.css` / `tools.js` — Tools Hub
+- `modules/audio.js` — centralized audio manager
+- `modules/hero.js` — hero video + lightweight particles
+- `modules/certificates.js` — certificate registry + modal/3D tilt
+- `assets/images/profile.jpg` — supplied profile image
+- `assets/video/` — put the supplied hero video here
+- `assets/certificates/` — put certificate images/PDFs here
+- `sounds/` — put the existing sound files here
 
-## Add your real files
-1. Put your portrait at `assets/profile.jpg`.
-2. Put your CV at `assets/Dagnaw_Beyene_Tizazu_CV.pdf`.
-3. If desired, replace the visual placeholders with real project screenshots.
+## Hero video
 
-## Run
-Open `index.html` in a modern browser. No build tool is required.
-For production, upload the whole folder to your hosting provider.
+Put the real video at:
+
+`assets/video/hero.mp4`
+
+The HTML already uses:
+
+- `autoplay`
+- `muted`
+- `loop`
+- `playsinline`
+- `preload="metadata"`
+
+The profile image remains the visual fallback until the video loads.
+
+## Certificates
+
+1. Put each real certificate in `assets/certificates/`.
+2. Open `modules/certificates.js`.
+3. Add one object per real certificate.
+4. Use the exact filename.
+5. Do not invent titles, issuers, dates or other details.
+
+Example:
+
+```js
+const CERTIFICATES = [
+  {
+    id: "example",
+    title: "REAL CERTIFICATE TITLE",
+    issuer: "REAL ISSUER",
+    file: "./assets/certificates/example.pdf",
+    type: "pdf"
+  }
+];
+```
+
+## Sound system
+
+The sound manager is centralized in `modules/audio.js`.
+
+Expected existing files:
+
+- `ui-click.wav`
+- `projects.wav`
+- `tools.wav`
+- `cv.wav`
+- `contact.wav`
+- `menu.wav`
+- `toggle.wav`
+
+The old `click.wav` is not referenced by the new system, so it can remain temporarily or be removed later after you verify nothing else needs it.
+
+Important browser behavior: sound cannot be forced before a user gesture. The ON/OFF state is stored in `localStorage`; actual playback failures are logged instead of falsely changing the state.
+
+If a sound file is missing, the UI still works without crashing.
+
+## CV
+
+No fake CV file or personal contact information is included. When you provide the real CV, put it in something like:
+
+`assets/docs/Dagi-CV.pdf`
+
+Then add a real link to it in `index.html`.
+
+## GitHub Pages
+
+Upload the contents of this folder into the repository root.
+
+Do NOT delete the repository.
+
+Recommended structure:
+
+Dagi-Portfolio/
+├── index.html
+├── style.css
+├── script.js
+├── tools.html
+├── tools.css
+├── tools.js
+├── modules/
+│   ├── audio.js
+│   ├── hero.js
+│   └── certificates.js
+├── assets/
+│   ├── images/
+│   │   └── profile.jpg
+│   ├── video/
+│   │   └── hero.mp4
+│   ├── icons/
+│   └── certificates/
+└── sounds/
+
+After upload, GitHub Pages should serve the site from the selected branch/root.
+
+## Before publishing
+
+Check:
+
+- hero video path
+- certificate paths
+- sound filenames and capitalization
+- real email/contact links
+- real project information
+- real CV path
+- mobile menu
+- sound toggle
+- certificate modal
+- Tools Hub password generator
+
+For GitHub Pages, filenames are case-sensitive in the deployed environment. Keep filenames and references identical.
