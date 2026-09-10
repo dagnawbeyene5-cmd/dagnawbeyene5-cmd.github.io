@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DAGI // Tools Hub</title>
+<meta name="theme-color" content="#050812">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="tools.css">
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a href="index.html#home" class="brand" data-sound="ui-click">
+    <img src="assets/images/profile.jpg" alt="Dagi" class="brand-photo" onerror="this.style.display='none'">
+    <span class="brand-mark">DAGI<span class="dot">.</span></span>
+  </a>
+
+  <nav class="nav-desktop" aria-label="Primary">
+    <a href="index.html#home" class="nav-link" data-sound="ui-click"><b>01</b><span data-i18n="nav.home">Home</span></a>
+    <a href="index.html#about" class="nav-link" data-sound="ui-click"><b>02</b><span data-i18n="nav.about">About</span></a>
+    <a href="index.html#skills" class="nav-link" data-sound="ui-click"><b>03</b><span data-i18n="nav.skills">Skills</span></a>
+    <a href="index.html#projects" class="nav-link" data-sound="ui-click"><b>04</b><span data-i18n="nav.projects">Projects</span></a>
+    <a href="index.html#certificates" class="nav-link" data-sound="ui-click"><b>05</b><span data-i18n="nav.certificates">Certificates</span></a>
+    <a href="tools.html" class="nav-link icon-tools active-page" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
+    <a href="index.html#contact" class="nav-link" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
+  </nav>
+
+  <div class="header-actions">
+    <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="am">AM</button>
+      <button type="button" class="lang-btn" data-lang="om">OM</button>
+      <button type="button" class="lang-btn" data-lang="zh">中文</button>
+    </div>
+    <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" data-sound="toggle">
+      <span class="sound-dot" aria-hidden="true"></span>
+      <span class="sound-label" data-i18n="sound.off">SOUND OFF</span>
+    </button>
+    <button class="menu-btn icon-menu" id="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-menu" data-sound="menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav aria-label="Mobile">
+    <a href="index.html#home" data-sound="ui-click"><b>01</b><span data-i18n="nav.home">Home</span></a>
+    <a href="index.html#about" data-sound="ui-click"><b>02</b><span data-i18n="nav.about">About</span></a>
+    <a href="index.html#skills" data-sound="ui-click"><b>03</b><span data-i18n="nav.skills">Skills</span></a>
+    <a href="index.html#projects" data-sound="ui-click"><b>04</b><span data-i18n="nav.projects">Projects</span></a>
+    <a href="index.html#certificates" data-sound="ui-click"><b>05</b><span data-i18n="nav.certificates">Certificates</span></a>
+    <a href="tools.html" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
+    <a href="index.html#contact" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
+  </nav>
+  <div class="lang-switch lang-switch--mobile" id="lang-switch-mobile" role="group" aria-label="Language">
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="am">AM</button>
+    <button type="button" class="lang-btn" data-lang="om">OM</button>
+    <button type="button" class="lang-btn" data-lang="zh">中文</button>
+  </div>
+  <p class="menu-footer" data-i18n="menu.footer">SYS // NAVIGATION LIVE</p>
+</div>
+
+<main>
+  <section class="section tools-intro">
+    <p class="section-index" data-i18n="tools.index">06 // TOOLS HUB</p>
+    <h1 class="section-title" data-i18n="tools.title">Small utilities, built one at a time.</h1>
+    <p class="section-note" data-i18n="tools.note">One tool is live below. The rest are modular slots — each new tool is added to modules/toolsData.js without touching this page's structure.</p>
+  </section>
+
+  <section class="section section-tight">
+    <div class="tool-panel" id="password-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.password.title">Password Generator</h2>
+        <p data-i18n="tool.password.desc">Generate a random password locally in your browser. Nothing is sent anywhere.</p>
+      </div>
+
+      <div class="pw-output-row">
+        <input type="text" id="pw-output" class="pw-output" readonly aria-label="Generated password">
+        <button type="button" id="pw-copy" class="btn btn-ghost" data-sound="ui-click"><span data-i18n="tool.copy">Copy</span></button>
+      </div>
+
+      <div class="pw-controls">
+        <label class="pw-range-label">
+          <span data-i18n="tool.password.length">Length</span>: <span id="pw-length-value">16</span>
+          <input type="range" id="pw-length" min="6" max="48" value="16">
+        </label>
+        <div class="pw-checks">
+          <label><input type="checkbox" id="pw-upper" checked> <span data-i18n="tool.password.upper">Uppercase (A-Z)</span></label>
+          <label><input type="checkbox" id="pw-lower" checked> <span data-i18n="tool.password.lower">Lowercase (a-z)</span></label>
+          <label><input type="checkbox" id="pw-numbers" checked> <span data-i18n="tool.password.numbers">Numbers (0-9)</span></label>
+          <label><input type="checkbox" id="pw-symbols"> <span data-i18n="tool.password.symbols">Symbols (!@#$...)</span></label>
+        </div>
+        <button type="button" id="pw-generate" class="btn btn-primary" data-sound="ui-click" data-i18n="tool.generate">Generate</button>
+      </div>
+      <p class="pw-status" id="pw-status" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="tools-grid" id="tools-grid"><!-- rendered by tools.js from modules/toolsData.js --></div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <span data-i18n="footer.tag1">DAGI. — Developer Portfolio</span>
+  <span>STATIC / FAST / MODULAR ©</span>
+</footer>
+
+<script type="module" src="tools.js"></script>
+</body>
+</html>
