@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dagnaw Beyene Tizazu // Developer Portfolio</title>
-<meta name="description" content="Dagi — Software Developer, Database Administrator &amp; Creative Specialist, Bahir Dar, Ethiopia.">
+<meta name="description" content="Dagnaw Beyene Tizazu — Software Developer, Database Administrator &amp; Creative Specialist, Bahir Dar, Ethiopia.">
 <meta name="theme-color" content="#050812">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap">
@@ -15,26 +15,49 @@
 <!-- ============ SPLASH SCREEN ============ -->
 <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-label="Welcome">
   <div class="splash-hud" aria-hidden="true">
-    <div class="splash-ring splash-ring--1"></div>
-    <div class="splash-ring splash-ring--2"></div>
     <div class="splash-grid"></div>
     <div class="splash-scan"></div>
     <div class="splash-corner splash-corner--tl"></div>
     <div class="splash-corner splash-corner--tr"></div>
     <div class="splash-corner splash-corner--bl"></div>
     <div class="splash-corner splash-corner--br"></div>
+
+    <!-- 3D orbiting tech chips — decorative, tied to the dev/tech identity of the site -->
+    <div class="orbit-scene">
+      <div class="orbit-item" style="--radius:120px; animation-duration:14s; animation-delay:0s;"><span class="chip">01</span></div>
+      <div class="orbit-item" style="--radius:120px; animation-duration:14s; animation-delay:-3.5s;"><span class="chip">{ }</span></div>
+      <div class="orbit-item" style="--radius:120px; animation-duration:14s; animation-delay:-7s;"><span class="chip">10</span></div>
+      <div class="orbit-item" style="--radius:120px; animation-duration:14s; animation-delay:-10.5s;"><span class="chip">&lt;/&gt;</span></div>
+      <div class="orbit-item" style="--radius:190px; animation-duration:22s; animation-delay:0s;"><span class="chip">PY</span></div>
+      <div class="orbit-item" style="--radius:190px; animation-duration:22s; animation-delay:-5.5s;"><span class="chip">SQL</span></div>
+      <div class="orbit-item" style="--radius:190px; animation-duration:22s; animation-delay:-11s;"><span class="chip">AND</span></div>
+      <div class="orbit-item" style="--radius:190px; animation-duration:22s; animation-delay:-16.5s;"><span class="chip">UI</span></div>
+    </div>
   </div>
+
   <div class="splash-content">
     <p class="splash-brand">DAGI<span class="dot">.</span></p>
-    <p class="splash-tag" data-i18n="splash.tag">SYSTEM INITIALIZING</p>
-    <button type="button" class="btn btn-primary splash-enter" id="splash-enter" data-i18n="splash.enter">Enter</button>
+    <h1 class="splash-title" data-i18n="splash.title">Welcome</h1>
+    <p class="splash-subtitle" data-i18n="splash.subtitle">Dagnaw Beyene — it's for all</p>
+    <p class="splash-tag" data-i18n="splash.tag">Enter To In </p>
+
+    <div class="splash-slider" id="splash-slider">
+      <div class="splash-slider__track" id="splash-slider-track">
+        <div class="splash-slider__fill" id="splash-slider-fill" aria-hidden="true"></div>
+        <span class="splash-slider__hint" data-i18n="splash.slide">Slide to enter</span>
+        <button type="button" class="splash-slider__handle" id="splash-slider-handle" aria-label="Enter site"
+          onclick="var s=document.getElementById('splash-screen'); if(s){ s.classList.add('splash-exit'); document.body.style.overflow=''; try{sessionStorage.setItem('dagi-portfolio-splash-seen','true');}catch(e){} setTimeout(function(){ if(s && s.parentNode) s.remove(); },600); }">
+          <span class="splash-slider__arrow">›</span>
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- ============ NAV ============ -->
 <header class="site-header" id="site-header">
   <a href="#home" class="brand" data-sound="ui-click">
-    <img src="assets/images/profile.jpg" alt="Dagi" class="brand-photo" onerror="this.style.display='none'">
+    <img src="assets/images/profile.jpg" alt="Dagnaw Beyene" class="brand-photo" onerror="this.style.display='none'">
     <span class="brand-mark">DAGI<span class="dot">.</span></span>
   </a>
 
@@ -50,10 +73,10 @@
 
   <div class="header-actions">
     <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="en">EN</button>
-      <button type="button" class="lang-btn" data-lang="am">AM</button>
-      <button type="button" class="lang-btn" data-lang="om">OM</button>
-      <button type="button" class="lang-btn" data-lang="zh">中文</button>
+      <button type="button" class="lang-btn" data-lang="en">EN🇬🇧</button>
+      <button type="button" class="lang-btn" data-lang="am">AM🇪🇹</button>
+      <button type="button" class="lang-btn" data-lang="om">OM🇾🇪</button>
+      <button type="button" class="lang-btn" data-lang="zh">中文🇨🇳</button>
     </div>
     <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" data-sound="toggle">
       <span class="sound-dot" aria-hidden="true"></span>
@@ -135,6 +158,14 @@
         </div>
       </div>
       <div class="about-photo">
+        <div class="orbit-scene orbit-scene--photo" aria-hidden="true">
+          <div class="orbit-item" style="--radius:105px; animation-duration:12s; animation-delay:0s;"><span class="chip">01</span></div>
+          <div class="orbit-item" style="--radius:105px; animation-duration:12s; animation-delay:-4s;"><span class="chip">&lt;/&gt;</span></div>
+          <div class="orbit-item" style="--radius:105px; animation-duration:12s; animation-delay:-8s;"><span class="chip">{ }</span></div>
+          <div class="orbit-item" style="--radius:150px; animation-duration:19s; animation-delay:0s;"><span class="chip">PY</span></div>
+          <div class="orbit-item" style="--radius:150px; animation-duration:19s; animation-delay:-6.3s;"><span class="chip">SQL</span></div>
+          <div class="orbit-item" style="--radius:150px; animation-duration:19s; animation-delay:-12.6s;"><span class="chip">AND</span></div>
+        </div>
         <img src="assets/images/profile.jpg" alt="Dagi" onerror="this.parentElement.classList.add('img-missing')">
         <p class="photo-caption">DAGI. — DEVELOPER / BUILDER<br>SYSTEM READY</p>
       </div>
@@ -215,7 +246,7 @@
 </main>
 
 <footer class="site-footer">
-  <span data-i18n="footer.tag1">DAGI. — Developer Portfolio</span>
+  <span data-i18n="footer.tag1">Dagnaw Beyene. — Developer Portfolio</span>
   <span>STATIC / FAST / MODULAR ©</span>
 </footer>
 
