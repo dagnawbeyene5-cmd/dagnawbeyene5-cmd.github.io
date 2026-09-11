@@ -7,8 +7,10 @@ import { initHeroParticles } from './modules/animations.js';
 import { renderCertificates, initCertificateModal } from './modules/certificates.js';
 import { initI18n } from './modules/i18n.js';
 import { initFallingFlowers } from './modules/newyear.js';
+import { initSplash } from './modules/splash.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initSplash();
   initNavigation();
   initI18n();
   initHero();
