@@ -1,9 +1,12 @@
 // modules/splash.js
 // Fast welcome/splash screen shown once per browser session on the home page.
-// Skips itself entirely if the user prefers reduced motion (goes straight to
-// the main site — no animation, no forced extra click).
+// Skips itself entirely if the user prefers reduced motion. Dismissal is a
+// drag-to-enter slider (also works with a plain click/tap — see the inline
+// onclick fallback on the handle in index.html, which fires independently of
+// this module so the button always works even if this script fails to load).
 
-const SESSION_KEY = 'dagi-portfolio-splash-seen';
+const SESSION_KEY = 'Dagnaw Beyene-portfolio-splash-seen';
+const COMPLETE_THRESHOLD = 0.78; // fraction of track width required to auto-complete
 
 export function initSplash() {
   const splash = document.getElementById('splash-screen');
@@ -23,22 +26,21 @@ export function initSplash() {
 
   document.body.style.overflow = 'hidden';
 
-  const enterBtn = document.getElementById('splash-enter');
+  const track = document.getElementById('splash-slider-track');
+  const fill = document.getElementById('splash-slider-fill');
+  const handle = document.getElementById('splash-slider-handle');
+
   const dismiss = () => {
-    splash.classList.add('hidden');
+    if (!splash.parentNode) return; // already dismissed
+    splash.classList.add('splash-exit');
     document.body.style.overflow = '';
     try {
       sessionStorage.setItem(SESSION_KEY, 'true');
     } catch { /* non-fatal */ }
-    // Remove from the DOM after the fade-out transition finishes.
-    setTimeout(() => splash.remove(), 550);
+    setTimeout(() => splash.remove(), 650);
   };
 
-  if (enterBtn) {
-    enterBtn.addEventListener('click', dismiss);
-  }
-
-  // Also allow Enter/Space key or Escape to dismiss, for keyboard users.
+  // Keyboard access: Enter/Space/Escape dismiss directly.
   splash.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
       e.preventDefault();
@@ -46,5 +48,63 @@ export function initSplash() {
     }
   });
 
-  if (enterBtn) enterBtn.focus();
+  if (!track || !fill || !handle) {
+    if (handle) handle.focus();
+    return; // drag UI not present — the inline onclick fallback still covers dismissal
+  }
+
+  const handleSize = handle.offsetWidth;
+  let maxDrag = 0;
+  let dragging = false;
+  let startX = 0;
+  let currentX = 0;
+
+  function computeMax() {
+    maxDrag = track.clientWidth - handleSize - 6; // 6px = track inner padding
+  }
+  computeMax();
+  window.addEventListener('resize', computeMax);
+
+  function setPosition(x, animate) {
+    handle.style.transition = animate ? 'transform 0.25s cubic-bezier(0.34,1.2,0.64,1)' : 'none';
+    fill.style.transition = animate ? 'width 0.25s ease' : 'none';
+    handle.style.transform = `translateX(${x}px)`;
+    fill.style.width = `${x + handleSize}px`;
+  }
+
+  function onPointerDown(e) {
+    dragging = true;
+    startX = e.clientX;
+    currentX = parseFloat((handle.style.transform.match(/-?\d+(\.\d+)?/) || [0])[0]) || 0;
+    track.classList.add('dragging');
+    handle.setPointerCapture(e.pointerId);
+  }
+
+  function onPointerMove(e) {
+    if (!dragging) return;
+    const delta = e.clientX - startX;
+    const x = Math.min(Math.max(0, currentX + delta), maxDrag);
+    setPosition(x, false);
+  }
+
+  function onPointerUp(e) {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove('dragging');
+    const x = parseFloat((handle.style.transform.match(/-?\d+(\.\d+)?/) || [0])[0]) || 0;
+
+    if (maxDrag > 0 && x / maxDrag >= COMPLETE_THRESHOLD) {
+      setPosition(maxDrag, true);
+      dismiss();
+    } else {
+      setPosition(0, true);
+    }
+  }
+
+  handle.addEventListener('pointerdown', onPointerDown);
+  handle.addEventListener('pointermove', onPointerMove);
+  handle.addEventListener('pointerup', onPointerUp);
+  handle.addEventListener('pointercancel', onPointerUp);
+
+  handle.focus();
 }
