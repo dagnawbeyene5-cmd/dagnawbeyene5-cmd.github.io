@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,6 +12,25 @@
 </head>
 <body>
 
+<!-- ============ SPLASH SCREEN ============ -->
+<div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-label="Welcome">
+  <div class="splash-hud" aria-hidden="true">
+    <div class="splash-ring splash-ring--1"></div>
+    <div class="splash-ring splash-ring--2"></div>
+    <div class="splash-grid"></div>
+    <div class="splash-scan"></div>
+    <div class="splash-corner splash-corner--tl"></div>
+    <div class="splash-corner splash-corner--tr"></div>
+    <div class="splash-corner splash-corner--bl"></div>
+    <div class="splash-corner splash-corner--br"></div>
+  </div>
+  <div class="splash-content">
+    <p class="splash-brand">DAGI<span class="dot">.</span></p>
+    <p class="splash-tag" data-i18n="splash.tag">SYSTEM INITIALIZING</p>
+    <button type="button" class="btn btn-primary splash-enter" id="splash-enter" data-i18n="splash.enter">Enter</button>
+  </div>
+</div>
+
 <!-- ============ NAV ============ -->
 <header class="site-header" id="site-header">
   <a href="#home" class="brand" data-sound="ui-click">
@@ -20,13 +39,13 @@
   </a>
 
   <nav class="nav-desktop" aria-label="Primary">
-    <a href="#home" class="nav-link" data-sound="ui-click"><b>01</b><span data-i18n="nav.home">Home</span></a>
-    <a href="#about" class="nav-link" data-sound="ui-click"><b>02</b><span data-i18n="nav.about">About</span></a>
-    <a href="#skills" class="nav-link" data-sound="ui-click"><b>03</b><span data-i18n="nav.skills">Skills</span></a>
-    <a href="#projects" class="nav-link" data-sound="ui-click"><b>04</b><span data-i18n="nav.projects">Projects</span></a>
-    <a href="#certificates" class="nav-link" data-sound="ui-click"><b>05</b><span data-i18n="nav.certificates">Certificates</span></a>
+    <a href="#home" class="nav-link icon-home" data-sound="ui-click"><b>01</b><span data-i18n="nav.home">Home</span></a>
+    <a href="#about" class="nav-link icon-about" data-sound="ui-click"><b>02</b><span data-i18n="nav.about">About</span></a>
+    <a href="#skills" class="nav-link icon-skills" data-sound="ui-click"><b>03</b><span data-i18n="nav.skills">Skills</span></a>
+    <a href="#projects" class="nav-link icon-projects" data-sound="ui-click"><b>04</b><span data-i18n="nav.projects">Projects</span></a>
+    <a href="#certificates" class="nav-link icon-certificates" data-sound="ui-click"><b>05</b><span data-i18n="nav.certificates">Certificates</span></a>
     <a href="tools.html" class="nav-link icon-tools" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
-    <a href="#contact" class="nav-link" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
+    <a href="#contact" class="nav-link icon-contact" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
   </nav>
 
   <div class="header-actions">
@@ -49,13 +68,13 @@
 <!-- ============ MOBILE MENU ============ -->
 <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
   <nav aria-label="Mobile">
-    <a href="#home" data-sound="ui-click"><b>01</b><span data-i18n="nav.home">Home</span></a>
-    <a href="#about" data-sound="ui-click"><b>02</b><span data-i18n="nav.about">About</span></a>
-    <a href="#skills" data-sound="ui-click"><b>03</b><span data-i18n="nav.skills">Skills</span></a>
-    <a href="#projects" data-sound="ui-click"><b>04</b><span data-i18n="nav.projects">Projects</span></a>
-    <a href="#certificates" data-sound="ui-click"><b>05</b><span data-i18n="nav.certificates">Certificates</span></a>
-    <a href="tools.html" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
-    <a href="#contact" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
+    <a href="#home" class="icon-home" data-sound="ui-click"><b>01</b><span data-i18n="nav.home">Home</span></a>
+    <a href="#about" class="icon-about" data-sound="ui-click"><b>02</b><span data-i18n="nav.about">About</span></a>
+    <a href="#skills" class="icon-skills" data-sound="ui-click"><b>03</b><span data-i18n="nav.skills">Skills</span></a>
+    <a href="#projects" class="icon-projects" data-sound="ui-click"><b>04</b><span data-i18n="nav.projects">Projects</span></a>
+    <a href="#certificates" class="icon-certificates" data-sound="ui-click"><b>05</b><span data-i18n="nav.certificates">Certificates</span></a>
+    <a href="tools.html" class="icon-tools" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
+    <a href="#contact" class="icon-contact" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
   </nav>
   <div class="lang-switch lang-switch--mobile" id="lang-switch-mobile" role="group" aria-label="Language">
     <button type="button" class="lang-btn" data-lang="en">EN</button>
@@ -179,7 +198,7 @@
   <section class="section section-tight" id="cv">
     <p class="section-index" data-i18n="cv.index">06 // CV</p>
     <h2 class="section-title" data-i18n="cv.title">Download the full picture.</h2>
-    <a class="btn btn-primary" href="assets/cv/dagi-cv.pdf" download data-sound="cv" data-i18n="cv.button">Download CV (PDF)</a>
+    <a class="btn btn-primary icon-cv" href="assets/cv/dagi-cv.pdf" download data-sound="cv" data-i18n="cv.button">Download CV (PDF)</a>
   </section>
 
   <!-- ============ CONTACT ============ -->
@@ -188,8 +207,8 @@
     <h2 class="section-title" data-i18n="contact.title">Let's build something useful.</h2>
     <p class="section-note" data-i18n="contact.note">Add your real contact details. They're intentionally left as placeholders until provided.</p>
     <div class="hero-actions">
-      <a href="mailto:dagnawbeyene5@mail.com" class="btn btn-primary" data-sound="contact" data-i18n="contact.email">Email Me</a>
-      <a href="tools.html" class="btn btn-ghost" data-sound="tools" data-i18n="contact.toolsbtn">Open Tools Hub</a>
+      <a href="mailto:dagnawbeyene5@mail.com" class="btn btn-primary icon-contact" data-sound="contact" data-i18n="contact.email">Email Me</a>
+      <a href="tools.html" class="btn btn-ghost icon-tools" data-sound="tools" data-i18n="contact.toolsbtn">Open Tools Hub</a>
     </div>
   </section>
 
@@ -209,4 +228,3 @@
 <script type="module" src="script.js"></script>
 </body>
 </html>
-       
