@@ -361,7 +361,10 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
    ===================================================== */
 .splash-screen{
   position: fixed; inset:0; z-index: 20000;
-  background: var(--bg);
+  background:
+    radial-gradient(circle at 50% 45%, rgba(0,229,199,0.10), transparent 45%),
+    radial-gradient(circle at 50% 55%, rgba(124,92,255,0.08), transparent 55%),
+    var(--bg);
   display:flex; align-items:center; justify-content:center;
   overflow:hidden;
   transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1), visibility 0.5s;
@@ -469,14 +472,24 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 .splash-slider__track.dragging .splash-slider__hint{ opacity:0; }
 
 /* =====================================================
-   ORBIT SCENE — reusable 3D-feel orbiting chips
+   ORBIT SCENE — reusable "glass-neon" orbiting tech icons
    (splash center + about photo). Each .orbit-item defines
    its own --radius and animation-duration/delay inline.
    ===================================================== */
 .orbit-scene{ position:absolute; inset:0; perspective: 900px; pointer-events:none; }
 .orbit-scene--photo{ z-index:0; }
+
+/* visible ring "tracks" the icons appear to travel along */
+.orbit-track{
+  position:absolute; top:50%; left:50%; border-radius:50%;
+  border:1px solid rgba(0,229,199,0.22);
+  box-shadow: 0 0 24px rgba(0,229,199,0.08), inset 0 0 24px rgba(0,229,199,0.05);
+  transform: translate(-50%,-50%);
+}
+.orbit-track--outer{ border-color: rgba(124,92,255,0.2); box-shadow: 0 0 24px rgba(124,92,255,0.08), inset 0 0 24px rgba(124,92,255,0.05); }
+
 .orbit-item{
-  position:absolute; top:50%; left:50%; width:34px; height:34px; margin:-17px;
+  position:absolute; top:50%; left:50%; width:52px; height:52px; margin:-26px;
   animation-name: orbit-move; animation-timing-function: linear; animation-iteration-count: infinite;
 }
 @keyframes orbit-move{
@@ -485,15 +498,35 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 }
 .orbit-item .chip{
   display:flex; align-items:center; justify-content:center; width:100%; height:100%;
-  border:1px solid rgba(0,229,199,0.4); border-radius:50%;
-  background: rgba(10,15,30,0.85); backdrop-filter: blur(2px);
-  font-family: var(--font-head); font-size:0.62rem; color: var(--accent);
-  box-shadow: 0 0 10px rgba(0,229,199,0.15);
+  border-radius: 14px;
+  border:1px solid rgba(0,229,199,0.55);
+  background: linear-gradient(145deg, rgba(0,229,199,0.14), rgba(10,15,30,0.92));
+  box-shadow: 0 0 18px rgba(0,229,199,0.35), 0 4px 14px rgba(0,0,0,0.4), inset 0 0 10px rgba(0,229,199,0.12);
+  color: var(--accent);
+  animation: orbit-tilt 5s ease-in-out infinite;
 }
-.orbit-item:nth-child(4n+2) .chip{ color: var(--accent-2); border-color: rgba(124,92,255,0.4); box-shadow: 0 0 10px rgba(124,92,255,0.15); }
+.orbit-item .chip svg{ width:60%; height:60%; filter: drop-shadow(0 0 4px currentColor); }
+@keyframes orbit-tilt{
+  0%,100%{ transform: perspective(300px) rotateY(0deg); }
+  50%{ transform: perspective(300px) rotateY(18deg); }
+}
+.orbit-item:nth-child(4n+2) .chip{
+  color: var(--accent-2); border-color: rgba(124,92,255,0.55);
+  background: linear-gradient(145deg, rgba(124,92,255,0.16), rgba(10,15,30,0.92));
+  box-shadow: 0 0 18px rgba(124,92,255,0.35), 0 4px 14px rgba(0,0,0,0.4), inset 0 0 10px rgba(124,92,255,0.12);
+}
+.orbit-item:nth-child(4n+3) .chip{
+  color: #FFD966; border-color: rgba(255,217,102,0.5);
+  background: linear-gradient(145deg, rgba(255,217,102,0.14), rgba(10,15,30,0.92));
+  box-shadow: 0 0 18px rgba(255,217,102,0.3), 0 4px 14px rgba(0,0,0,0.4), inset 0 0 10px rgba(255,217,102,0.1);
+}
+
+@media (max-width: 640px){
+  .orbit-item{ width:38px; height:38px; margin:-19px; }
+}
 
 @media (prefers-reduced-motion: reduce){
-  .splash-scan, .orbit-item, .splash-slider__hint{ animation:none; }
+  .splash-scan, .orbit-item, .orbit-item .chip, .splash-slider__hint{ animation:none; }
   .splash-brand, .splash-title, .splash-subtitle, .splash-tag, .splash-slider{
     animation:none; opacity:1; transform:none; filter:none;
   }
