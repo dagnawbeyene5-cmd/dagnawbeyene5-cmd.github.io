@@ -12,7 +12,7 @@
 // Chinese (Simplified) are good-faith translations aimed at being clear and accurate —
 // worth a native-speaker read-through before this goes live if precision matters to you.
 
-const STORAGE_KEY = 'dagi-portfolio-lang';
+const STORAGE_KEY = 'Dagnaw Beyene-portfolio-lang';
 const SUPPORTED = ['en', 'am', 'om', 'zh'];
 const DEFAULT_LANG = 'en';
 
@@ -68,6 +68,8 @@ export const TRANSLATIONS = {
     'tool.base64.title': 'Base64 Encoder/Decoder', 'tool.base64.desc': 'Encode or decode text to and from Base64.',
     'tool.timestamp.title': 'Timestamp Converter', 'tool.timestamp.desc': 'Convert between Unix timestamps and readable dates.',
     'tool.imagecompress.title': 'Image Compressor', 'tool.imagecompress.desc': 'Shrink image file size right in the browser.',
+    'splash.tag': 'SYSTEM INITIALIZING', 'splash.enter': 'Enter',
+    'splash.title': 'Welcome', 'splash.subtitle': "Dagnaw Beyene \u2014 it's for all", 'splash.slide': 'Slide to enter',
   },
 
   am: {
@@ -121,6 +123,8 @@ export const TRANSLATIONS = {
     'tool.base64.title': 'Base64 መቀየሪያ', 'tool.base64.desc': 'ጽሑፍን ወደ Base64 ይቀይራል ወይም ይመልሳል።',
     'tool.timestamp.title': 'የጊዜ ማህተም መቀየሪያ', 'tool.timestamp.desc': 'በUnix timestamp እና በሚነበብ ቀን መካከል ይቀይራል።',
     'tool.imagecompress.title': 'የምስል መጭመቂያ', 'tool.imagecompress.desc': 'የምስል ፋይል መጠንን በአሳሽ ውስጥ በቀጥታ ይቀንሳል።',
+    'splash.tag': 'ሲስተም በመዘጋጀት ላይ', 'splash.enter': 'ግባ',
+    'splash.title': 'እንኳን ደህና መጡ', 'splash.subtitle': 'ዳግናው ብዬነ — ለሁሉም ነው', 'splash.slide': 'ለመግባት ይጎትቱ',
   },
 
   om: {
@@ -174,6 +178,8 @@ export const TRANSLATIONS = {
     'tool.base64.title': 'Jijjiirraa Base64', 'tool.base64.desc': 'Barruu gara Base64tti jijjiiri ykn deebisi.',
     'tool.timestamp.title': 'Jijjiirraa Yeroo', 'tool.timestamp.desc': 'Unix timestamp fi guyyaa dubbifamu gidduutti jijjiira.',
     'tool.imagecompress.title': 'Xiqqeessaa Suuraa', 'tool.imagecompress.desc': 'Bal\u2019ina faayilii suuraa birawuzarii keessatti xiqqeessi.',
+    'splash.tag': "SIRNI QOPHAA'AA JIRA", 'splash.enter': 'Seeni',
+    'splash.title': 'Baga Nagaan Dhuftan', 'splash.subtitle': 'Dagnaw Beyene \u2014 Hundaaf', 'splash.slide': 'Seenuuf Harkisi',
   },
 
   zh: {
@@ -227,6 +233,8 @@ export const TRANSLATIONS = {
     'tool.base64.title': 'Base64 编解码器', 'tool.base64.desc': '将文本编码为 Base64 或解码。',
     'tool.timestamp.title': '时间戳转换器', 'tool.timestamp.desc': '在 Unix 时间戳与可读日期之间转换。',
     'tool.imagecompress.title': '图片压缩器', 'tool.imagecompress.desc': '直接在浏览器中压缩图片文件大小。',
+    'splash.tag': '系统初始化中', 'splash.enter': '进入',
+    'splash.title': '欢迎', 'splash.subtitle': 'Dagnaw Beyene — 属于每个人', 'splash.slide': '滑动进入',
   },
 };
 
