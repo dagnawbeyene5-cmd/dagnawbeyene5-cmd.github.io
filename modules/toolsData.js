@@ -4,15 +4,15 @@
 
 export const TOOLS = [
   { id: 'password', icon: '⚿', titleKey: 'tool.password.title', descKey: 'tool.password.desc', status: 'live', anchor: '#password-tool' },
-  { id: 'qr', icon: '▦', titleKey: 'tool.qr.title', descKey: 'tool.qr.desc', status: 'soon' },
-  { id: 'unit', icon: '⇄', titleKey: 'tool.unit.title', descKey: 'tool.unit.desc', status: 'soon' },
-  { id: 'palette', icon: '◐', titleKey: 'tool.palette.title', descKey: 'tool.palette.desc', status: 'soon' },
-  { id: 'markdown', icon: '¶', titleKey: 'tool.markdown.title', descKey: 'tool.markdown.desc', status: 'soon' },
-  { id: 'json', icon: '{}', titleKey: 'tool.json.title', descKey: 'tool.json.desc', status: 'soon' },
-  { id: 'wordcount', icon: '≡', titleKey: 'tool.wordcount.title', descKey: 'tool.wordcount.desc', status: 'soon' },
-  { id: 'base64', icon: '⌬', titleKey: 'tool.base64.title', descKey: 'tool.base64.desc', status: 'soon' },
-  { id: 'timestamp', icon: '⏱', titleKey: 'tool.timestamp.title', descKey: 'tool.timestamp.desc', status: 'soon' },
-  { id: 'imagecompress', icon: '▨', titleKey: 'tool.imagecompress.title', descKey: 'tool.imagecompress.desc', status: 'soon' },
+  { id: 'qr', icon: '▦', titleKey: 'tool.qr.title', descKey: 'tool.qr.desc', status: 'live', anchor: '#qr-tool' },
+  { id: 'unit', icon: '⇄', titleKey: 'tool.unit.title', descKey: 'tool.unit.desc', status: 'live', anchor: '#unit-tool' },
+  { id: 'palette', icon: '◐', titleKey: 'tool.palette.title', descKey: 'tool.palette.desc', status: 'live', anchor: '#palette-tool' },
+  { id: 'markdown', icon: '¶', titleKey: 'tool.markdown.title', descKey: 'tool.markdown.desc', status: 'live', anchor: '#markdown-tool' },
+  { id: 'json', icon: '{}', titleKey: 'tool.json.title', descKey: 'tool.json.desc', status: 'live', anchor: '#json-tool' },
+  { id: 'wordcount', icon: '≡', titleKey: 'tool.wordcount.title', descKey: 'tool.wordcount.desc', status: 'live', anchor: '#wordcount-tool' },
+  { id: 'base64', icon: '⌬', titleKey: 'tool.base64.title', descKey: 'tool.base64.desc', status: 'live', anchor: '#base64-tool' },
+  { id: 'timestamp', icon: '⏱', titleKey: 'tool.timestamp.title', descKey: 'tool.timestamp.desc', status: 'live', anchor: '#timestamp-tool' },
+  { id: 'imagecompress', icon: '▨', titleKey: 'tool.imagecompress.title', descKey: 'tool.imagecompress.desc', status: 'live', anchor: '#imagecompress-tool' },
 ];
 
 function escapeHtml(str) {
