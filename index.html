@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('dagnaw beyene-portfolio-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Dagnaw Beyene Tizazu// Developer Portfolio</title>
+<title>Dagnaw Beyene // Developer Portfolio</title>
 <meta name="description" content="Dagi — Software Developer, Database Administrator &amp; Creative Specialist, Bahir Dar, Ethiopia.">
 <meta name="theme-color" content="#050812">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="crt-overlay" aria-hidden="true"></div>
 
 <!-- ============ SPLASH SCREEN ============ -->
 <div class="splash-screen" id="splash-screen" role="dialog" aria-modal="true" aria-label="Welcome">
@@ -39,7 +40,7 @@
   </div>
 
   <div class="splash-content">
-    <p class="splash-brand">Dagnaw beyene<span class="dot">.</span></p>
+    <p class="splash-brand">Dagnaw<span class="dot">.</span></p>
     <h1 class="splash-title" data-i18n="splash.title">Welcome</h1>
     <p class="splash-subtitle" data-i18n="splash.subtitle">Dagnaw Beyene — it's for all</p>
     <p class="splash-tag" data-i18n="splash.tag">SYSTEM INITIALIZING</p>
@@ -75,11 +76,17 @@
   </nav>
 
   <div class="header-actions">
+    <div class="theme-switch" id="theme-switch" role="group" aria-label="Theme">
+      <button type="button" class="theme-btn" data-theme-option="cyber" style="--swatch:#00E5C7" aria-label="Cyber theme"></button>
+      <button type="button" class="theme-btn" data-theme-option="cultural" style="--swatch:#FCDD09" aria-label="Cultural theme"></button>
+      <button type="button" class="theme-btn" data-theme-option="light" style="--swatch:#0E7C7B" aria-label="Light theme"></button>
+      <button type="button" class="theme-btn" data-theme-option="retro" style="--swatch:#33FF33" aria-label="Retro theme"></button>
+    </div>
     <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
-      <button type="button" class="lang-btn" data-lang="en">EN🇬🇧</button>
-      <button type="button" class="lang-btn" data-lang="am">AM🇪🇹</button>
-      <button type="button" class="lang-btn" data-lang="om">OM🇾🇪</button>
-      <button type="button" class="lang-btn" data-lang="zh">中文🇨🇳</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+      <button type="button" class="lang-btn" data-lang="am">AM</button>
+      <button type="button" class="lang-btn" data-lang="om">OM</button>
+      <button type="button" class="lang-btn" data-lang="zh">中文</button>
     </div>
     <button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" data-sound="toggle">
       <span class="sound-dot" aria-hidden="true"></span>
@@ -102,11 +109,17 @@
     <a href="tools.html" class="icon-tools" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
     <a href="#contact" class="icon-contact" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
   </nav>
+  <div class="theme-switch theme-switch--mobile" id="theme-switch-mobile" role="group" aria-label="Theme">
+    <button type="button" class="theme-btn" data-theme-option="cyber" style="--swatch:#00E5C7" aria-label="Cyber theme"></button>
+    <button type="button" class="theme-btn" data-theme-option="cultural" style="--swatch:#FCDD09" aria-label="Cultural theme"></button>
+    <button type="button" class="theme-btn" data-theme-option="light" style="--swatch:#0E7C7B" aria-label="Light theme"></button>
+    <button type="button" class="theme-btn" data-theme-option="retro" style="--swatch:#33FF33" aria-label="Retro theme"></button>
+  </div>
   <div class="lang-switch lang-switch--mobile" id="lang-switch-mobile" role="group" aria-label="Language">
-    <button type="button" class="lang-btn" data-lang="en">EN🇬🇧</button>
-    <button type="button" class="lang-btn" data-lang="am">AM🇪🇹</button>
-    <button type="button" class="lang-btn" data-lang="om">OM🇾🇪</button>
-    <button type="button" class="lang-btn" data-lang="zh">中文🇨🇳</button>
+    <button type="button" class="lang-btn" data-lang="en">EN</button>
+    <button type="button" class="lang-btn" data-lang="am">AM</button>
+    <button type="button" class="lang-btn" data-lang="om">OM</button>
+    <button type="button" class="lang-btn" data-lang="zh">中文</button>
   </div>
   <p class="menu-footer" data-i18n="menu.footer">SYS // NAVIGATION LIVE</p>
 </div>
