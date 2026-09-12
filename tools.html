@@ -85,6 +85,10 @@
     <p class="section-note" data-i18n="tools.note">One tool is live below. The rest are modular slots — each new tool is added to modules/toolsData.js without touching this page's structure.</p>
   </section>
 
+  <section class="section">
+    <div class="tools-grid" id="tools-grid"><!-- rendered by tools.js from modules/toolsData.js --></div>
+  </section>
+
   <section class="section section-tight">
     <div class="tool-panel" id="password-tool">
       <div class="tool-panel-head">
@@ -114,13 +118,176 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="tools-grid" id="tools-grid"><!-- rendered by tools.js from modules/toolsData.js --></div>
+  <!-- ============ QR CODE GENERATOR ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="qr-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.qr.title">QR Code Generator</h2>
+        <p data-i18n="tool.qr.desc">Turn any text or link into a scannable QR code.</p>
+      </div>
+      <input type="text" id="qr-input" class="tool-text-input" data-i18n-placeholder="tool.qr.placeholder" placeholder="Enter text or a URL">
+      <div class="qr-output-row">
+        <img id="qr-image" class="qr-image" alt="Generated QR code" style="visibility:hidden">
+        <a id="qr-download" class="btn btn-ghost" download="qr-code.png" style="visibility:hidden" data-sound="ui-click" data-i18n="tool.qr.download">Download QR</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ UNIT CONVERTER ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="unit-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.unit.title">Unit Converter</h2>
+        <p data-i18n="tool.unit.desc">Convert length, weight, and temperature instantly.</p>
+      </div>
+      <select id="unit-category" class="tool-select">
+        <option value="length" data-i18n="tool.unit.length">Length</option>
+        <option value="weight" data-i18n="tool.unit.weight">Weight</option>
+        <option value="temperature" data-i18n="tool.unit.temperature">Temperature</option>
+      </select>
+      <div class="unit-row">
+        <input type="number" id="unit-from-value" class="tool-text-input" value="1">
+        <select id="unit-from" class="tool-select"></select>
+        <span class="unit-equals">=</span>
+        <input type="text" id="unit-to-value" class="tool-text-input" readonly>
+        <select id="unit-to" class="tool-select"></select>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COLOR PALETTE PICKER ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="palette-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.palette.title">Color Palette Picker</h2>
+        <p data-i18n="tool.palette.desc">Pick a color and get a tasteful 5-shade palette. Click a swatch to copy its hex code.</p>
+      </div>
+      <input type="color" id="palette-picker" class="palette-picker-input" value="#00E5C7">
+      <div class="palette-grid" id="palette-grid"></div>
+    </div>
+  </section>
+
+  <!-- ============ MARKDOWN PREVIEW ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="markdown-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.markdown.title">Markdown Preview</h2>
+        <p data-i18n="tool.markdown.desc">Write Markdown, see it rendered live — headings, bold, italics, links, and lists.</p>
+      </div>
+      <div class="md-grid">
+        <textarea id="md-input" class="tool-textarea" rows="8" placeholder="Markdown">## Hello
+
+This is **bold**, this is *italic*.
+
+- One
+- Two
+- [A link](https://example.com)</textarea>
+        <div id="md-preview" class="md-preview"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JSON FORMATTER ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="json-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.json.title">JSON Formatter</h2>
+        <p data-i18n="tool.json.desc">Pretty-print and validate JSON, right in the browser.</p>
+      </div>
+      <textarea id="json-input" class="tool-textarea" rows="6" placeholder='{"hello":"world"}'></textarea>
+      <div class="tool-btn-row">
+        <button type="button" id="json-format" class="btn btn-primary" data-sound="ui-click" data-i18n="tool.json.format">Format</button>
+        <button type="button" id="json-copy" class="btn btn-ghost" data-sound="ui-click"><span data-i18n="tool.copy">Copy</span></button>
+      </div>
+      <p class="tool-status" id="json-status" data-invalid-label="Invalid JSON:" role="status" aria-live="polite"></p>
+      <textarea id="json-output" class="tool-textarea" rows="6" readonly></textarea>
+    </div>
+  </section>
+
+  <!-- ============ WORD COUNTER ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="wordcount-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.wordcount.title">Word Counter</h2>
+        <p data-i18n="tool.wordcount.desc">Live word, character, sentence, and paragraph counts.</p>
+      </div>
+      <textarea id="wc-input" class="tool-textarea" rows="6"></textarea>
+      <div class="wc-stats">
+        <div><span id="wc-words">0</span><span data-i18n="tool.wordcount.words">Words</span></div>
+        <div><span id="wc-chars">0</span><span data-i18n="tool.wordcount.chars">Characters</span></div>
+        <div><span id="wc-charsns">0</span><span data-i18n="tool.wordcount.charsns">Characters (no spaces)</span></div>
+        <div><span id="wc-sentences">0</span><span data-i18n="tool.wordcount.sentences">Sentences</span></div>
+        <div><span id="wc-paragraphs">0</span><span data-i18n="tool.wordcount.paragraphs">Paragraphs</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BASE64 ENCODER/DECODER ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="base64-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.base64.title">Base64 Encoder / Decoder</h2>
+        <p data-i18n="tool.base64.desc">Encode text to Base64, or decode Base64 back to text.</p>
+      </div>
+      <textarea id="b64-input" class="tool-textarea" rows="4"></textarea>
+      <div class="tool-btn-row">
+        <button type="button" id="b64-encode" class="btn btn-primary" data-sound="ui-click" data-i18n="tool.base64.encode">Encode</button>
+        <button type="button" id="b64-decode" class="btn btn-ghost" data-sound="ui-click" data-i18n="tool.base64.decode">Decode</button>
+        <button type="button" id="b64-copy" class="btn btn-ghost" data-sound="ui-click"><span data-i18n="tool.copy">Copy</span></button>
+      </div>
+      <p class="tool-status" id="b64-status" data-error-label="Could not decode — check the input." role="status" aria-live="polite"></p>
+      <textarea id="b64-output" class="tool-textarea" rows="4" readonly></textarea>
+    </div>
+  </section>
+
+  <!-- ============ TIMESTAMP CONVERTER ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="timestamp-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.timestamp.title">Timestamp Converter</h2>
+        <p data-i18n="tool.timestamp.desc">Convert between Unix timestamps and human-readable dates.</p>
+      </div>
+      <p class="tool-subhead" data-i18n="tool.timestamp.toDate">Timestamp → Date</p>
+      <div class="tool-btn-row">
+        <input type="text" id="ts-input" class="tool-text-input" placeholder="1735689600">
+        <button type="button" id="ts-now" class="btn btn-ghost" data-sound="ui-click" data-i18n="tool.timestamp.now">Use current time</button>
+      </div>
+      <p class="tool-result" id="ts-to-date-result"></p>
+
+      <p class="tool-subhead" data-i18n="tool.timestamp.toTimestamp">Date → Timestamp</p>
+      <input type="datetime-local" id="ts-date-input" class="tool-text-input">
+      <p class="tool-result" id="ts-to-ts-result"></p>
+    </div>
+  </section>
+
+  <!-- ============ IMAGE COMPRESSOR ============ -->
+  <section class="section section-tight">
+    <div class="tool-panel" id="imagecompress-tool">
+      <div class="tool-panel-head">
+        <h2 data-i18n="tool.imagecompress.title">Image Compressor</h2>
+        <p data-i18n="tool.imagecompress.desc">Shrink image file size right in the browser.</p>
+      </div>
+      <label class="btn btn-primary ic-choose-btn" data-sound="ui-click">
+        <span data-i18n="tool.imagecompress.choose">Choose image</span>
+        <input type="file" id="ic-file" accept="image/*" hidden>
+      </label>
+      <label class="pw-range-label">
+        <span data-i18n="tool.imagecompress.quality">Quality</span>: <span id="ic-quality-value">70</span>%
+        <input type="range" id="ic-quality" min="10" max="95" value="70">
+      </label>
+      <div class="ic-sizes">
+        <span data-i18n="tool.imagecompress.before">Original</span>: <span id="ic-before-size">—</span>
+        &nbsp;→&nbsp;
+        <span data-i18n="tool.imagecompress.after">Compressed</span>: <span id="ic-after-size">—</span>
+      </div>
+      <img id="ic-preview" class="ic-preview" alt="Compressed preview" style="visibility:hidden">
+      <a id="ic-download" class="btn btn-ghost" style="visibility:hidden" data-sound="ui-click" data-i18n="tool.imagecompress.download">Download</a>
+    </div>
   </section>
 </main>
 
 <footer class="site-footer">
-  <span data-i18n="footer.tag1">Dagnaw Beyene. — Developer Portfolio</span>
+  <span data-i18n="footer.tag1">DAGI. — Developer Portfolio</span>
   <span>STATIC / FAST / MODULAR ©</span>
 </footer>
 
