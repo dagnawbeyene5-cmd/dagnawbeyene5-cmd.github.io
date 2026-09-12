@@ -1,3 +1,4 @@
+
 /* tools.css — page-specific styles for tools.html. Design tokens (colors, fonts,
    spacing) come from style.css, which is loaded first. */
 
@@ -55,3 +56,61 @@
 @media (max-width: 860px){
   .tools-grid{ grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
 }
+
+/* =====================================================
+   NEW TOOLS — QR, Unit Converter, Palette, Markdown, JSON,
+   Word Counter, Base64, Timestamp, Image Compressor
+   ===================================================== */
+.tool-text-input, .tool-select, .tool-textarea{
+  width:100%; padding:0.7rem 0.9rem; border:1px solid var(--border); background: var(--panel-2);
+  color: var(--text); border-radius: var(--radius); font-family: var(--font-body); font-size:0.9rem;
+}
+.tool-textarea{ resize: vertical; font-family: var(--font-head); font-size:0.85rem; line-height:1.5; }
+.tool-select{ cursor:pointer; }
+.tool-btn-row{ display:flex; flex-wrap:wrap; gap:0.6rem; margin:0.8rem 0; }
+.tool-status{ min-height:1.2em; font-size:0.8rem; color: var(--accent); margin:0.4rem 0; }
+.tool-status--error{ color: var(--danger); }
+.tool-subhead{ font-family: var(--font-head); font-size:0.72rem; letter-spacing:0.06em; color: var(--text-dim); margin:1.2rem 0 0.5rem; }
+.tool-result{ font-family: var(--font-head); font-size:0.9rem; color: var(--accent); min-height:1.4em; margin-top:0.4rem; word-break:break-all; }
+
+/* QR */
+.qr-output-row{ display:flex; align-items:center; gap:1.2rem; margin-top:1rem; flex-wrap:wrap; }
+.qr-image{ width:140px; height:140px; border-radius: var(--radius); border:1px solid var(--border); background:#fff; padding:6px; }
+
+/* Unit converter */
+.unit-row{ display:grid; grid-template-columns: 1fr auto auto 1fr auto; gap:0.6rem; align-items:center; margin-top:1rem; }
+.unit-equals{ color: var(--text-dim); text-align:center; }
+@media (max-width:640px){ .unit-row{ grid-template-columns: 1fr 1fr; } .unit-equals{ display:none; } }
+
+/* Palette */
+.palette-picker-input{ width:56px; height:40px; border:1px solid var(--border); border-radius: var(--radius); background:none; padding:2px; cursor:pointer; }
+.palette-grid{ display:flex; gap:0.6rem; margin-top:1rem; flex-wrap:wrap; }
+.palette-swatch{
+  width:76px; height:76px; border-radius: var(--radius); border:1px solid rgba(0,0,0,0.2);
+  display:flex; align-items:flex-end; justify-content:center; padding-bottom:0.4rem; cursor:pointer;
+  font-family: var(--font-head); font-size:0.66rem; color:#04140F; text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  transition: transform 0.2s ease;
+}
+.palette-swatch:hover{ transform: translateY(-3px); }
+
+/* Markdown */
+.md-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-top:1rem; }
+.md-preview{
+  border:1px solid var(--border); background: var(--panel-2); border-radius: var(--radius);
+  padding:0.9rem 1.1rem; font-size:0.88rem; line-height:1.6; overflow:auto; max-height: 260px;
+}
+.md-preview h1, .md-preview h2, .md-preview h3{ font-family: var(--font-head); margin:0.6rem 0 0.4rem; }
+.md-preview ul{ padding-left:1.2rem; }
+.md-preview a{ color: var(--accent); }
+@media (max-width:640px){ .md-grid{ grid-template-columns: 1fr; } }
+
+/* Word counter */
+.wc-stats{ display:grid; grid-template-columns: repeat(auto-fit, minmax(110px,1fr)); gap:0.8rem; margin-top:1rem; }
+.wc-stats div{ border:1px solid var(--border); background: var(--panel-2); border-radius: var(--radius); padding:0.7rem; text-align:center; }
+.wc-stats span:first-child{ display:block; font-family: var(--font-head); font-size:1.3rem; color: var(--accent); }
+.wc-stats span:last-child{ display:block; font-size:0.68rem; color: var(--text-dim); margin-top:0.2rem; }
+
+/* Image compressor */
+.ic-choose-btn{ display:inline-block; cursor:pointer; margin-bottom:1rem; }
+.ic-sizes{ font-size:0.85rem; color: var(--text-dim); margin:0.8rem 0; }
+.ic-preview{ max-width:220px; border-radius: var(--radius); border:1px solid var(--border); display:block; margin-bottom:0.8rem; }
