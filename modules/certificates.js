@@ -39,6 +39,12 @@ export const CERTIFICATES = [
     title: '1st Place Award — Poetry Competition (Culture Week)',
     issuer: 'Addis Ababa Woreda 09 Culture, Arts & Tourism Office',
   },
+  {
+    id: 7,
+    image: 'assets/certificates/certificate-7.jpg',
+    title: 'Certified — Programming, Python, Android & Data Science',
+    issuer: 'Udacity / Ethiocoders & UAE Government',
+  },
 ];
 
 // No image file supplied for this one yet — rendered as a text line, not a card.
