@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script>(function(){try{var t=localStorage.getItem('dagi-portfolio-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DAGI // Tools Hub</title>
+<title>Dagnaw Beyene // Tools Hub</title>
 <meta name="theme-color" content="#050812">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap">
@@ -11,6 +12,7 @@
 <link rel="stylesheet" href="tools.css">
 </head>
 <body>
+<div class="crt-overlay" aria-hidden="true"></div>
 
 <header class="site-header" id="site-header">
   <a href="index.html#home" class="brand" data-sound="ui-click">
@@ -29,6 +31,12 @@
   </nav>
 
   <div class="header-actions">
+    <div class="theme-switch" id="theme-switch" role="group" aria-label="Theme">
+      <button type="button" class="theme-btn" data-theme-option="cyber" style="--swatch:#00E5C7" aria-label="Cyber theme"></button>
+      <button type="button" class="theme-btn" data-theme-option="cultural" style="--swatch:#FCDD09" aria-label="Cultural theme"></button>
+      <button type="button" class="theme-btn" data-theme-option="light" style="--swatch:#0E7C7B" aria-label="Light theme"></button>
+      <button type="button" class="theme-btn" data-theme-option="retro" style="--swatch:#33FF33" aria-label="Retro theme"></button>
+    </div>
     <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
       <button type="button" class="lang-btn" data-lang="en">EN</button>
       <button type="button" class="lang-btn" data-lang="am">AM</button>
@@ -55,6 +63,12 @@
     <a href="tools.html" data-sound="tools"><b>06</b><span data-i18n="nav.tools">Tools</span></a>
     <a href="index.html#contact" class="icon-contact" data-sound="ui-click"><b>07</b><span data-i18n="nav.contact">Contact</span></a>
   </nav>
+  <div class="theme-switch theme-switch--mobile" id="theme-switch-mobile" role="group" aria-label="Theme">
+    <button type="button" class="theme-btn" data-theme-option="cyber" style="--swatch:#00E5C7" aria-label="Cyber theme"></button>
+    <button type="button" class="theme-btn" data-theme-option="cultural" style="--swatch:#FCDD09" aria-label="Cultural theme"></button>
+    <button type="button" class="theme-btn" data-theme-option="light" style="--swatch:#0E7C7B" aria-label="Light theme"></button>
+    <button type="button" class="theme-btn" data-theme-option="retro" style="--swatch:#33FF33" aria-label="Retro theme"></button>
+  </div>
   <div class="lang-switch lang-switch--mobile" id="lang-switch-mobile" role="group" aria-label="Language">
     <button type="button" class="lang-btn" data-lang="en">EN</button>
     <button type="button" class="lang-btn" data-lang="am">AM</button>
@@ -106,7 +120,7 @@
 </main>
 
 <footer class="site-footer">
-  <span data-i18n="footer.tag1">DAGI. — Developer Portfolio</span>
+  <span data-i18n="footer.tag1">Dagnaw Beyene. — Developer Portfolio</span>
   <span>STATIC / FAST / MODULAR ©</span>
 </footer>
 
