@@ -20,6 +20,88 @@
   --maxw: 1180px;
 }
 
+/* =====================================================
+   THEMES — set via [data-theme] on <html>. Default (no
+   attribute, or data-theme="cyber") is the palette above.
+   Each theme only overrides variables + a few targeted
+   rules further down; components don't need to know which
+   theme is active.
+   ===================================================== */
+
+/* Cultural — warm, Ethiopian-inspired palette (adey-abeba gold + green) */
+[data-theme="cultural"]{
+  --bg:        #150F07;
+  --panel:     #211708;
+  --panel-2:   #2A1D0B;
+  --border:    #4A3417;
+  --text:      #F5E9D3;
+  --text-dim:  #C9AE83;
+  --accent:    #FCDD09;
+  --accent-2:  #1FA24A;
+  --danger:    #DA121A;
+}
+
+/* Light — calm, minimal, corporate-friendly */
+[data-theme="light"]{
+  --bg:        #F7F8FA;
+  --panel:     #FFFFFF;
+  --panel-2:   #F0F2F6;
+  --border:    #DBE0EA;
+  --text:      #1A2130;
+  --text-dim:  #616D82;
+  --accent:    #0E7C7B;
+  --accent-2:  #5B4FE0;
+  --danger:    #C6303E;
+}
+
+/* Retro — green phosphor terminal */
+[data-theme="retro"]{
+  --bg:        #030603;
+  --panel:     #071006;
+  --panel-2:   #0A150A;
+  --border:    #1F4A1F;
+  --text:      #B6FFB6;
+  --text-dim:  #4FAE4F;
+  --accent:    #33FF33;
+  --accent-2:  #A6FF33;
+  --danger:    #FF5C5C;
+  --font-head: 'Space Mono', ui-monospace, monospace;
+  --font-body: 'Space Mono', ui-monospace, monospace;
+}
+[data-theme="retro"] body{ letter-spacing: 0.01em; }
+[data-theme="retro"] .hero-scanline,
+[data-theme="retro"] .splash-scan{ opacity: 1; }
+
+/* CRT scanline overlay — only rendered/visible in the Retro theme */
+.crt-overlay{
+  position: fixed; inset:0; z-index: 9998; pointer-events:none;
+  background: repeating-linear-gradient(
+    to bottom, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 1px,
+    rgba(0,0,0,0.18) 2px, rgba(0,0,0,0.18) 3px
+  );
+  opacity:0; transition: opacity 0.3s ease;
+}
+[data-theme="retro"] .crt-overlay{ opacity:1; }
+
+/* Light theme: dial back neon glow so it reads clean rather than muddy */
+[data-theme="light"] .orbit-item .chip,
+[data-theme="light"] .splash-slider__handle,
+[data-theme="light"] .icon-contact:hover,
+[data-theme="light"] .icon-contact:focus-visible,
+[data-theme="light"] .icon-contact.play{ box-shadow: 0 2px 10px rgba(0,0,0,0.12) !important; }
+[data-theme="light"] .splash-grid{ opacity: 0.35; }
+[data-theme="light"] .hero-scanline,
+[data-theme="light"] .splash-scan{ display:none; }
+[data-theme="light"] .cert-card,
+[data-theme="light"] .skill-card,
+[data-theme="light"] .project-card{ box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+
+/* Cultural theme: a small woven-pattern accent strip under the header */
+[data-theme="cultural"] .site-header{
+  border-bottom: none;
+  box-shadow: 0 3px 0 0 var(--accent), 0 6px 0 0 var(--accent-2), 0 9px 0 0 var(--danger);
+}
+
 *{ box-sizing: border-box; }
 html{ scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce){
@@ -90,6 +172,16 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 .lang-btn:hover{ color: var(--text); }
 .lang-btn.active{ background: var(--accent); color:#04140F; }
 .lang-switch--mobile{ margin-top:0.4rem; }
+
+.theme-switch{ display:flex; gap:0.35rem; border:1px solid var(--border); border-radius: var(--radius); padding:0.3rem; align-items:center; }
+.theme-btn{
+  width:16px; height:16px; border-radius:50%; padding:0;
+  background: var(--swatch); border:2px solid transparent; box-shadow: 0 0 0 1px var(--border);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.theme-btn:hover{ transform: scale(1.15); }
+.theme-btn.active{ box-shadow: 0 0 0 2px var(--bg), 0 0 0 3px var(--swatch); transform: scale(1.1); }
+.theme-switch--mobile{ margin-top:0.4rem; }
 
 .sound-toggle{
   display:flex; align-items:center; gap:0.5rem;
@@ -348,6 +440,8 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
   .menu-btn{ display:flex; }
   .header-actions #lang-switch{ padding:0.12rem; gap:0.15rem; }
   .header-actions #lang-switch .lang-btn{ padding:0.22rem 0.32rem; font-size:0.58rem; }
+  .header-actions #theme-switch{ padding:0.2rem; gap:0.25rem; }
+  .header-actions #theme-switch .theme-btn{ width:13px; height:13px; }
   .header-actions{ gap:0.5rem; }
   .sound-toggle .sound-label{ display:none; }
   .sound-toggle{ padding:0.4rem; }
