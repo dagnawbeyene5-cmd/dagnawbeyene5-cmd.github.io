@@ -24,7 +24,7 @@ export const TRANSLATIONS = {
     'menu.footer': 'SYS // NAVIGATION LIVE',
     'hero.eyebrow': 'DEVELOPER PORTFOLIO / SYSTEM ONLINE',
     'hero.title': 'Building digital experiences with code &amp; curiosity.',
-    'hero.sub': "I'm <strong>Dagi</strong> — a Software Developer, Database Administrator and Creative Specialist based in Bahir Dar, Ethiopia.",
+    'hero.sub': "I'm <strong>Dagnaw Beyene</strong> — a Software Developer, Database Administrator and Creative Specialist based in Bahir Dar, Ethiopia.",
     'hero.cta.explore': 'Explore Projects', 'hero.cta.contact': 'Contact',
     'hero.meta': 'AVAILABLE FOR BUILDING — PYTHON / DATA SCIENCE / ANDROID / WEB — 01–07',
     'hero.scroll': 'SCROLL TO EXPLORE',
@@ -70,6 +70,16 @@ export const TRANSLATIONS = {
     'tool.imagecompress.title': 'Image Compressor', 'tool.imagecompress.desc': 'Shrink image file size right in the browser.',
     'splash.tag': 'SYSTEM INITIALIZING', 'splash.enter': 'Enter',
     'splash.title': 'Welcome', 'splash.subtitle': "Dagnaw Beyene \u2014 it's for all", 'splash.slide': 'Slide to enter',
+    'tool.qr.placeholder': 'Enter text or a URL', 'tool.qr.download': 'Download QR',
+    'tool.unit.length': 'Length', 'tool.unit.weight': 'Weight', 'tool.unit.temperature': 'Temperature',
+    'tool.markdown.input': 'Markdown', 'tool.markdown.preview': 'Preview',
+    'tool.json.format': 'Format', 'tool.json.valid': 'Valid JSON', 'tool.json.invalid': 'Invalid JSON:',
+    'tool.wordcount.words': 'Words', 'tool.wordcount.chars': 'Characters', 'tool.wordcount.charsns': 'Characters (no spaces)',
+    'tool.wordcount.sentences': 'Sentences', 'tool.wordcount.paragraphs': 'Paragraphs',
+    'tool.base64.encode': 'Encode', 'tool.base64.decode': 'Decode', 'tool.base64.error': 'Could not decode — check the input.',
+    'tool.timestamp.now': 'Use current time', 'tool.timestamp.toDate': 'Timestamp → Date', 'tool.timestamp.toTimestamp': 'Date → Timestamp',
+    'tool.imagecompress.choose': 'Choose image', 'tool.imagecompress.quality': 'Quality', 'tool.imagecompress.compress': 'Compress',
+    'tool.imagecompress.download': 'Download', 'tool.imagecompress.before': 'Original', 'tool.imagecompress.after': 'Compressed',
   },
 
   am: {
@@ -125,6 +135,16 @@ export const TRANSLATIONS = {
     'tool.imagecompress.title': 'የምስል መጭመቂያ', 'tool.imagecompress.desc': 'የምስል ፋይል መጠንን በአሳሽ ውስጥ በቀጥታ ይቀንሳል።',
     'splash.tag': 'ሲስተም በመዘጋጀት ላይ', 'splash.enter': 'ግባ',
     'splash.title': 'እንኳን ደህና መጡ', 'splash.subtitle': 'ዳግናው ብዬነ — ለሁሉም ነው', 'splash.slide': 'ለመግባት ይጎትቱ',
+    'tool.qr.placeholder': 'ጽሑፍ ወይም ሊንክ ጻፍ', 'tool.qr.download': 'QR አውርድ',
+    'tool.unit.length': 'ርዝመት', 'tool.unit.weight': 'ክብደት', 'tool.unit.temperature': 'ሙቀት',
+    'tool.markdown.input': 'Markdown', 'tool.markdown.preview': 'ቅድመ እይታ',
+    'tool.json.format': 'አስተካክል', 'tool.json.valid': 'ትክክለኛ JSON', 'tool.json.invalid': 'ስህተት ያለበት JSON፦',
+    'tool.wordcount.words': 'ቃላት', 'tool.wordcount.chars': 'ፊደላት', 'tool.wordcount.charsns': 'ፊደላት (ያለ ክፍተት)',
+    'tool.wordcount.sentences': 'ዓረፍተ ነገሮች', 'tool.wordcount.paragraphs': 'አንቀጾች',
+    'tool.base64.encode': 'ኢንኮድ', 'tool.base64.decode': 'ዲኮድ', 'tool.base64.error': 'ዲኮድ ማድረግ አልተቻለም — ግቤቱን አረጋግጥ።',
+    'tool.timestamp.now': 'የአሁኑን ሰዓት ተጠቀም', 'tool.timestamp.toDate': 'Timestamp → ቀን', 'tool.timestamp.toTimestamp': 'ቀን → Timestamp',
+    'tool.imagecompress.choose': 'ምስል ምረጥ', 'tool.imagecompress.quality': 'ጥራት', 'tool.imagecompress.compress': 'ጭመቅ',
+    'tool.imagecompress.download': 'አውርድ', 'tool.imagecompress.before': 'ኦሪጂናል', 'tool.imagecompress.after': 'የተጨመቀ',
   },
 
   om: {
@@ -161,7 +181,7 @@ export const TRANSLATIONS = {
     'contact.index': '07 // NU QUNNAMAA', 'contact.title': "Wanta Faayidaa Qabu Haa Ijaarru.",
     'contact.note': "Odeeffannoo qunnamtii dhugaa kee dabali. Hanga naaf kennitutti beekamsaan bakka qubannaadhaan hafeera.",
     'contact.email': 'Imeelii Naaf Ergi', 'contact.toolsbtn': 'Tools Hub Banaa',
-    'footer.tag1': 'DAGI. — Poortfooliyoo Ijaaraa',
+    'footer.tag1': 'Dagnaw Beyene. — Poortfooliyoo Ijaaraa',
     'tools.index': '06 // GIDDUGALA MEESHAALEE', 'tools.title': 'Meeshaalee xixiqqaa, tokko tokkoon ijaaraman.',
     'tools.note': "Meeshaan tokko gadii jira. Kan hafan bakka qubannaa kan modules/toolsData.js keessatti fuula kana hin tuqnee dabalamuu danda'anii dha.",
     'tool.password.title': 'Uumaa Jecha Iccitii', 'tool.password.desc': "Birawuzarii kee keessatti jecha iccitii tasaa uumi. Wanti tokko iyyuu gara biraatti hin ergamu.",
@@ -180,6 +200,16 @@ export const TRANSLATIONS = {
     'tool.imagecompress.title': 'Xiqqeessaa Suuraa', 'tool.imagecompress.desc': 'Bal\u2019ina faayilii suuraa birawuzarii keessatti xiqqeessi.',
     'splash.tag': "SIRNI QOPHAA'AA JIRA", 'splash.enter': 'Seeni',
     'splash.title': 'Baga Nagaan Dhuftan', 'splash.subtitle': 'Dagnaw Beyene \u2014 Hundaaf', 'splash.slide': 'Seenuuf Harkisi',
+    'tool.qr.placeholder': 'Barreeffama ykn liinkii galchi', 'tool.qr.download': 'QR Buufadhu',
+    'tool.unit.length': 'Dheerina', 'tool.unit.weight': 'Ulfaatina', 'tool.unit.temperature': 'Ho\u2019a',
+    'tool.markdown.input': 'Markdown', 'tool.markdown.preview': 'Ilaalcha Duraa',
+    'tool.json.format': 'Tolchi', 'tool.json.valid': 'JSON Sirrii', 'tool.json.invalid': 'JSON Dogoggora:',
+    'tool.wordcount.words': 'Jechoota', 'tool.wordcount.chars': 'Qubeewwan', 'tool.wordcount.charsns': 'Qubeewwan (bakka duwwaa malee)',
+    'tool.wordcount.sentences': 'Tarreewwan', 'tool.wordcount.paragraphs': 'Keeyyattoota',
+    'tool.base64.encode': 'Kodeessi', 'tool.base64.decode': 'Kode Bani', 'tool.base64.error': 'Kode banuun hin danda\u2019amne — galtee mirkaneessi.',
+    'tool.timestamp.now': 'Yeroo ammaa fayyadami', 'tool.timestamp.toDate': 'Timestamp \u2192 Guyyaa', 'tool.timestamp.toTimestamp': 'Guyyaa \u2192 Timestamp',
+    'tool.imagecompress.choose': 'Suuraa Filadhu', 'tool.imagecompress.quality': 'Qulqullina', 'tool.imagecompress.compress': 'Xiqqeessi',
+    'tool.imagecompress.download': 'Buufadhu', 'tool.imagecompress.before': 'Kan Duraa', 'tool.imagecompress.after': 'Kan Xiqqaa\u2019e',
   },
 
   zh: {
@@ -216,7 +246,7 @@ export const TRANSLATIONS = {
     'contact.index': '07 // 联系', 'contact.title': '让我们一起打造有价值的东西。',
     'contact.note': '请添加真实联系方式。在你提供之前,这里暂作占位。',
     'contact.email': '给我发邮件', 'contact.toolsbtn': '打开工具中心',
-    'footer.tag1': 'DAGI. — 开发者作品集',
+    'footer.tag1': 'Dagnaw Beyene. — 开发者作品集',
     'tools.index': '06 // 工具中心', 'tools.title': '小工具,逐一构建。',
     'tools.note': '下方有一个工具已上线。其余为模块化占位卡片——在 modules/toolsData.js 中添加新工具,无需改动本页结构。',
     'tool.password.title': '密码生成器', 'tool.password.desc': '在浏览器本地生成随机密码,不会发送到任何地方。',
@@ -235,6 +265,16 @@ export const TRANSLATIONS = {
     'tool.imagecompress.title': '图片压缩器', 'tool.imagecompress.desc': '直接在浏览器中压缩图片文件大小。',
     'splash.tag': '系统初始化中', 'splash.enter': '进入',
     'splash.title': '欢迎', 'splash.subtitle': 'Dagnaw Beyene — 属于每个人', 'splash.slide': '滑动进入',
+    'tool.qr.placeholder': '输入文本或网址', 'tool.qr.download': '下载二维码',
+    'tool.unit.length': '长度', 'tool.unit.weight': '重量', 'tool.unit.temperature': '温度',
+    'tool.markdown.input': 'Markdown', 'tool.markdown.preview': '预览',
+    'tool.json.format': '格式化', 'tool.json.valid': '有效的 JSON', 'tool.json.invalid': '无效的 JSON：',
+    'tool.wordcount.words': '单词数', 'tool.wordcount.chars': '字符数', 'tool.wordcount.charsns': '字符数（不含空格）',
+    'tool.wordcount.sentences': '句子数', 'tool.wordcount.paragraphs': '段落数',
+    'tool.base64.encode': '编码', 'tool.base64.decode': '解码', 'tool.base64.error': '无法解码——请检查输入。',
+    'tool.timestamp.now': '使用当前时间', 'tool.timestamp.toDate': '时间戳 → 日期', 'tool.timestamp.toTimestamp': '日期 → 时间戳',
+    'tool.imagecompress.choose': '选择图片', 'tool.imagecompress.quality': '质量', 'tool.imagecompress.compress': '压缩',
+    'tool.imagecompress.download': '下载', 'tool.imagecompress.before': '原始大小', 'tool.imagecompress.after': '压缩后',
   },
 };
 
@@ -269,6 +309,10 @@ export function applyTranslations() {
     // everything else is plain text, so innerHTML is safe here (dictionary content only,
     // never user input).
     el.innerHTML = value;
+  });
+
+  document.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    el.setAttribute('placeholder', t(el.getAttribute('data-i18n-placeholder')));
   });
 
   // Highlight the active language button(s) in both the desktop and mobile switchers.
