@@ -3,6 +3,7 @@ import { initNavigation } from './modules/navigation.js';
 import { initI18n, t } from './modules/i18n.js';
 import { renderTools } from './modules/toolsData.js';
 import { initFallingFlowers } from './modules/newyear.js';
+import { initTheme } from './modules/theme.js';
 
 const CHARSETS = {
   upper: 'ABCDEFGHJKLMNPQRSTUVWXYZ', // excludes ambiguous I/O
@@ -81,6 +82,7 @@ function initPasswordGenerator() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initNavigation();
   initI18n();
   initPasswordGenerator();
@@ -90,3 +92,4 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTools(grid, t);
   document.addEventListener('lang:changed', () => renderTools(grid, t));
 });
+
