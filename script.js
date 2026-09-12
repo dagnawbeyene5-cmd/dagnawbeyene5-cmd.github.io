@@ -8,8 +8,10 @@ import { renderCertificates, initCertificateModal } from './modules/certificates
 import { initI18n } from './modules/i18n.js';
 import { initFallingFlowers } from './modules/newyear.js';
 import { initSplash } from './modules/splash.js';
+import { initTheme } from './modules/theme.js';
 
 document.addEventListener('DOMContentLoaded', () => {
+  initTheme();
   initSplash();
   initNavigation();
   initI18n();
@@ -22,3 +24,4 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCertificates(certGrid, credentialList);
   initCertificateModal(certGrid);
 });
+
