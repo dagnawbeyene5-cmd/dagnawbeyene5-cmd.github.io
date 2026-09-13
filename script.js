@@ -9,6 +9,7 @@ import { initI18n } from './modules/i18n.js';
 import { initFallingFlowers } from './modules/newyear.js';
 import { initSplash } from './modules/splash.js';
 import { initTheme } from './modules/theme.js';
+import { initIdCard } from './modules/idcard.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
@@ -18,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initHero();
   initHeroParticles();
   initFallingFlowers();
+  initIdCard();
 
   const certGrid = document.getElementById('cert-grid');
   const credentialList = document.getElementById('credential-list');
   renderCertificates(certGrid, credentialList);
   initCertificateModal(certGrid);
 });
-
