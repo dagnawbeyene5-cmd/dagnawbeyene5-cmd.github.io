@@ -359,19 +359,39 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 .about-copy p{ color: var(--text-dim); margin-bottom:1rem; max-width: 62ch; }
 .about-stats{ display:flex; gap: 1.8rem; margin-top:1.6rem; flex-wrap:wrap; }
 .about-stats div{ font-family: var(--font-head); font-size:0.7rem; color: var(--text-dim); letter-spacing:0.04em; }
-.about-stats span{ display:block; font-size:1.4rem; color: var(--accent); }
+.about-stats span:first-child{ display:block; font-size:1.4rem; color: var(--accent); }
 .about-photo{
   position: relative;
-  border:1px solid var(--border); background: var(--panel); border-radius: var(--radius); overflow:visible;
+  border:none; background:none; overflow:visible;
+  display:flex; flex-direction:column; align-items:center;
 }
-.about-photo img{ position:relative; z-index:1; width:100%; aspect-ratio: 4/5; object-fit:cover; border-radius: var(--radius); }
+.about-photo__portal{
+  position:relative; width: min(280px, 68vw); aspect-ratio: 1/1; margin: 1.6rem auto 0;
+}
+.about-photo__portal::after{
+  content:''; position:absolute; left:50%; bottom:-2.4rem; width:120%; height:60px;
+  transform: translateX(-50%);
+  background: radial-gradient(ellipse at center, rgba(0,229,199,0.28), transparent 70%);
+  filter: blur(6px); pointer-events:none;
+}
+.about-photo img{
+  position:relative; z-index:1; width:100%; height:100%; object-fit:cover; object-position: top center;
+  border-radius:50%;
+  box-shadow:
+    0 0 0 4px var(--bg),
+    0 0 0 7px var(--accent),
+    0 0 0 9px var(--bg),
+    0 0 32px rgba(0,229,199,0.4);
+}
 .about-photo.img-missing img{ display:none; }
 .about-photo.img-missing::before{
   content:'PROFILE PHOTO MISSING — add assets/images/profile.jpg';
   display:flex; align-items:center; justify-content:center; text-align:center;
-  aspect-ratio: 4/5; padding:1rem; font-family: var(--font-head); font-size:0.7rem; color: var(--text-dim);
+  width: min(280px, 68vw); aspect-ratio: 1/1; margin: 1.6rem auto 0; border-radius:50%;
+  padding:1rem; font-family: var(--font-head); font-size:0.7rem; color: var(--text-dim);
+  border: 2px dashed var(--border);
 }
-.photo-caption{ padding:0.8rem 1rem; font-family: var(--font-head); font-size:0.68rem; color: var(--text-dim); letter-spacing:0.04em; }
+.photo-caption{ padding:2.2rem 1rem 0.8rem; font-family: var(--font-head); font-size:0.68rem; color: var(--text-dim); letter-spacing:0.04em; text-align:center; }
 
 /* SKILLS */
 .skills-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap:1rem; margin-top:1.8rem; }
@@ -571,7 +591,7 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
    its own --radius and animation-duration/delay inline.
    ===================================================== */
 .orbit-scene{ position:absolute; inset:0; perspective: 900px; pointer-events:none; }
-.orbit-scene--photo{ z-index:0; }
+.orbit-scene--photo{ z-index:5; }
 
 /* visible ring "tracks" the icons appear to travel along */
 .orbit-track{
