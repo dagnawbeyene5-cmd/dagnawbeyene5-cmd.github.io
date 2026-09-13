@@ -12,7 +12,7 @@
 // Chinese (Simplified) are good-faith translations aimed at being clear and accurate —
 // worth a native-speaker read-through before this goes live if precision matters to you.
 
-const STORAGE_KEY = 'Dagnaw Beyene-portfolio-lang';
+const STORAGE_KEY = 'dagi-portfolio-lang';
 const SUPPORTED = ['en', 'am', 'om', 'zh'];
 const DEFAULT_LANG = 'en';
 
@@ -24,7 +24,7 @@ export const TRANSLATIONS = {
     'menu.footer': 'SYS // NAVIGATION LIVE',
     'hero.eyebrow': 'DEVELOPER PORTFOLIO / SYSTEM ONLINE',
     'hero.title': 'Building digital experiences with code &amp; curiosity.',
-    'hero.sub': "I'm <strong>Dagnaw Beyene</strong> — a Software Developer, Database Administrator and Creative Specialist based in Bahir Dar, Ethiopia.",
+    'hero.sub': "I'm <strong>Dagi</strong> — a Software Developer, Database Administrator and Creative Specialist based in Bahir Dar, Ethiopia.",
     'hero.cta.explore': 'Explore Projects', 'hero.cta.contact': 'Contact',
     'hero.meta': 'AVAILABLE FOR BUILDING — PYTHON / DATA SCIENCE / ANDROID / WEB — 01–07',
     'hero.scroll': 'SCROLL TO EXPLORE',
@@ -181,7 +181,7 @@ export const TRANSLATIONS = {
     'contact.index': '07 // NU QUNNAMAA', 'contact.title': "Wanta Faayidaa Qabu Haa Ijaarru.",
     'contact.note': "Odeeffannoo qunnamtii dhugaa kee dabali. Hanga naaf kennitutti beekamsaan bakka qubannaadhaan hafeera.",
     'contact.email': 'Imeelii Naaf Ergi', 'contact.toolsbtn': 'Tools Hub Banaa',
-    'footer.tag1': 'Dagnaw Beyene. — Poortfooliyoo Ijaaraa',
+    'footer.tag1': 'DAGI. — Poortfooliyoo Ijaaraa',
     'tools.index': '06 // GIDDUGALA MEESHAALEE', 'tools.title': 'Meeshaalee xixiqqaa, tokko tokkoon ijaaraman.',
     'tools.note': "Meeshaan tokko gadii jira. Kan hafan bakka qubannaa kan modules/toolsData.js keessatti fuula kana hin tuqnee dabalamuu danda'anii dha.",
     'tool.password.title': 'Uumaa Jecha Iccitii', 'tool.password.desc': "Birawuzarii kee keessatti jecha iccitii tasaa uumi. Wanti tokko iyyuu gara biraatti hin ergamu.",
@@ -246,7 +246,7 @@ export const TRANSLATIONS = {
     'contact.index': '07 // 联系', 'contact.title': '让我们一起打造有价值的东西。',
     'contact.note': '请添加真实联系方式。在你提供之前,这里暂作占位。',
     'contact.email': '给我发邮件', 'contact.toolsbtn': '打开工具中心',
-    'footer.tag1': 'Dagnaw Beyene. — 开发者作品集',
+    'footer.tag1': 'DAGI. — 开发者作品集',
     'tools.index': '06 // 工具中心', 'tools.title': '小工具,逐一构建。',
     'tools.note': '下方有一个工具已上线。其余为模块化占位卡片——在 modules/toolsData.js 中添加新工具,无需改动本页结构。',
     'tool.password.title': '密码生成器', 'tool.password.desc': '在浏览器本地生成随机密码,不会发送到任何地方。',
