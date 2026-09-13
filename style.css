@@ -319,6 +319,68 @@ button{ font: inherit; color: inherit; background: none; border: none; cursor: p
 }
 
 /* =====================================================
+   HANGING 3D ID CARD (hero corner accent, draggable)
+   ===================================================== */
+.id-card-rig{
+  position:absolute; top: 0; right: clamp(1.2rem, 6vw, 4.5rem); z-index:3;
+  width: 110px; height:210px; perspective: 700px;
+  display:flex; justify-content:center; pointer-events:none;
+}
+.id-card-pivot{
+  position:relative; top:-6px; width:2px; transform-origin: top center;
+  display:flex; flex-direction:column; align-items:center;
+  transform: rotate(0deg);
+  transform-style: preserve-3d;
+}
+.id-card-strap{
+  width:4px; height:64px; border-radius:2px;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent));
+  box-shadow: 0 0 8px rgba(0,229,199,0.3);
+}
+.id-card{
+  position:relative; width:96px; height:130px; margin-top:-2px;
+  border-radius:10px; border:1px solid var(--border);
+  background: linear-gradient(160deg, var(--panel), var(--panel-2));
+  box-shadow: 0 12px 24px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.03) inset;
+  display:flex; flex-direction:column; align-items:center; padding: 14px 8px 10px;
+  cursor: grab; pointer-events:auto; touch-action:none;
+  transform-style: preserve-3d;
+}
+.id-card:active{ cursor: grabbing; }
+.id-card-clip{
+  position:absolute; top:-6px; left:50%; transform: translateX(-50%);
+  width:22px; height:10px; border-radius:4px;
+  background: var(--border);
+}
+.id-card-photo{
+  width:46px; height:46px; border-radius:50%; overflow:hidden;
+  border:1.5px solid var(--accent); margin-bottom:8px; flex-shrink:0;
+  box-shadow: 0 0 10px rgba(0,229,199,0.35);
+}
+.id-card-photo img{ width:100%; height:100%; object-fit:cover; }
+.id-card-brand{ font-family: var(--font-head); font-weight:700; font-size:0.85rem; color: var(--text); }
+.id-card-brand .dot{ color: var(--accent); }
+.id-card-role{ font-family: var(--font-head); font-size:0.55rem; letter-spacing:0.12em; color: var(--text-dim); margin-top:2px; }
+
+@media (max-width: 860px){
+  .id-card-rig{ width:80px; height:160px; right: clamp(0.8rem, 4vw, 2rem); }
+  .id-card{ width:76px; height:102px; padding:10px 6px 8px; }
+  .id-card-photo{ width:34px; height:34px; margin-bottom:5px; }
+  .id-card-strap{ height:46px; }
+}
+@media (max-width: 520px){
+  .id-card-rig{ width:64px; height:130px; right: 0.7rem; top: 0.4rem; }
+  .id-card{ width:60px; height:80px; padding:8px 5px 6px; border-radius:8px; }
+  .id-card-photo{ width:26px; height:26px; margin-bottom:4px; }
+  .id-card-brand{ font-size:0.6rem; }
+  .id-card-role{ font-size:0.42rem; }
+  .id-card-strap{ height:34px; width:3px; }
+}
+@media (prefers-reduced-motion: reduce){
+  .id-card-pivot{ transition:none; }
+}
+
+/* =====================================================
    SECTIONS (shared)
    ===================================================== */
 .section{
